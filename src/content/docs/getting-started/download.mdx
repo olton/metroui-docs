@@ -1,0 +1,64 @@
+---
+title: Download
+slug: getting-started/download
+---
+
+import Leader from '../../../components/Leader.astro';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Leader content="Download Metro UI from CDN to get the compiled CSS and JavaScript, source code, or include it with your favorite package managers like npm!"/>
+
+## CDN
+
+Use Metro CDN to deliver a cached version of Metro UI with compiled CSS and JS to your project.
+
+<Tabs>
+    <TabItem label="current">
+        ```html
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css"/>
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css"/>
+        <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+        ```
+    </TabItem>
+    <TabItem label="dev">
+        ```html
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/metro.css"/>
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/icons.css"/>
+        <script src="https://cdn.metroui.org.ua/dev/metro.js"></script>
+        ```
+    </TabItem>
+    <TabItem label="version">
+        ```html
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/x.x.x/metro.css"/>
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/x.x.x/icons.css"/>
+        <script src="https://cdn.metroui.org.ua/x.x.x/metro.js"></script>
+        ```
+    </TabItem>
+</Tabs>
+
+:::tip
+The CDN is provided by the excellent provider [KeyCDN](https://keycdn.com/).
+:::
+
+## NPM
+
+Metro UI is available as a npm package. To install it, run:
+
+<Tabs>
+    <TabItem label="npm">
+        ```bash
+        npm install @olton/metroui
+        ```
+    </TabItem>
+    <TabItem label="pnpm">
+        ```bash
+        pnpm install @olton/metroui
+        ```
+    </TabItem>
+    <TabItem label="yarm">
+        ```bash
+        yarn add @olton/metroui
+        ```
+    </TabItem>
+</Tabs>
+

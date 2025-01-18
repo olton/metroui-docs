@@ -1,0 +1,10 @@
+---
+const { height = 300, tab = "html,result", hash, user, title = "" } = Astro.props;
+---
+
+<iframe height={height} 
+        style=`width: 100%; height: ${height}px` 
+        scrolling="no" 
+        title={title} 
+        src=`https://codepen.io/${user}/embed/${hash}?default-tab=${tab}`
+></iframe>

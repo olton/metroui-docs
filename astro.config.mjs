@@ -1,28 +1,36 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import sidebar from "./sidebar.mjs"
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: {
-				github: 'https://github.com/withastro/starlight',
+			title: 'Metro UI',
+			logo: {
+				light: '/src/assets/king-color.svg',
+				dark: '/src/assets/king-color.svg',
 			},
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+			favicon: '/src/assets/king.svg',
+			social: {
+				github: 'https://github.com/olton/metroui',
+				discord: 'https://discord.gg/bRgdUP7g',
+			},
+			sidebar,
+			customCss: [
+				'./src/styles/index.css',
 			],
+			lastUpdated: true,
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						src: 'https://public.codepenassets.com/embed/index.js',
+						defer: true,
+					},
+				},
+			]
 		}),
 	],
 });

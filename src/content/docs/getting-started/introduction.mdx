@@ -1,0 +1,62 @@
+---
+title: Get started with Metro UI
+slug: getting-started/introduction
+---
+
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="Metro UI is a free, open source, html-first toolkit for developing websites with HTML, CSS, and JS!"/>
+
+## Quick Start
+
+Get started by including Bootstrap’s production-ready CSS and JavaScript via CDN without the need for any build steps.
+
+1. Create an HTML file and include the following code:
+
+```html
+// index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metro UI Demo</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+  </body>
+</html>
+```
+
+2. Open the page in your browser of choice to see your Metro UI page. Now you can start building with Metro UI by creating your own layout, adding dozens of components, and using our official examples.
+
+## Important globals
+
+Metro UI uses a handful of important global styles and settings, all of which are almost exclusively geared towards the normalization of cross-browser styles.
+
+### HTML5 doctype
+
+Metro UI requires the use of the HTML5 doctype. Without it, you may encounter some styling issues.
+
+```html
+<!doctype html>
+<html lang="en">
+  ...
+</html>
+```
+
+### Viewport meta tag
+
+Metro UI includes a responsive, mobile-first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. 
+It includes predefined classes for easy layout options, as well as powerful mixins for generating more semantic layouts.
+To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta-tag to your `<head>`.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+```
+
+### Reset CSS
+For improved cross-browser rendering, we use a special [reset](https://github.com/olton/metroui/blob/master/source/reset/reset.less) file to correct inconsistencies across browsers and devices while providing slightly more opinionated resets to common HTML elements.

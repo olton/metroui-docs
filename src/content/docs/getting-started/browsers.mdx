@@ -1,0 +1,35 @@
+---
+title: Browsers
+slug: getting-started/browsers
+---
+
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="Learn about the browsers and devices, from modern to old, that are supported by Metro UI, including known quirks and bugs for each!"/>
+
+## Supported browsers
+
+Metro UI supports the latest, stable releases of all major browsers and platforms.
+
+Alternative browsers which use the latest version of WebKit, Blink, or Gecko, whether directly or via the platform’s web view API, are not explicitly supported. 
+However, Metro UI should (in most cases) display and function correctly in these browsers as well. More specific support information is provided below.
+
+```
+// package.json
+"browserslist": ["last 2 versions"]
+```
+
+We use [Autoprefixer](https://github.com/postcss/autoprefixer) to handle intended browser support via CSS prefixes, which uses [Browserslist](https://github.com/browserslist/browserslist) to manage these browser versions. 
+
+## Mobile devices
+
+Generally speaking, Metro UI supports the latest versions of each major platform’s default browsers. 
+Note that proxy browsers (such as Opera Mini, Opera Mobile’s Turbo mode, UC Browser Mini, Amazon Silk) aren't supported.
+
+## Desktop browsers
+
+Similarly, the latest versions of most desktop browsers are supported.
+
+:::danger[Pay attention!]
+Internet Explorer is not supported.
+:::

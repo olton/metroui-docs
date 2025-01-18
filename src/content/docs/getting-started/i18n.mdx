@@ -1,0 +1,62 @@
+---
+title: Browsers
+slug: getting-started/i18n
+---
+
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="Metro UI ready for internationalization and localisation!"/>
+
+Some components in Metro UI use text labels, example calendar component. Metro UI supports i18n mechanism to display text labels.
+
+## Define language
+
+To define language for Metro UI, you need to set attribute `lang`.
+
+```html
+<html lang="en">
+```
+
+Metro UI has a built-in `i18n` module that helps you to easily translate your app into different languages and switch between defined languages. 
+Locales out from box – `en`, `ua`. Built-in labels you can see in Metro UI [source code](https://github.com/olton/Metro-UI-CSS/blob/master/source/i18n/en.js) on GitHub.
+
+## Methods
+
++ `load(lang = 'en')` - load language file to current locale
++ `add(lang, data)` - add locale
++ `get(key, lang)` - get specified label from locale
++ `updateUI(context, lang)` - update labels for specified context and language, by default, this method uses document as context and attr lang from html tag
++ `extend(data)` - extend locales with custom labels
+
+## Properties
+
++ `Metro.i18n.language` - current language ID
++ `Metro.locales` - available locales
++ `Metro.locale` - current locale - is an object contains pairs key, value
+
+Each component has a property `strings` that contains current locale labels. 
+
+## How it works
+
+When Metro UI is initialized, it loads the language, defined in attr `lang` from `html` tag or `en` if attribute is not specified. 
+Each Metro UI component has a property `strings`, which contains labels for the current loaded language. 
+
+### Extends locales
+
+You can extend locales with custom labels.
+To extend the locale, you need to call the `Metro.i18n.extend(data)` method and pass an object with custom labels.
+
+```javascript
+Metro.i18n.extend({
+    "en": {
+        "custom_label": "Custom label"
+    }
+});
+```
+
+### Update UI
+
+To set i18n labels, add attr `data-i18n` to the HTML element and specify the label key. 
+To update labels for the specified context and language, you need to call the `Metro.i18n.updateUI(context, lang)` method. 
+By default, this method uses `document` as context and attr lang from `html` tag.
+

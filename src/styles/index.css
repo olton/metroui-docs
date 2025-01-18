@@ -1,0 +1,35 @@
+.hero {
+    h1 {
+        background: -webkit-linear-gradient(120deg, #0095ff 30%, #42d392);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-weight: 700;
+        font-size: 2.25rem;
+
+        @media (min-width: 640px) {
+            font-size: 3.75rem;
+        }
+        @media (min-width: 768px) {
+            font-size: 6rem;
+        }
+    }
+    
+    img {
+        scale: 1.5;
+    }
+}
+
+.card {
+    border-radius: 6px;
+}
+
+.text-leader {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.expressive-code {
+    border-radius: 6px;
+    overflow: hidden;
+}

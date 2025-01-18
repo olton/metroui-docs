@@ -1,0 +1,50 @@
+---
+title: Components
+slug: getting-started/component-api
+---
+
+## Initialization
+
+Metro UI supports two ways to initialization components: 
+
++ with `data-role` attribute
++ with calling component init `function`
+
+### Data-role attribute
+
+To initialize a component with `data-role` attribute, you need to add `data-role` attribute to the HTML element and specify the component name.
+
+```html
+<div data-role="accordion">
+...
+</div>
+```
+
+### Component init function
+
+The second way to init component - using calling special function. To create component call `Metro.makePlugin(...)` method. 
+This method receives three arguments: `selector`, component `name`, and component `options`.
+
+```html
+// HTML
+<div id="accordion">
+...
+</div>    
+```
+    
+```javascript
+// JS
+<script>
+    Metro.makePlugin("#accordion", "accordion", {...});
+</script>
+```
+
+## Component API
+
+Each component has a set of methods and properties that allow you to interact with the component.
+To get access to components API, you must call method `Metro.getPlugin(...)`. This method receives two arguments: `element` (can be selector, Dom object, jQuery object or HTMLElement) and component `name`.
+
+```javascript
+var charm = Metro.getPlugin("#left-charm", "charms");
+charm.open(); // API method
+```
