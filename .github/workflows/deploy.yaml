@@ -24,5 +24,5 @@ jobs:
           username: metrouiS
           password: ${{ secrets.FTP_PASSWORD }}  
           local-dir: ./dist/
-          server-dir: docs-new.netroui.org.ua/
+          server-dir: docs-new.metroui.org.ua/
           
