@@ -20,7 +20,7 @@ jobs:
       - name: Push files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.website.com
+          server: eg77.mirohost.net
           username: metrouiS
           password: ${{ secrets.FTP_PASSWORD }}  
           local-dir: ./dist/
