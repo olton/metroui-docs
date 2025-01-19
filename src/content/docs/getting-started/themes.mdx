@@ -1,0 +1,59 @@
+---
+title: Themes
+slug: getting-started/themes
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 4
+---
+
+Metro UI supports out-of-the-box `light` and `dark` themes for components. 
+By default, the theme is set to `light`. To change the theme, add class `.dark-side` to the `<html>` tag for global or set this class to the `<element>` for local.
+
+```html
+<!-- Global -->
+<html class="dark-side">
+```
+
+```html
+<!-- Local -->
+<div class="dark-side">
+    <div data-role="calendar"></div>
+</div>
+```
+
+## Theme according to the system
+
+You can use the `prefers-color-scheme` media feature to detect if the user has requested the system use a `light` or `dark` color theme.
+To use this feature, add meta tag `metroui:theme` with content `auto` to the page `<head>`. Also, you can use values `light` and `dark` to set the specific theme.
+
+```html
+<meta name="metroui:theme" content="auto">
+```
+
+## Theme switcher
+
+Metro UI has a built-in theme switcher that allows you to switch between `light` and `dark` themes.
+You can use component `theme-switcher` to add control to switch between light and dark themes. 
+This component automatically sets theme class `.dark-side` to the specified target element (by default, it is `<html>` element). 
+To use this component, add attribute `data-role="theme-switcher"` to the `<input>` element.
+
+### Theme switcher modes
+
+You can use the `data-mode` attribute to set the theme switcher mode.
+
+#### Switch
+
+```html
+<input type="checkbox" data-role="theme-switcher">
+```
+
+#### Button
+
+```html
+<input type="checkbox" data-role="theme-switcher" data-mode="button">
+```
+
+
+:::caution[Warning!]
+The component `theme-switcher` will not work if meta-tag is used!
+:::

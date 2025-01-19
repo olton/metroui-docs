@@ -1,0 +1,54 @@
+---
+title: Media rules
+slug: getting-started/media-rules
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Metro UI is designed as a mobile-first system. We use min-width property and container queries for building media queries.
+
+## Rules
+
+| BREAKPOINT | RULE      | SIZE PX |
+|------------|-----------|---------|
+| fs         | min-width | 0       |
+| sx         | min-width | 360     |
+| sm         | min-width | 576     |
+| ld         | min-width | 640     |
+| md         | min-width | 768     |
+| lg         | min-width | 992     |
+| xl         | min-width | 1200    |
+| xxl        | min-width | 1400    |
+| xxxl       | min-width | 2000    |
+
+## Elements with container definition
+The rules work for elements that are in blocks that have a container definition.
+Metro UI has a set of classes that define the container for the element:
+
++ `.container` - container for the content with a fixed width
++ `.container-fluid` - full-width container
++ `.container-query` - simple container
++ `.row` - row for the grid system
+
+## Usage
+
+:::tip[Important]
+For these rules to work, the element must be in a block that has a container definition!
+:::
+
+<Steps>
+    1. You can use media rules to create responsive layouts with a grid system.
+    2. You can use media rules in components with attribute `data-expand-point="*"`.
+    3. With utility functions `Metro.utils.mediaExist()` and `Metro.utils.inMedia()`.
+    4. With common CSS (spacing, displaying, ...) classes.
+</Steps>
+
+```html
+<div class="row">
+    <div class="cell-sx-6 .cell-sm-4 .cell-md-3 .cell-lg-2 .cell-xl-1">
+        ...
+    </div>
+</div>
+```
+
+

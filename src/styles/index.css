@@ -29,7 +29,13 @@
     line-height: 1.2;
 }
 
-.expressive-code {
-    border-radius: 6px;
-    overflow: hidden;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    display: table!important;
+    
+    th, td {
+        padding: 0.5rem 1rem;
+    }
 }

@@ -1,7 +1,11 @@
 ---
 title: Components
-slug: getting-started/component-api
+slug: getting-started/components
 ---
+
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="Metro UI has a large set of ready-to-use components!"/>
 
 ## Initialization
 
@@ -20,7 +24,7 @@ To initialize a component with `data-role` attribute, you need to add `data-role
 </div>
 ```
 
-### Component init function
+### makePlugin() function
 
 The second way to init component - using calling special function. To create component call `Metro.makePlugin(...)` method. 
 This method receives three arguments: `selector`, component `name`, and component `options`.

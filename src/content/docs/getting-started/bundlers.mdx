@@ -1,0 +1,126 @@
+---
+title: Bundlers
+slug: getting-started/bundlers
+---
+
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="You can use any bundler to create your own set of Metro UI components!"/>
+
+You can use any Bundler you like: esbuild, Webpack, Parcel, Rollup, Vite, or any other.
+
+:::tip
+You can see examples of using different bundlers in this [repository](https://github.com/olton/metro4-bundlers).
+:::
+
+
+## Compiling JavaScript
+
+Metro UI components are built using the `ES6` JavaScript syntax, so you don't need to add a transpiler to your build process.
+
+## Compiling Styles
+
+Metro UI styles are built using the `Less` CSS preprocessor, so you will need to add this dependency to `devDependencies`.
+Also, you need to add an `autoprefixer` to your build process to add vendor prefixes to CSS rules.
+
+:::tip
+If you use esbuild, you can use the [`@olton/esbuild-plugin-autoprefixer`](https://github.com/olton/esbuild-plugin-autoprefixer) plugin from Metro UI author.
+:::
+
+## Build default
+
+In example below we use `esbuild` to build Metro UI components (all with icons).
+
+```bash
+npm install esbuild \ 
+  esbuild-plugin-less \ 
+  @olton/esbuild-plugin-progress \
+  @olton/esbuild-plugin-autoprefixer \
+  @olton/esbuild-plugin-unlink \
+  esbuild-plugin-replace
+```
+
+```javascript
+// metro.js
+import "@olton/metroui";
+```
+
+```javascript
+// build.js
+import {build} from 'esbuild'
+import { lessLoader } from "esbuild-plugin-less";
+import progress from "@olton/esbuild-plugin-progress";
+import autoprefixer from "@olton/esbuild-plugin-autoprefixer";
+import unlink from "@olton/esbuild-plugin-unlink";
+import { replace } from "esbuild-plugin-replace";
+import pkg from "@olton/metroui/package.json" with {type: "json"};
+
+const production = process.env.MODE === "production"
+const version = pkg.version
+
+build({
+    entryPoints: ['metro.js'],
+    outfile: './lib/metro.js',
+    bundle: true,
+    minify: production,
+    sourcemap: !production,
+    plugins: [
+        progress({
+            text: 'Building Metro UI...',
+            succeedText: 'Built successfully in %s ms!'
+        }),
+        lessLoader(),
+        autoprefixer(),
+        replace({
+            '__BUILD_TIME__': new Date().toLocaleString(),
+            '__VERSION__': version
+        })
+    ]
+}).catch(() => process.exit(1))
+```
+
+## Build with specific components
+
+```javascript
+// metro.js
+import "@olton/metroui/source/reset/index.js";
+import "@olton/metroui/source/runtime.js";
+
+// add common css
+import "@olton/metroui/source/common-css/index.js";
+
+// add colors
+import "@olton/metroui/source/colors-css/index.js";
+
+// add components
+import "@olton/metroui/source/components/button/index.js";
+...
+```
+
+## Build icons
+
+```javascript
+// icons.js
+import "@olton/metroui/source/icons/index.js";
+```
+
+```javascript
+// build.js
+await build({
+    entryPoints: ['icons.js'],
+    outfile: './lib/icons.js',
+    bundle: true,
+    minify: production,
+    sourcemap: !production,
+    plugins: [
+        progress({
+            text: 'Building Metro UI icons...',
+            succeedText: 'Built successfully in %s ms!'
+        }),
+        lessLoader(),
+        unlink({
+            files: ['./lib/icons.js']
+        })
+    ],
+}).catch(() => process.exit(1))
+```
