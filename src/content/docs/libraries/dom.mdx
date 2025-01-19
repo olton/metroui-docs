@@ -1,6 +1,9 @@
 ---
 title: Dom
 slug: libraries/dom
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 4
 ---
 
 import Leader from '../../../components/Leader.astro'
@@ -101,3 +104,37 @@ You can animate elements using the `Dom` library.
 + `$(...).stop(...)` - stop animation
 + `$(...).pause(...)` - pause animation
 + `$(...).resume(...)` - resume animation
+
+#### Effects
+
++ `$(...).fadeIn()` - fade in an element
++ `$(...).fadeOut()` - fade out an element
++ `$(...).slideUp()` - slide up an element
++ `$(...).slideDown()` - slide down an element
++ `$(...).moveTo()` - move an element
++ `$(...).centerTo()` - center an element
++ `$(...).colorTo()` - change the color of an element
++ `$(...).backgroundTo()` - change the background color of an element
++ `$(...).zoomIn()` - zoom in an element
++ `$(...).zoomOut()` - zoom out an element
+
+### Attributes
+
++ `$(...).attr()` - get the value of an attributes for the first element in the set of matched elements
++ `$(...).attr(name)` - get the value of an attribute for the first element in the set of matched elements
++ `$(...).attr(name, value)` - set attribute for the set of matched elements
++ `$(...).attr({...})` - set attributes for the set of matched elements
++ `$(...).removeAttr(name)` - remove an attribute from each element in the set of matched elements
++ `$(...).toggleAttr(name, value)` - toggle attribute for the set of matched elements
++ `$(...).id(value?)` - get or set the id attribute
++ `$(...).prop(prop, val?)` - get or set the value of a property for the first element in the set of matched elements
++ `$.meta(...)` - get meta tag content
++ `$.metaBy(...)` - get meta tag content
++ `$.doctype()` - get doctype as Dom object
++ `$.html()` - get HTML element as Dom object
++ `$.head()` - get a head element as a Dom object
++ `$.body()` - get a body element as a Dom object
++ `$.document()` - get document element as Dom object
++ `$.window()` - get a window element as a Dom object
++ `$.charset(val?)` - get or set charset
++ `$.lang(val?)` - get or set land attribute for HTML tag
