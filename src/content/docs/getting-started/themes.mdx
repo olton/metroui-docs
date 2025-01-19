@@ -6,6 +6,12 @@ tableOfContents:
     maxHeadingLevel: 4
 ---
 
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="Metro UI supports out-of-the-box `light` and `dark` themes for components. You can switch themes according to the system, or use the built-in theme switcher."/>
+
+## About
+
 Metro UI supports out-of-the-box `light` and `dark` themes for components. 
 By default, the theme is set to `light`. To change the theme, add class `.dark-side` to the `<html>` tag for global or set this class to the `<element>` for local.
 
@@ -37,7 +43,7 @@ You can use component `theme-switcher` to add control to switch between light an
 This component automatically sets theme class `.dark-side` to the specified target element (by default, it is `<html>` element). 
 To use this component, add attribute `data-role="theme-switcher"` to the `<input>` element.
 
-### Theme switcher modes
+### Switcher modes
 
 You can use the `data-mode` attribute to set the theme switcher mode.
 

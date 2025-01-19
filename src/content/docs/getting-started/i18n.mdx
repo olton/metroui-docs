@@ -60,3 +60,10 @@ To set i18n labels, add attr `data-i18n` to the HTML element and specify the lab
 To update labels for the specified context and language, you need to call the `Metro.i18n.updateUI(context, lang)` method. 
 By default, this method uses `document` as context and attr lang from `html` tag.
 
+```html
+<div data-i18n="custom_label"></div>
+```
+
+```javascript
+Metro.i18n.updateUI(document, 'en');
+```

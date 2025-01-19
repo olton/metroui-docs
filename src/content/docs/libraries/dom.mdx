@@ -1,0 +1,103 @@
+---
+title: Dom
+slug: libraries/dom
+---
+
+import Leader from '../../../components/Leader.astro'
+
+<Leader content="Metro UI provides a set of methods and properties for working with the DOM."/>
+
+## About
+
+:::tip
+The repository of `Dom` you can be found [here](https://github.com/olton/dom).
+:::
+
+Metro UI doesn't use jQuery or any other library to work with the DOM. Instead, Metro UI uses its own library called `Dom`.
+`Dom` is a library that provides a set of methods and properties for working with the DOM.
+`Dom` functions are functionally similar to `jQuery` and can be used as a replacement for `jQuery`. **Call compatibility reaches 90%**.
+
+## Population
+
+The main object has the name `Dom`. Library may capture and relinquish `$` with methods `Dom.global()` and `Dom.noConflict()`. Library automatic capture `$` if it free.
+
+:::caution[Important!]
+Further in the documentation `$` will be used to specify the reference to the Dom object.
+:::
+
+## Constructor
+
+The `Dom` has a fabric function `$` or `Dom` that creates a new instance of the `Dom` object.
+
+```javascript
+const el1 = Dom("div");
+const el2 = $("div");
+```
+
+### Create a new instance
+You can use a different context to create a new instance of the `Dom` object.
+
++ `$( "div" )` - select by tag name
++ `$( ".div" )` - select by class name
++ `$( "#div" )` - select by id
++ `$( "<div>" )` - create by tag name
++ `$( "<div>", context )` - create in context
++ `$( "<div>any_text_or_html</div>" )` - create by HTML
++ `$( "<div>...</div><div>...</div>" )` - create by tags
++ `$( "<div>", {...} )` - create by tag with attributes
+
+## Methods
+
+`Dom` contains many methods to make it easier to work with HTML elements and their properties.
+
+### Loops
+
++ `$.each(array_or_object, callback)` - iterate over an array or object
++ `$(...).each(callback)` - iterate over a collection of elements
+
+### Ajax
+
++ `$.ajax({...})` - send an HTTP request
++ `$.get(url, data, options)` - send a GET request
++ `$.post(url, data, options)` - send a POST request
++ `$.put(url, data, options)` - send a PUT request
++ `$.patch(url, data, options)` - send a PATCH request
++ `$.delete(url, data, options)` - send a DELETE request
++ `$.json(url, data, options)` - send a JSON request
++ `$(...).load(url, data, options)` - load data from the server and place the returned HTML into the matched element
+
+### Animation
+
+You can animate elements using the `Dom` library.
+
+#### Animation object
+
+```
+{
+     draw: {} | function,
+     dur: 1000,
+     ease: "linear",
+     loop: 0,
+     pause: 0,
+     dir: "normal",
+     defer: 0,
+     onFrame: function,
+     onDone: function
+}
+```
+
+#### Methods
+
++ `$.animate({...})` - animate a set of CSS properties for an element
++ `$.chain([...])` - chain animations  
++ `$.stop(id, done)` - stop animation
++ `$.stopAll(done, filter)` - stop all animations
++ `$.resume(id)` - resume animation
++ `$.resumeAll(filter)` - resume all animations
++ `$.pause(id)` - pause animation
++ `$.pauseAll(filter)` - pause all animations
++ `$(...).animate(...)` - animate a set of CSS properties for an element
++ `$(...).chain(...)` - chain animations
++ `$(...).stop(...)` - stop animation
++ `$(...).pause(...)` - pause animation
++ `$(...).resume(...)` - resume animation

@@ -20,12 +20,12 @@ export default [
         label: "Libraries",
         collapsed: true,
         items: [
-            {label: "Dom", link: "/"},
-            {label: "String", link: "/"},
-            {label: "Datetime", link: "/"},
-            {label: "Farbe", link: "/"},
-            {label: "Guardian", link: "/"},
-            {label: "Hooks", link: "/"},
+            {label: "Dom", link: "libraries/dom"},
+            {label: "String", link: "libraries/string"},
+            {label: "Datetime", link: "libraries/datetime"},
+            {label: "Farbe", link: "libraries/farbe"},
+            {label: "Guardian", link: "libraries/guardian"},
+            {label: "Hooks", link: "libraries/hooks"},
         ]
     },
     {
