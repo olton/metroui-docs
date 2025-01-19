@@ -4,6 +4,7 @@ slug: getting-started/components
 ---
 
 import Leader from '../../../components/Leader.astro'
+import {Steps} from "@astrojs/starlight/components";
 
 <Leader content="Metro UI has a large set of ready-to-use components!"/>
 
@@ -52,3 +53,56 @@ To get access to components API, you must call method `Metro.getPlugin(...)`. Th
 var charm = Metro.getPlugin("#left-charm", "charms");
 charm.open(); // API method
 ```
+
+## Component Events
+
+Many components in Metro UI generate events during their work. 
+All events are defined width attributes with prefix `data-on-*`. 
+To define an event, you can use two ways:
+
+<Steps>
+    1. Specify a function name in attribute `data-on-*` for component.
+    2. Use valid javascript code for `data-on-*` attribute value.
+</Steps>
+
+```html
+<input data-role="keypad" data-on-change="console.log(arguments)">
+<input data-role="keypad" data-on-change="dataChange">
+<input data-role="keypad" data-on-change="MyPackage.dataChange">
+
+<script>
+    function dataChange(el){
+        console.log(arguments);
+    }
+
+    var MyPackage = {
+        dataChange: function(el){
+            console.log(arguments);
+        }
+    }
+</script>
+```
+
+### Subscribing to the events
+
+You can subscribe to the component events with `@olton/Dom` method `$.on(...)` or  method `addEventListener(...)`.
+
+```html
+<input data-role="keypad" id="keypad">
+
+<script>
+    $("#keypad").on("shuffle", function(e){
+        console.log(e.detail);
+    })
+
+    /* or */
+
+    document.getElementById("keypad").addEventListener("shuffle", function(e){
+        console.log(e.detail);
+    })
+</script>
+```
+
+### Standard events
+
+You can specify standard events for HTML elements without any restrictions.

@@ -17,6 +17,18 @@ export default [
         ],
     },
     {
+        label: "Libraries",
+        collapsed: true,
+        items: [
+            {label: "Dom", link: "/"},
+            {label: "String", link: "/"},
+            {label: "Datetime", link: "/"},
+            {label: "Farbe", link: "/"},
+            {label: "Guardian", link: "/"},
+            {label: "Hooks", link: "/"},
+        ]
+    },
+    {
         label: "Common CSS",
         collapsed: true,
         items: [
@@ -43,18 +55,6 @@ export default [
             {label: "Swipe", link: "common-js/swipe"},
             {label: "i18n", link: "common-js/i18n"},
             {label: "Hotkeys", link: "common-js/hotkeys"},
-        ]
-    },
-    {
-        label: "Libraries",
-        collapsed: true,
-        items: [
-            {label: "Dom", link: "/"},
-            {label: "String", link: "/"},
-            {label: "Datetime", link: "/"},
-            {label: "Farbe", link: "/"},
-            {label: "Guardian", link: "/"},
-            {label: "Hooks", link: "/"},
         ]
     },
     {
