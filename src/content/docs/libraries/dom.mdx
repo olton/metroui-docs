@@ -18,7 +18,7 @@ The repository of `Dom` you can be found [here](https://github.com/olton/dom).
 
 Metro UI doesn't use jQuery or any other library to work with the DOM. Instead, Metro UI uses its own library called `Dom`.
 `Dom` is a library that provides a set of methods and properties for working with the DOM.
-`Dom` functions are functionally similar to `jQuery` and can be used as a replacement for `jQuery`. **Call compatibility reaches 90%**.
+`Dom` functions are functionally similar to `jQuery` and can be used as a replacement for `jQuery`. **Methods compatibility reaches 90%**.
 
 ## Population
 
@@ -220,6 +220,7 @@ You can animate elements using the `Dom` library.
 + `$(...).nextAll()` - get the immediately following sibling of each element in the set of matched elements
 + `$(...).has(selector)` - reduce the set of matched elements to those that have a descendant that matches the selector or DOM element
 + `$(...).back(returnToStart)` - return to the previous set of matched elements
++ `$(...).items()` - get the array of elements
 
 ### Position & Size
 
@@ -248,13 +249,111 @@ You can animate elements using the `Dom` library.
 + `$(...).toggle(callback)` - display or hide the matched elements
 + `$(...).visible(mode, callback)` - set the visibility property for elements in a set
 
+### Scroll
+
++ `$.scrollTop(value)` - get or set the vertical scrollbar position for the window
++ `$.scrollLeft(value)` - get or set the horizontal scrollbar position for the window
++ `$.scrollTop(left, top)` - set the scrollbar position for the window
++ `$.scrollToElement(el)` - scroll to the element
++ `$(...).scrollTop()` - get the vertical scrollbar position for the first element in the set
++ `$(...).scrollTop(value)` - set the vertical scrollbar position for elements
++ `$(...).scrollLeft()` - get the horizontal scrollbar position for the first element in the set
++ `$(...).scrollLeft(value)` - set the horizontal scrollbar position for elements
++ `$(...).scrollTo(relativeToViewport)` - scroll to the element
+
+
 ### Events
+
++ `$.events[]` - list of current registered events
++ `$.eventHooks{}` - list of event hooks
++ `$.setEventHandler(event_obj)` - set event handler
++ `$.getEventHandler(index)` - get event handler
++ `$.off()` - remove all registered events
++ `$.getEvents()` - get all registered events
++ `$.getEventHooks()` - get all event hooks
++ `$.addEventHook(event, handler, type)` - add event hook, where type is `before` or `after`
++ `$.removeEventHook(event, type)` - remove event hook
++ `$.removeEventHooks(event)` - remove event hooks
++ `$.load(fn)` - add a function to the load event
++ `$.unload(fn)` - add a function to the unload event
++ `$.beforeunload(fn)` - add a function to the beforeunload event
++ `$.ready(fn)` - add a function to the DOMContentLoaded event
++ `$(...).on(events, selector, handler, options)` - attach an event handler function for one or more events to the selected elements
++ `$(...).one(events, selector, handler, options)` - attach an event handler function for one or more events to the selected elements
++ `$(...).off(events, selector, options)` - remove events
++ `$(...).trigger(event, data)` - trigger an event
++ `$(...).fire(event, data)` - trigger an event
++ `$(...).blur()` - trigger blur event
++ `$(...).resize()` - trigger resize event
++ `$(...).scroll()` - trigger scroll event
++ `$(...).focus()` - trigger focus event
++ `$(...).click()` - trigger click event
++ `$(...).dblclick()` - trigger dblclick event
++ `$(...).change()` - trigger change event
++ `$(...).submit()` - trigger submit event
++ `$(...).keydown()` - trigger keydown event
++ `$(...).keyup()` - trigger keyup event
++ `$(...).keypress()` - trigger keypress event
++ `$(...).mousedown()` - trigger mousedown event
++ `$(...).mouseup()` - trigger mouseup event
++ `$(...).mouseover()` - trigger mouseover event
++ `$(...).mouseout()` - trigger mouseout event
++ `$(...).mouseenter()` - trigger mouseenter event
++ `$(...).mouseleave()` - trigger mouseleave event
++ `$(...).select()` - trigger select event
++ `$(...).contextmenu()` - trigger contextmenu event
++ `$(...).touchstart()` - trigger touchstart event
++ `$(...).touchend()` - trigger touchend event
++ `$(...).touchmove()` - trigger touchmove event
++ `$(...).touchcancel()` - trigger touchcancel event
+
 
 ### Scripts
 
++ `$.script(el, context)` - create a script element in the context
++ `$.loadScript(url, context, callback)` - create a script element in the context
++ `$(...).script(context)` - create a script element in the context
+
+
 ### Data
 
++ `$.dataset(ns)` - create a Dataset object
++ `$.hasData(el)` - check if the element has data
++ `$.data(el, name, data)` - store arbitrary data associated with the matched elements
++ `$.removeData(el, name)` - remove data from the matched elements
++ `$(...).data()` - get the value of a data attribute for the first element in the set
++ `$(...).data(key)` - get the value of a data attribute for the first element in the set for the key
++ `$(...).data(key, value)` - set the value of a data attribute for the first element in the set for the key
++ `$(...).removeData(key)` - remove data from the matched elements
+
 ### Utils
+
++ `$.dark` - true, if the browser is in dark mode
++ `$.device` - true, if the device is a mobile device
++ `$.touchable` - true, if the device supports touch events
++ `$.localhost` - true, if the host is localhost
++ `$.isLocalhost(host)` - check, if the host is localhost
++ `$.isPrivateAddress(address)` - check, if the address is in private network
++ `$.uniqueId(prefix)` - generate a unique id in format `prefix-xxxx-xxxx-yxxx-xxxxxxxxxxxx`
++ `$.toArray(arrayLike)` - convert an array-like object to array
++ `$.import(arrayLike|object)` - convert array-like object or object to the Dom object
++ `$.merge(one, two)` - merge two objects into one
++ `$.type(obj)` - get the type of the object
++ `$.remove(selector)` - remove elements from the DOM
++ `$.isPlainObject(obj)` - check if the object is a plain object
++ `$.isEmptyObject(obj)` - check if the object is empty
++ `$.isArrayLike(obj)` - check if the object is array-like
++ `$.not(value)` - check if the value is not null or undefined
++ `$.parseUnit(value)` - parse the value with unit, return tuple [value, unit]
++ `$.getUnit(value)` - get the unit of the value
++ `$.isVisible(el)` - check if the element is visible
++ `$.isHidden(el)` - check if the element is hidden
++ `$.random(min, max)` - generate a random number
++ `$.hasProp(obj, prop)` - check if the object has a property
++ `$.serializeToArray(form)` - serialize form to array
++ `$.serialize(form)` - serialize form to string with `&` delimiter
++ `$.viewport()` - get the viewport size
+
 
 ### Timeout & Interval
 
