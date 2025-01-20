@@ -29,7 +29,7 @@
 
 .starlight-aside--tip {
     --sl-color-asides-text-accent: var(--sl-color-green-high);
-    --sl-color-asides-border: var(--sl-color-green);
+    --sl-color-asides-border: var(--sl-color-green-high);
     background-color: var(--sl-color-green-low);
 }
 
@@ -53,6 +53,10 @@ table {
 ul {
     /*line-height: 1.4;*/
     /*font-size: 14px;*/
+}
+
+pre {
+    border-radius: 10px!important;
 }
 
 code {

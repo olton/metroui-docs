@@ -139,7 +139,7 @@ You can animate elements using the `Dom` library.
 + `$.charset(val?)` - get or set charset
 + `$.lang(val?)` - get or set land attribute for HTML tag
 
-### Classes and Styles
+### Classes & Styles
 
 + `$(...).addClass(...)` - add one or more classes to the set of matched elements
 + `$(...).removeClass(...)` - remove class(es) from the set of matched elements
@@ -221,7 +221,7 @@ You can animate elements using the `Dom` library.
 + `$(...).has(selector)` - reduce the set of matched elements to those that have a descendant that matches the selector or DOM element
 + `$(...).back(returnToStart)` - return to the previous set of matched elements
 
-### Position and Size
+### Position & Size
 
 + `$(...).offset()` - get the current coordinates of the first element in the set of matched elements, relative to the document
 + `$(...).offset(value)` - set the current coordinates for elements in the set, value must be an object with `top` and `left` properties
@@ -250,8 +250,13 @@ You can animate elements using the `Dom` library.
 
 ### Events
 
+### Scripts
+
 ### Data
 
 ### Utils
 
+### Timeout & Interval
 
+`Dom` overrides the `setTimeout`, `setInterval` functions using `Workers`, which allows intervals to work even when the browser tab is inactive.
+You can still use setTimeout, setInterval as before.
