@@ -106,3 +106,22 @@ You can subscribe to the component events with `@olton/Dom` method `$.on(...)` o
 ### Standard events
 
 You can specify standard events for HTML elements without any restrictions.
+
+### Global Component Setup
+
+Each component has a global setup object that allows you to set default options for all components of this type.
+
+To create a global setup object, you must create global object in format `metroComponentSetup` with required options **before** including a metro library.
+
+```html
+<script>
+// Setup component
+var metroAccordionSetup = {
+    oneFrame: false,
+}
+</script>
+
+// Include Metro UI library
+<script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+```
+
