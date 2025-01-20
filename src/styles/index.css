@@ -20,7 +20,17 @@
 }
 
 .card {
-    border-radius: 6px;
+    border-radius: 20px;
+}
+
+.starlight-aside {
+    border-radius: 10px;
+}
+
+.starlight-aside--tip {
+    --sl-color-asides-text-accent: var(--sl-color-green-high);
+    --sl-color-asides-border: var(--sl-color-green);
+    background-color: var(--sl-color-green-low);
 }
 
 .text-leader {
@@ -38,4 +48,13 @@ table {
     th, td {
         padding: 0.5rem 1rem;
     }
+}
+
+ul {
+    /*line-height: 1.4;*/
+    /*font-size: 14px;*/
+}
+
+code {
+    border-radius: 4px;
 }
