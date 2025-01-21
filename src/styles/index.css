@@ -1,3 +1,13 @@
+.page-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--sl-color-gray-5);
+    padding-top: 20px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
 .hero {
     h1 {
         background: -webkit-linear-gradient(120deg, #0095ff 30%, #42d392);

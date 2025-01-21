@@ -21,6 +21,9 @@ export default defineConfig({
 			customCss: [
 				'./src/styles/index.css',
 			],
+			components: {
+				Footer: './src/components/ConditionalFooter.astro',
+			},
 			lastUpdated: true,
 			head: [
 				{

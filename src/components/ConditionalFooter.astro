@@ -1,0 +1,19 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const isHomepage = Astro.props.id === '';
+---
+
+{
+    isHomepage ? (
+       <footer class="page-footer">
+           <p>Copyright 2012-{new Date().getFullYear()} by <a href="https://pimenov.com.ua">Serhii Pimenov</a>. All Right Reserved.</p>
+           <p>Metro UI ver. 5.1, Documentation ver. 2025.1</p>
+       </footer>
+    ) : (
+        <Default {...Astro.props}>
+            <slot />
+        </Default>
+    )
+}
