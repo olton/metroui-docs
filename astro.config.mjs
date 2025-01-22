@@ -22,7 +22,7 @@ export default defineConfig({
 				'./src/styles/index.css',
 			],
 			components: {
-				Footer: './src/components/ConditionalFooter.astro',
+				Footer: './src/components/Footer.astro',
 			},
 			lastUpdated: true,
 			head: [
