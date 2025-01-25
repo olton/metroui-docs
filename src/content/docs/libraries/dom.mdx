@@ -6,8 +6,9 @@ tableOfContents:
 ---
 
 import Leader from '../../../components/Leader.astro'
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-<div><small>Package: **[@olton/dom](https://github.com/olton/dom)**</small></div>
+<div><small>[Repository](https://github.com/olton/dom)</small>, <small>[Package](https://www.npmjs.com/package/@olton/dom)</small></div>
 
 <Leader content="Metro UI provides a set of methods and properties for working with the DOM."/>
 
@@ -16,6 +17,28 @@ import Leader from '../../../components/Leader.astro'
 Metro UI doesn't use jQuery or any other library to work with the DOM. Instead, Metro UI uses its own library called `Dom`.
 `Dom` is a library that provides a set of methods and properties for working with the DOM.
 `Dom` functions are functionally similar to `jQuery` and can be used as a replacement for `jQuery`. **Methods compatibility reaches 90%**.
+
+## Installation
+Metro UI already includes the `Dom` library. You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
+
+<Tabs>
+    <TabItem label="npm" icon="seti:npm">
+        ```bash
+        npm install @olton/dom
+        ```
+    </TabItem>
+    <TabItem label="pnpm" icon="pnpm">
+        ```bash
+        pnpm install @olton/dom
+        ```
+    </TabItem>
+    <TabItem label="yarm" icon="seti:yarn">
+        ```bash
+        yarn add @olton/dom
+        ```
+    </TabItem>
+</Tabs>
+
 
 ## Population
 

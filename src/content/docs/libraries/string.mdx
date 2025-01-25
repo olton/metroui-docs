@@ -1,3 +1,169 @@
 ---
-title: String library
+title: String
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 4
 ---
+
+import Leader from '../../../components/Leader.astro'
+import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+
+<div><small>[Repository](https://github.com/olton/string)</small>, <small>[Package](https://www.npmjs.com/package/@olton/string)</small></div>
+
+<Leader content="Metro UI provides a set of methods and properties for working with Strings."/>
+
+## About
+
+The `String` class provides a set of methods and properties for working with strings.
+
+## Installation
+Metro UI already includes the `String` library. 
+You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
+
+<Tabs>
+    <TabItem label="npm" icon="seti:npm">
+        ```bash
+        npm install @olton/string
+        ```
+    </TabItem>
+    <TabItem label="pnpm" icon="pnpm">
+        ```bash
+        pnpm install @olton/string
+        ```
+    </TabItem>
+    <TabItem label="yarm" icon="seti:yarn">
+        ```bash
+        yarn add @olton/string
+        ```
+    </TabItem>
+</Tabs>
+
+## Population
+
+With Metro UI, you can use the `String` class to work with strings over global fabric function `str()` or class `Str`.
+
+## Constructor
+
+The `Str` class is a wrapper around the native `String` object, but provides an additional methods and properties for working with strings.
+With the `Str` you can create mutable or immutable strings.
+
+### Mutable strings <Badge text="default" variant="tip"/>
+
+To create a mutable string, you can use the `str()` function or `Str` class with the `mutable` option set to `true`.
+`Mutable` string is a default type of string, created with class `Str`.
+
+```javascript
+const str1 = new Str('Hello, World!', {mutable: true}); // immutable string
+const str2 = str('Hello, World!', true); // mutable string
+```
+
+### Immutable strings
+
+To create an immutable string, you can use the `str()` function or `Str` class with the `mutable` option set to `false`.
+
+```javascript
+const str1 = new Str('Hello, World!', {mutable: false}); // immutable string
+const str2 = str('Hello, World!', false); // immutable string
+```
+
+### Primitive
+
+You can use class `Str` as a primitive type. By default it is `string`, but you be used as a `Numeric` with hint `number`.
+
+```javascript
+const str1 = new Str('100');
+console.log(""+str1); // "100"
+
+const str2 = str('100');
+console.log(+str2); // 100
+```
+
+## Properties
+
+### `length`
+
+Property, returns the length of the string `length`.
+
+```javascript
+const str = str('Hello, World!');
+console.log( str.length ); // 13
+```
+
+### `Symbol.toStringTag`
+
+Return `Str`.
+
+## Methods
+
+### `val()`
+
+Set or get the value of the object `Str`.
+
+```javascript
+const str = str('Hello, World!');
+console.log( str.val() ); // Hello, World!
+
+str.val("New value")
+console.log( str.val() ); // New value
+```
+
+### `append()`
+
+Appends a string to the end of the current string `append(str, times = 1)`.
+
+```javascript
+const str = str('Hello');
+str.append(', World!'); // Hello, World!
+
+const str2 = str('More');
+str.append('.', 3); // More...
+```
+
+### `camelCase()`
+
+Converts a string to camelCase `camelCase()`.
+
+```javascript
+const str = str('Hello, World!');
+str.camelCase(); // helloWorld
+```
+
+### `capitalize()`
+
+Capitalizes the first letter of a string `capitalize()`.
+
+```javascript
+const str = str('hello, world!');
+str.capitalize(); // Hello, world!
+```
+
+### `chars()`
+
+Returns an array of characters in the string: `chars(str, ignore = [])`.
+
+```javascript
+const str = str('Hello', ['o']);
+str.chars(); // ['H', 'e', 'l', 'l']
+```
+
+### `count()`
+
+Counts the number of chars in the string `count()`.
+
+```javascript
+const str = str('Hello, World!');
+str.count(); // 13
+```
+
+### `countChars()`
+
+Counts the number of chars in the string `countChars(str, ignore = [])`.
+
+```javascript
+const str = str('Hello, World!');
+str.countChars(['l']); // 10
+```
+
+
+
+

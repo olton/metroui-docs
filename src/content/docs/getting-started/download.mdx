@@ -9,33 +9,72 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## CDN
 
+:::caution
+Please note that the CDN may not be updated immediately after the release of a new version.
+:::
+
+### Main CDN (cdn.metroui.org.ua)
+
 :::tip
 The CDN is provided by the excellent provider [KeyCDN](https://keycdn.com/).
 :::
 
-
 Use Metro CDN to deliver a cached version of Metro UI with compiled CSS and JS to your project.
 
 <Tabs>
-    <TabItem label="current">
+    <TabItem label="Latest">
         ```html
         <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css"/>
+        ```
+        ```html
         <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css"/>
+        ```
+        ```html
         <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
         ```
     </TabItem>
-    <TabItem label="dev">
+    <TabItem label="Development">
         ```html
         <link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/metro.css"/>
+        ```
+        ```html
         <link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/icons.css"/>
+        ```
+        ```html
         <script src="https://cdn.metroui.org.ua/dev/metro.js"></script>
         ```
     </TabItem>
-    <TabItem label="version">
+</Tabs>
+
+If you want to use a specific version of Metro UI, you can specify the version in the URL instead of `current` or `dev`. 
+For example, to use version `5.0.13`, you can use the following URLs:
+```html
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/5.0.13/metro.css"/>
+```
+
+### Reserved CDN (cdn.statically.io)
+
+<Tabs>
+    <TabItem label="Latest">
         ```html
-        <link rel="stylesheet" href="https://cdn.metroui.org.ua/x.x.x/metro.css"/>
-        <link rel="stylesheet" href="https://cdn.metroui.org.ua/x.x.x/icons.css"/>
-        <script src="https://cdn.metroui.org.ua/x.x.x/metro.js"></script>
+        <link rel="stylesheet" href="https://cdn.statically.io/gh/olton/metroui/master/lib/metro.css"/>
+        ```
+        ```html
+        <link rel="stylesheet" href="https://cdn.statically.io/gh/olton/metroui/master/lib/icons.css"/>
+        ```
+        ```html
+        <script src="https://cdn.statically.io/gh/olton/metroui/master/lib/metro.js"></script>
+        ```
+    </TabItem>
+    <TabItem label="Development">
+        ```html
+        <link rel="stylesheet" href="https://cdn.statically.io/gh/olton/metroui/dev/lib/metro.css"/>
+        ```
+        ```html
+        <link rel="stylesheet" href="https://cdn.statically.io/gh/olton/metroui/dev/lib/icons.css"/>
+        ```
+        ```html
+        <script src="https://cdn.statically.io/gh/olton/metroui/dev/lib/metro.js"></script>
         ```
     </TabItem>
 </Tabs>
@@ -45,20 +84,27 @@ Use Metro CDN to deliver a cached version of Metro UI with compiled CSS and JS t
 Metro UI is available as a npm package. To install it, run:
 
 <Tabs>
-    <TabItem label="npm">
+    <TabItem label="npm" icon="seti:npm">
         ```bash
         npm install @olton/metroui
         ```
     </TabItem>
-    <TabItem label="pnpm">
+    <TabItem label="pnpm" icon="pnpm">
         ```bash
         pnpm install @olton/metroui
         ```
     </TabItem>
-    <TabItem label="yarm">
+    <TabItem label="yarm" icon="seti:yarn">
         ```bash
         yarn add @olton/metroui
         ```
     </TabItem>
 </Tabs>
 
+And then import it in your project:
+
+```javascript
+import "@olton/metroui";
+```
+
+Read more about [how to use Metro UI with bundlers](bundlers).

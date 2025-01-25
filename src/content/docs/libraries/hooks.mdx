@@ -1,3 +1,153 @@
 ---
-title: Hooks library
+title: Hooks
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 4
 ---
+
+import Leader from '../../../components/Leader.astro'
+import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+
+<div><small>[Repository](https://github.com/olton/hooks)</small>, <small>[Package](https://www.npmjs.com/package/@olton/hooks)</small></div>
+
+<Leader content="Metro UI provides a set of methods to create user hooks."/>
+
+## About
+
+The `Hooks` namespace includes functions to create user hooks: `useState`, `useMemo`, `useDebounce`, `useThrottle`, `usePipe`, `useCompose`, `useCurry`, and `useEvent`.
+
+## Installation
+Metro UI already includes the `Hooks`.
+You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
+
+<Tabs>
+    <TabItem label="npm" icon="seti:npm">
+        ```bash
+        npm install @olton/hooks
+        ```
+    </TabItem>
+    <TabItem label="pnpm" icon="pnpm">
+        ```bash
+        pnpm install @olton/hooks
+        ```
+    </TabItem>
+    <TabItem label="yarm" icon="seti:yarn">
+        ```bash
+        yarn add @olton/hooks
+        ```
+    </TabItem>
+</Tabs>
+
+## Population
+
+All functions to create user hooks collected in the `Hooks` namespace. 
+
+## Functions
+
+### `useState()`
+
+The `useState` function creates a state variable and a function to change it.
+
+```javascript
+function onStateChange(){
+    console.log([...arguments])
+}
+const [state, setState] = Hooks.useState('initial value', onStateChange);
+console.log(state.value); // initial value
+
+setState('new value');
+setState((old_value) => old_value + ' -> new value');
+``` 
+
+### `useMemo()`
+
+Do memoization with hook `useMemo`. You can pass function as argument to `useMemo` and return memoized function.
+
+```javascript
+const factorial = Hooks.useMemo( n => {
+    return n <= 1 ? 1 : n * factorial(n-1)
+})
+console.log(factorial(5)) // Real calc
+console.log(factorial(5)) // Cached result
+```
+
+### `useDebounce()`
+
+The `useDebounce` function creates a debounced function.
+
+```javascript
+const debounced = Hooks.useDebounce( (value) => {
+    console.log(value)
+}, 1000)
+debounced('Hello, World!')
+```
+
+### `useThrottle()`
+
+The `useThrottle` function creates a throttled function.
+
+```javascript
+const throttled = Hooks.useThrottle( (value) => {
+    console.log(value)
+}, 1000)
+throttled('Hello, World!')
+```
+
+### `usePipe()`
+
+The `usePipe` function creates a piped function.
+
+```javascript
+const fn1 = v => v + " world!"
+const fn2 = v => v + " usePipe()"
+const fn3 = v => v + " Enjoy!"
+
+const pipeResult = Hooks.usePipe(fn1, fn2, fn3)("Hello")
+console.log(pipeResult) // Hello world! usePipe() Enjoy!
+```
+
+### `useCompose()`
+
+The `useCompose` function creates a composed function.
+
+```javascript
+const fn1 = v => v + " world!"
+const fn2 = v => v + " useCompose()"
+const fn3 = v => v + " Enjoy!"
+
+const composeResult = Hooks.useCompose(fn1, fn2, fn3)("Hello")
+console.log(composeResult) // Hello Enjoy! useCompose() world!
+```
+
+### `useCurry()`
+
+The `useCurry` function creates a curried function.
+
+```javascript
+const sum = Hooks.useCurry((a, b, c) => a + b + c)
+console.log(sum(1)(2)(3)) // 6
+
+const sum2 = Hooks.useCurry((a, b, c) => a + b + c)
+console.log(sum2(1, 2)(3)) // 6
+
+const sum3 = Hooks.useCurry((a, b, c) => a + b + c)
+console.log(sum3(1)(2)(3)) // 6
+```
+
+### useEvent
+This hook is designed to trigger the effect under certain conditions:
+- `load` - perform the effect when the element appears in the document
+- `viewport` - perform the effect when the element appears in the viewport
+- `attribute` - perform the effect when the element attribute(s) changed
+- `children` - perform the effect when the element children changed (add or remove)
+- `data` - perform the effect when the element text content was changed
+
+```javascript
+import { useEvent, EVENTS } from "@olton/hooks"
+
+useEvent({
+    target: "#btn",
+    event: EVENTS.VIEWPORT,
+    effect: (target) => console.log(`Element showing in viewport`)
+})
+```
