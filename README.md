@@ -4,6 +4,8 @@
 
 This is the official documentation for Metro UI, a front-end framework for developing projects on the web.
 
+![Alt](https://repobeats.axiom.co/api/embed/4c0a6517465311c6eee0de5487f17c1b9914a61e.svg "Repobeats analytics image")
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
