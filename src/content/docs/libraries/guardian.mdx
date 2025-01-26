@@ -135,7 +135,7 @@ const schema = G.bytes()
 
 ### `creditCard()`
 
-Check if the value is a credit card: `creditCard(err_message)`.
+Check if the value is a credit card: `creditCard(err_message)`. Also you can use specified CC guardians: `visa()`, `mastercard()`, `amex()`, `discover()`, `diners()`, `jcb()`, and `union()`.
 
 ```javascript
 const schema = G.creditCard()
