@@ -1,0 +1,42 @@
+---
+title: HTML
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 4
+---
+
+import Leader from '../../../components/Leader.astro'
+import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+import GithubButton from '../../../components/GithubButton.astro';
+
+<div>
+    <GithubButton user="olton" repo="html"/>
+</div> 
+
+<Leader content="Metro UI provides a set of functions to craete HTML elements."/>
+
+## About
+
+The `Html` namespace contains a set of functions to create HTML elements.
+
+## Installation
+Metro UI already includes the `Html` library.
+You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
+
+<Tabs>
+    <TabItem label="npm" icon="seti:npm">
+        ```bash
+        npm install @olton/html
+        ```
+    </TabItem>
+    <TabItem label="pnpm" icon="pnpm">
+        ```bash
+        pnpm install @olton/html
+        ```
+    </TabItem>
+    <TabItem label="yarm" icon="seti:yarn">
+        ```bash
+        yarn add @olton/html
+        ```
+    </TabItem>
+</Tabs>
