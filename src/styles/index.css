@@ -15,11 +15,12 @@
 
 .hero {
     h1 {
-        background: -webkit-linear-gradient(120deg, #0095ff 30%, #42d392);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
+        /*background: -webkit-linear-gradient(120deg, #0095ff 30%, #42d392);*/
+        /*-webkit-text-fill-color: transparent;*/
+        /*-webkit-background-clip: text;*/
         font-weight: 700;
         font-size: 2.25rem;
+        color: var(--sl-color-gray-2);
 
         @media (min-width: 640px) {
             font-size: 3.75rem;
@@ -38,10 +39,6 @@
     border-radius: 20px;
 }
 
-.starlight-aside {
-    /*border-radius: 10px;*/
-}
-
 .starlight-aside--tip {
     --sl-color-asides-text-accent: var(--sl-color-green-high);
     --sl-color-asides-border: var(--sl-color-green-high);
@@ -55,13 +52,31 @@
 }
 
 table {
-    width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--sl-color-gray-5);
     display: table!important;
-    
-    th, td {
-        padding: 0.5rem 1rem;
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--sl-color-gray-5);
+        padding-inline-start: 1rem!important;
+    }
+
+    th {
+        background-color: var(6);
+    }
+
+    td:not(:last-child) {
+        border-right: 1px solid var(--sl-color-gray-5);
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--sl-color-gray-7);
     }
 }
 
@@ -73,3 +88,8 @@ ul {
 code {
     border-radius: 4px;
 }
+
+/*:is(.hero, .sl-markdown-content) .sl-link-button.secondary:is(:hover, :focus-visible) {*/
+/*    border-color: var(--sl-color-red)!important;*/
+/*    color: var(--sl-color-red)!important;*/
+/*}*/
