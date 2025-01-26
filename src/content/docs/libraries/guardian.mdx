@@ -26,8 +26,8 @@ The `Guardian` used in the Metro UI to validate user input in component `Validat
 
 ```javascript
 const schema = G.object({
-    name: G.string(), // <-- guardian
-    email: G.email("Please, enter a valid email address") // <-- guardian
+    name: G.string(), // <-- guard
+    email: G.email("Please, enter a valid email address") // <-- guard
 })
 const objectToBeParsed = {...}
 const value = G.safeParse(schema, objectToBeParsed) // <-- parser
