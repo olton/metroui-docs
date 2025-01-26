@@ -9,8 +9,8 @@ export default defineConfig({
 		starlight({
 			title: 'Metro UI',
 			logo: {
-				light: '/src/assets/king-color.svg',
-				dark: '/src/assets/king-color.svg',
+				light: '/src/assets/king-black.svg',
+				dark: '/src/assets/king-white.svg',
 			},
 			favicon: '/src/assets/king.svg',
 			social: {
