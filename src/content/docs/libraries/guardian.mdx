@@ -143,7 +143,7 @@ const schema = G.creditCard()
 
 ### `date()`
 
-Check if the value is a date: `date(err_message)`.
+Check if the value is a date object or valid date string: `date(err_message)`.
 
 ```javascript
 const schema = G.date()
@@ -371,6 +371,14 @@ Check if the value is a URL: `url(err_message)`.
 
 ```javascript
 const schema = G.url()
+```
+
+### `contains()`
+
+Check if the value contains a specified value: `contains(str, err_message)`. This guardian is used only for arrays and strings.
+
+```javascript
+const schema = G.contains("https://")
 ```
 
 ### `object()`
