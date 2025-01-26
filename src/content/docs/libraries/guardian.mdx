@@ -7,8 +7,12 @@ tableOfContents:
 
 import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+import SourceButton from '../../../components/SourceButton.astro';
 
-<div><small>[Repository](https://github.com/olton/guardian)</small>, <small>[Package](https://www.npmjs.com/package/@olton/guardian)</small></div>
+<div>
+    <SourceButton href="https://github.com/olton/guardian" icon="github" text="Repository"/>
+    <SourceButton href="https://www.npmjs.com/package/@olton/guardian" icon="seti:npm" text="Package"/>
+</div> 
 
 <Leader content="Metro UI provides a set of methods and properties to create schemas for validation user input or other data."/>
 
@@ -17,7 +21,9 @@ import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 The idea of `Guardian` is as follows: the user, using guardians,
 specifies a schema that the object must match and then uses parsers to check the content of the object.
 
+:::note
 The `Guardian` used in the Metro UI to validate user input in component `Validator`.
+:::
 
 ```javascript
 const schema = G.object({

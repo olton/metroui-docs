@@ -7,8 +7,12 @@ tableOfContents:
 
 import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+import SourceButton from '../../../components/SourceButton.astro';
 
-<div><small>[Repository](https://github.com/olton/farbe)</small>, <small>[Package](https://www.npmjs.com/package/@olton/farbe)</small></div>
+<div>
+    <SourceButton href="https://github.com/olton/farbe" icon="github" text="Repository"/>
+    <SourceButton href="https://www.npmjs.com/package/@olton/farbe" icon="seti:npm" text="Package"/>
+</div> 
 
 <Leader content="Metro UI provides a set of methods and properties for working with Colors."/>
 
