@@ -20,6 +20,7 @@ export default [
         label: "Libraries",
         collapsed: true,
         items: [
+            {label: "Overview", slug: "libraries/overview"},
             {label: "Dom", slug: "libraries/dom"},
             {label: "String", slug: "libraries/string"},
             {label: "Datetime", slug: "libraries/datetime"},
