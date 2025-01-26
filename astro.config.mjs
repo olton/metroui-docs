@@ -1,7 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightLinksValidator from 'starlight-links-validator'
 import sidebar from "./sidebar.mjs"
+
+const production = process.env.MODE === 'production';
+
+const plugins = []
+
+if (!production) {
+	plugins.push(starlightLinksValidator())
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,14 +36,15 @@ export default defineConfig({
 			},
 			lastUpdated: true,
 			head: [
-				{
-					tag: 'script',
-					attrs: {
-						src: 'https://public.codepenassets.com/embed/index.js',
-						defer: true,
-					},
-				},
-			]
+				// {
+				// 	tag: 'script',
+				// 	attrs: {
+				// 		src: 'https://public.codepenassets.com/embed/index.js',
+				// 		defer: true,
+				// 	},
+				// },
+			],
+			plugins,
 		}),
 	],
 });
