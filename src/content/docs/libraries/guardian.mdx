@@ -14,10 +14,27 @@ import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 
 ## About
 
-You can create a schema for validation user input with the `Guardian` class.
+The idea of `Guardian` is as follows: the user, using guardians,
+specifies a schema that the object must match and then uses parsers to check the content of the object.
+
+The `Guardian` used in the Metro UI to validate user input in component `Validator`.
+
+```javascript
+const schema = G.object({
+    name: G.string(), // <-- guardian
+    email: G.email("Please, enter a valid email address") // <-- guardian
+})
+const objectToBeParsed = {...}
+const value = G.safeParse(schema, objectToBeParsed) // <-- parser
+if (value.ok) { // <-- check result boolean
+    console.log(`Object correct`, value.output) // <-- parsed object
+} else {
+    console.error(value.error) // <-- parsed error
+}
+```
 
 ## Installation
-Metro UI already includes the `Guardian` library.
+Metro UI already includes the `Guardian` library in global namespace `G`.
 You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
 
 <Tabs>
@@ -38,130 +55,376 @@ You can use it without any additional installation, but if you want to use it in
     </TabItem>
 </Tabs>
 
-## Using
+and import it in your project:
 
 ```javascript
-import {parse, string, required, email, object} from "@olton/guardian"
+import * as G from "@olton/guardian"
+```
 
-const schema = string()
-let value = parse(schema, "123")
+## Population
 
-console.log(value); // -> 123
+The `Guardian` functions stored in the global namespace named `G`.
 
-let value = parse(schema, 123) // -> throw error
-
-
-let value = safeParse(schema, 123) // -> return obj with error
-if (!value.ok) {
-    console.log(value.error)
+```javascript
+const schema = G.string()
+try {
+    G.parse(schema, 123)  
+} catch (e) {
+    console.error(e.message)
 }
+```
 
-let value = safeParse(schema, "123") // -> return obj with data
-if (value.ok) {
-    console.log(value.output)
+## Guardians
+
+The `Guardian` provides a set of functions – `guardians`, to create a schema for validation user input or other data.
+
+### `array()`
+
+Check if the value is an array of specified type: `array(guard_type, err_message?)`. As `guard_type` you can use any guardian.
+
+```javascript
+const schema_array_of_strings = G.array(G.string())
+const schema_array_of_numbers = G.array(G.number())
+const schema_array_of_dates = G.array(G.date(), "Use only dates")
+```
+
+### `base64()`
+
+Check if the value is a base64 string: `base64(err_message)`.
+
+```javascript
+const schema = G.base64()
+```
+
+### `between()`
+
+Check if the value is between two numbers: `between(min, max, err_message)`.
+
+```javascript
+const schema = G.between(1, 10)
+```
+
+### `bigint()`
+
+Check if the value is a bigint: `bigint(err_message)`.
+
+```javascript
+const schema = G.bigint()
+```
+
+### `boolean()`
+
+Check if the value is a boolean: `boolean(err_message)`.
+
+```javascript
+const schema = G.boolean()
+```
+
+### `bytes()`
+
+Check if the value is a bytes: `bytes(err_message)`.
+
+```javascript
+const schema = G.bytes()
+```
+
+### `creditCard()`
+
+Check if the value is a credit card: `creditCard(err_message)`.
+
+```javascript
+const schema = G.creditCard()
+```
+
+### `date()`
+
+Check if the value is a date: `date(err_message)`.
+
+```javascript
+const schema = G.date()
+```
+
+### `digits()`
+
+Check if the value is a digits: `digits(err_message)`.
+
+```javascript
+const schema = G.digits()
+```
+
+### `domain()`
+
+Check if the value is a domain: `domain(err_message)`.
+
+```javascript
+const schema = G.domain()
+```
+
+### `email()`
+
+Check if the value is an email: `email(err_message)`.
+
+```javascript
+const schema = G.email()
+```
+
+### `empty()`
+
+Check if the value is empty: `empty(err_message)`.
+
+```javascript
+const schema = G.empty()
+```
+
+### `endsWith()`
+
+Check if the value ends with a specified string: `endsWith(str, err_message)`.
+
+```javascript
+const schema = G.endsWith("com")
+```
+
+### `finite()`
+
+Check if the value is a finite: `finite(err_message)`.
+
+```javascript
+const schema = G.finite()
+```
+
+### `float()`
+
+Check if the value is a float: `float(err_message)`.
+
+```javascript
+const schema = G.float()
+```
+
+### `func()`
+
+Check if the value is a function: `func(err_message)`.
+
+```javascript
+const schema = G.func()
+```
+
+### `hexColor()`
+
+Check if the value is a hex color: `hexColor(err_message)`.
+
+```javascript
+const schema = G.hexColor()
+```
+
+### `imei()`
+
+Check if the value is an IMEI: `imei(err_message)`.
+
+```javascript
+const schema = G.imei()
+```
+
+### `instance()`
+
+Check if the value is an instance of a specified class: `instance(class, err_message)`.
+
+```javascript
+const schema = G.instance(Date)
+```
+
+### `integer()`
+
+Check if the value is an integer: `integer(err_message)`.
+
+```javascript
+const schema = G.integer()
+```
+
+### `ip()`
+
+Check if the value is an IP: `ip(err_message)`.
+
+```javascript
+const schema = G.ip()
+```
+
+### `length()`
+
+Check if the value has a specified length: `length(min, max, err_message)`.
+
+```javascript
+const schema = G.length(1, 10)
+```
+
+### `maxValue()`
+
+Check if the value is less than a specified number: `maxValue(max, err_message)`.
+
+```javascript
+const schema = G.maxValue(10)
+```
+
+### `minValue()`
+
+Check if the value is greater than a specified number: `minValue(min, err_message)`.
+
+```javascript
+const schema = G.minValue(1)
+```
+
+### `notNull()`
+
+Check if the value is not null: `notNull(err_message)`.
+
+```javascript
+const schema = G.notNull()
+```
+
+### `notNumber()`
+
+Check if the value is not a number: `notNumber(err_message)`.
+
+```javascript
+const schema = G.notNumber()
+```
+
+### `number()`
+
+Check if the value is a number: `number(err_message)`.
+
+```javascript
+const schema = G.number()
+```
+
+### `pattern()`
+
+Check if the value matches a specified pattern: `pattern(regexp, err_message)`.
+
+```javascript
+const schema = G.pattern(/^[a-z]+$/)
+```
+
+### `promise()`
+
+Check if the value is a promise: `promise(err_message)`.
+
+```javascript
+const schema = G.promise()
+```
+
+### `required()`
+
+Check if the value is required: `required(err_message)`.
+
+```javascript
+const schema = G.required()
+```
+
+### `safeInteger()`
+
+Check if the value is a safe integer: `safeInteger(err_message)`.
+
+```javascript
+const schema = G.safeInteger()
+```
+
+### `startsWith()`
+
+Check if the value starts with a specified string: `startsWith(str, err_message)`.
+
+```javascript
+const schema = G.startsWith("https://")
+```
+
+### `string()`
+
+Check if the value is a string: `string(err_message)`.
+
+```javascript
+const schema = G.string()
+```
+
+### `symbol()`
+
+Check if the value is a symbol: `symbol(err_message)`.
+
+```javascript
+const schema = G.symbol()
+```
+
+### `unknown()`
+
+Check if the value is unknown: `unknown(err_message)`.
+
+```javascript
+const schema = G.unknown()
+```
+
+### `url()`
+
+Check if the value is a URL: `url(err_message)`.
+
+```javascript
+const schema = G.url()
+```
+
+### `object()`
+
+Create object schema: `object({...}, err_message)`.
+
+```javascript
+const schema = G.object({
+    name: G.string(),
+    email: G.email(),
+})
+```
+
+### `pipe()`
+
+Run guardians left to right: `pipe(guard1, guard2, ..., guardN)`.
+
+```javascript
+const schema = G.object({
+    name: G.pipe(G.required(), G.string()),
+})
+```
+
+### `compose()`
+
+Run guardians right to left: `compose(guard1, guard2, ..., guardN)`.
+
+```javascript
+const schema = G.object({
+    name: G.compose(G.string(), G.required()),
+})
+```
+
+## Parsers
+
+The `Guardian` provides a set of functions – `parsers`, to check the content of the object.
+
+### `parse()`
+
+Check the content of the object and throw an error if it is invalid: `parse(schema, object)`.
+
+```javascript
+const schema = G.string()
+G.parse(schema, 123) // throw error
+```
+
+### `safeParse()`
+
+Check the content of the object and return a special object with `.output` when all ok, and `.error` when invalid data: `safeParse(schema, object)`.
+
+```javascript
+const schema = G.string()
+const result = G.safeParse(schema, 123)
+
+if (result.ok) {
+    console.log(result.output)
+} else {
+    console.error(result.error)
 }
-
-let schema = object({
-    name: pipe(required("Name Required"), string()),
-    email: pipe(string(), email("Please enter a valid email address"))
-})
-
-const res0 = parse(schema, {
-    name: "Vasya Pupkin",
-    email: "vasya@pupkin.com"
-}) // -> Ok
-
-const res1 = parse(schema, {
-    name: "",
-    email: "vasya@pupkin.com"
-}) // -> Error "Name Required"
-
-const res2 = parse(schema, {
-    name: "Serhii Pimenov",
-    email: "vasya_pupkin.com"
-}) // -> Error "Please enter a valid email address"
-
-
 ```
 
-### Parsing
-- [x] parse - Throw error when invalid data
-- [x] safeParse - Return special object with .output when all ok, and .error when invalid data
-
-
-### Pipes
-- [x] pipe - run guarders left to right
-- [x] compose - run guarders right to left
-
-```javascript
-import {pipe, string, email} from "@olton/guardian"
-
-const scheme1 = pipe(string(), email()) // left to right
-const scheme2 = compose(email(), string()) // right to left
-```
-
-### Create a simple schema
-```javascript
-import {parse, object, visa, mastercard, string, email} from "@olton/guardian"
-
-const schema1 = string()
-const data1 = parse(schema1, "123")
-
-const schema2 = pipe(required(), email())
-const data2 = parse(schema2, "vasya@pupkin.com")
-```
-
-### Create complex schema
-```javascript
-import {parse, object, visa, mastercard, string, email} from "@olton/guardian"
-
-const schema = object({
-    name: string(),
-    email: email(),
-    cards: object({
-        visa: visa(),
-        mastercard: mastercard()
-    })
-})
-
-const data = parse(schema, {...})
-```
-
-### Guardians
-- [x] array
-- [x] base64
-- [x] between
-- [x] bigint
-- [x] boolean
-- [x] bytes
-- [x] creditCard (visa, mastercard, discover, jbc, diners, unionPay, americanExpress)
-- [x] date
-- [x] digits
-- [x] domain
-- [x] email
-- [x] empty
-- [x] endsWith
-- [x] finite
-- [x] float
-- [x] func
-- [x] hexColor
-- [x] imei
-- [x] instance
-- [x] integer
-- [x] ip (ipv4, ipv6)
-- [x] length
-- [x] maxValue
-- [x] minValue
-- [x] notNull
-- [x] notNumber
-- [x] number
-- [x] pattern
-- [x] promise
-- [x] required
-- [x] safeInteger
-- [x] startsWith
-- [x] string
-- [x] symbol
-- [x] unknown
-- [x] url
 
