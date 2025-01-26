@@ -7,11 +7,10 @@ tableOfContents:
 
 import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
-import SourceButton from '../../../components/SourceButton.astro';
+import GithubButton from '../../../components/GithubButton.astro';
 
 <div>
-    <SourceButton href="https://github.com/olton/guardian" icon="github" text="Repository"/>
-    <SourceButton href="https://www.npmjs.com/package/@olton/guardian" icon="seti:npm" text="Package"/>
+    <GithubButton user="olton" repo="guardian"/>
 </div> 
 
 <Leader content="Metro UI provides a set of methods and properties to create schemas for validation user input or other data."/>

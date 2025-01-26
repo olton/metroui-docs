@@ -3,10 +3,14 @@ title: Get started with Metro UI
 ---
 
 import Leader from '../../../components/Leader.astro'
+import SourceButton from '../../../components/SourceButton.astro'
+import CodepenButton from '../../../components/CodepenButton.astro'
 
 <Leader content="Metro UI is a free, open source, html-first toolkit for developing websites with HTML, CSS, and JS!"/>
 
 ## Quick Start
+
+<CodepenButton user="olton" id="ZYzmPNp" style="margin: 1rem 0;"/>
 
 Get started by including production-ready CSS and JavaScript via CDN without the need for any build steps.
 
@@ -23,9 +27,9 @@ Get started by including production-ready CSS and JavaScript via CDN without the
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css">
   </head>
-  <body class="d-flex flex-column justify-content-center align-items-center">
+  <body class="h-vh-100 d-flex flex-column flex-justify-center flex-align-center">
     <h1>Hello, world!</h1>
-    <div data-role="cube"></div>
+    <div data-role="cube" data-show-axis="true"></div>
     <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
   </body>
 </html>

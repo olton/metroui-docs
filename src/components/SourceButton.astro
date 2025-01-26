@@ -1,8 +1,8 @@
 ---
 import { Icon } from '@astrojs/starlight/components';
-const {href, text, icon = "github"} = Astro.props
+const {href, text, icon = "github", style} = Astro.props
 ---
-<a class="source-button" href={href} target="_blank" rel="noopener noreferrer">
+<a class="source-button" href={href} target="_blank" rel="noopener noreferrer" style={style}>
     <Icon name={icon} />
     <span>{text}</span>
 </a>
