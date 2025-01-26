@@ -1,3 +1,8 @@
+:root {
+    --sl-color-accent-high: #bf5454 !important;
+    --sl-color-text-accent: #932626 !important;
+}
+
 .site-title {
     font-weight: 900;
     color: var(--sl-color-gray-2);
@@ -15,9 +20,9 @@
 
 .hero {
     h1 {
-        /*background: -webkit-linear-gradient(120deg, #0095ff 30%, #42d392);*/
-        /*-webkit-text-fill-color: transparent;*/
-        /*-webkit-background-clip: text;*/
+        background: -webkit-linear-gradient(120deg, #da1b35 30%, #ca52ed);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
         font-weight: 700;
         font-size: 2.25rem;
         color: var(--sl-color-gray-2);
