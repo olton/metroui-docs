@@ -263,10 +263,14 @@ const schema = G.ip()
 
 ### `length()`
 
-Check if the value has a specified length: `length(min, max, err_message)`.
+Check if the value has a specified length: `length(val, err_message)`.
+
++ `length(val, err_message)` - check if the value has a specified length.
++ `minLength(min, err_message)` - check if the value has a minimum length.
++ `maxLength(max, err_message)` - check if the value has a maximum length.
 
 ```javascript
-const schema = G.length(1, 10)
+const schema = G.length(10)
 ```
 
 ### `maxValue()`
@@ -274,7 +278,7 @@ const schema = G.length(1, 10)
 Check if the value is less than a specified number: `maxValue(max, err_message)`.
 
 ```javascript
-const schema = G.maxValue(10)
+const schema = G.max(10)
 ```
 
 ### `minValue()`
@@ -282,7 +286,7 @@ const schema = G.maxValue(10)
 Check if the value is greater than a specified number: `minValue(min, err_message)`.
 
 ```javascript
-const schema = G.minValue(1)
+const schema = G.min(1)
 ```
 
 ### `notNull()`
@@ -395,6 +399,38 @@ Check if the value is a specified type: `type(type, err_message)`. The `type` ca
 
 ```javascript
 const schema = G.type("string")
+```
+
+### `equal()`
+
+Check if the value is equal to a specified value: `equal(val, err_message)`. This guard used `===` operator.
+
+```javascript
+const schema = G.equal(10)
+```
+
+### `similar()`
+
+Check if the value is similar to a specified value: `similar(val, err_message)`. This guard used `==` operator.
+
+```javascript
+const schema = G.similar("10")
+```
+
+### `great()`
+
+Check if the value is a great of specified value: `great(val, err_message)`.
+
+```javascript
+const schema = G.great(10)
+```
+
+### `less()`
+
+Check if the value is a less of specified value: `less(val, err_message)`.
+
+```javascript
+const schema = G.less(10)
 ```
 
 ### `object()`
