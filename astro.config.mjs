@@ -26,7 +26,7 @@ export default defineConfig({
 				light: '/src/assets/king-black.svg',
 				dark: '/src/assets/king-white.svg',
 			},
-			favicon: '/src/assets/king.svg',
+			favicon: '/src/assets/king-white.svg',
 			social: {
 				github: 'https://github.com/olton/metroui',
 				discord: 'https://discord.gg/bRgdUP7g',
