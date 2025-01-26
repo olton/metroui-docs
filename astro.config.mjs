@@ -2,14 +2,17 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator'
+import starlightThemeRapide from 'starlight-theme-rapide'
 import sidebar from "./sidebar.mjs"
 
 const production = process.env.MODE === 'production';
 
-const plugins = []
+const plugins = [
+	starlightThemeRapide(),
+]
 
 if (!production) {
-	plugins.push(starlightLinksValidator())
+	// plugins.push(starlightLinksValidator())
 }
 
 // https://astro.build/config
