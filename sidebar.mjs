@@ -1,11 +1,11 @@
 export default [
     {
-        label: "Overview",
-        slug: "overview",
-    },
-    {
         label: "Getting Started",
         items: [
+            {
+                label: "Overview",
+                slug: "overview",
+            },
             {label: "Introduction", slug: "getting-started/introduction"},
             {label: "Browsers", slug: "getting-started/browsers"},
             {label: "Download", slug: "getting-started/download"},

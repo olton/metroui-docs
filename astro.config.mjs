@@ -22,6 +22,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Metro UI',
+			editLink: {
+				baseUrl: 'https://github.com/olton/metroui-docs/edit/master/',
+			},
 			logo: {
 				light: '/src/assets/king-black.svg',
 				dark: '/src/assets/king-white.svg',
