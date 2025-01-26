@@ -12,7 +12,9 @@ const plugins = [
 ]
 
 if (!production) {
-	// plugins.push(starlightLinksValidator())
+	plugins.push(starlightLinksValidator({
+		errorOnRelativeLinks: false,
+	}))
 }
 
 // https://astro.build/config
