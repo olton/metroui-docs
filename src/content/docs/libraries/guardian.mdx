@@ -103,7 +103,7 @@ const schema = G.base64()
 
 ### `between()`
 
-Check if the value is between two numbers: `between(min, max, err_message)`.
+Check if the value is between two numbers or dates: `between(min, max, err_message)`. 
 
 ```javascript
 const schema = G.between(1, 10)
@@ -151,7 +151,7 @@ const schema = G.date()
 
 ### `digits()`
 
-Check if the value is a digits: `digits(err_message)`.
+Check if the value contains only digits: `digits(err_message)`.
 
 ```javascript
 const schema = G.digits()
@@ -213,12 +213,20 @@ Check if the value is a function: `func(err_message)`.
 const schema = G.func()
 ```
 
-### `hexColor()`
+### `color()`
 
-Check if the value is a hex color: `hexColor(err_message)`.
+Check if the value is a: 
+
++ `color(err_message)` - hex, rgb, rgba, hsl, or hsla.
++ `hexColor(err_message)` - hex.
++ `rgbColor(err_message)` - rgb or rgba.
++ `hslColor(err_message)` - hsl or hsla.
 
 ```javascript
+const schema = G.color()
 const schema = G.hexColor()
+const schema = G.rgbColor()
+const schema = G.hslColor()
 ```
 
 ### `imei()`
@@ -381,6 +389,14 @@ Check if the value contains a specified value: `contains(str, err_message)`. Thi
 const schema = G.contains("https://")
 ```
 
+### `type()`
+
+Check if the value is a specified type: `type(type, err_message)`. The `type` can be: `string`, `number`, `array`, `object`, `null`, `undefined`, `date`, `function`, or `boolean`.
+
+```javascript
+const schema = G.type("string")
+```
+
 ### `object()`
 
 Create object schema: `object({...}, err_message)`.
@@ -391,6 +407,10 @@ const schema = G.object({
     email: G.email(),
 })
 ```
+
+## Combinators
+
+The `Guardian` provides a set of functions – `combinators`, to combine guardians.
 
 ### `pipe()`
 
