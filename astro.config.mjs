@@ -21,7 +21,7 @@ if (!production) {
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Metro UI',
+			title: 'Metro UI 5.1',
 			editLink: {
 				baseUrl: 'https://github.com/olton/metroui-docs/edit/master/',
 			},
