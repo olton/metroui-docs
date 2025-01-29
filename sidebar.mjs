@@ -14,6 +14,7 @@ export default [
             {label: "Themes", slug: "getting-started/themes"},
             {label: "Media Rules", slug: "getting-started/media-rules"},
             {label: "Bundlers", slug: "getting-started/bundlers"},
+            {label: "Icons", slug: "getting-started/icons"},
         ],
     },
     {

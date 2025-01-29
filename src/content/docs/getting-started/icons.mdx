@@ -1,0 +1,88 @@
+---
+title: Icons
+---
+
+import Leader from '../../../components/Leader.astro'
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+
+<Leader content="Metro UI contains 800+ built-in icons!"/>
+
+Metro Icons is an open source SVG icon library featuring over 800+ glyphs. 
+Use them as icon font options give you vector scaling and easy customization via CSS. 
+You can include icons in your project either using a CDN or using your favorite bundler.
+
+:::tip
+You can view a full list of icons on https://panda.metroui.org.ua/icons/core
+:::
+
+## Include via CDN
+
+Use Metro CDN to deliver a cached version of Metro UI Icons.
+
+<Tabs>
+    <TabItem label="Latest">
+        ```html
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css"/>
+        ```
+    </TabItem>
+    <TabItem label="Development">
+        ```html
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/icons.css"/>
+        ```
+    </TabItem>
+</Tabs>
+
+If you want to use a specific version of Metro UI, you can specify the version in the URL instead of `current` or `dev`.
+For example, to use version `5.0.13`, you can use the following URLs:
+```html
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/5.0.13/icons.css"/>
+```
+
+## Including from NPM
+
+```js
+import "@olton/metroui/source/icons"
+```
+
+## Using
+
+To use icons, you need to add class `mif-icon_name` to the HTML element:
+
+```html
+<span class="mif-rocket"></span>
+```
+
+## Size
+
+To change icon size, you can:
+
+**Add built-in class `mif-2x`...`mif-10x`**
+
+```html
+<span class="mif-rocket mif-4x"></span>
+```
+
+**Change CSS property `font-size` in the HTML element**
+
+```html
+<span class="mif-rocket" style="font-size: 24px;"></span>
+```
+
+## Color
+
+To change icon color you can:
+
+**Use built-in classes `fg-color_name`**
+
+```html
+<span class="mif-rocket fg-red"></span>
+```
+
+**Change CSS property color for the HTML element**
+
+```html
+<span class="mif-rocket" style="color: darkred;"></span>
+```
+
+

@@ -53,6 +53,9 @@ export default defineConfig({
 				// },
 			],
 			plugins,
+			expressiveCode: {
+				themes: ['dark-plus', 'github-light']
+			}
 		}),
 	],
 });

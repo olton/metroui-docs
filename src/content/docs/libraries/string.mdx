@@ -55,7 +55,7 @@ With the `Str` you can create mutable or immutable strings.
 To create a mutable string, you can use the `str()` function or `Str` class with the `mutable` option set to `true`.
 `Mutable` string is a default type of string, created with class `Str`.
 
-```javascript
+```js
 const str1 = new Str('Hello, World!', {mutable: true}); // immutable string
 const str2 = str('Hello, World!', true); // mutable string
 ```
@@ -64,7 +64,7 @@ const str2 = str('Hello, World!', true); // mutable string
 
 To create an immutable string, you can use the `str()` function or `Str` class with the `mutable` option set to `false`.
 
-```javascript
+```js
 const str1 = new Str('Hello, World!', {mutable: false}); // immutable string
 const str2 = str('Hello, World!', false); // immutable string
 ```
@@ -73,7 +73,7 @@ const str2 = str('Hello, World!', false); // immutable string
 
 You can use class `Str` as a primitive type. By default it is `string`, but you be used as a `Numeric` with hint `number`.
 
-```javascript
+```js
 const str1 = new Str('100');
 console.log(""+str1); // "100"
 
@@ -87,7 +87,7 @@ console.log(+str2); // 100
 
 Property, returns the length of the string `length`.
 
-```javascript
+```js
 const str = str('Hello, World!');
 console.log( str.length ); // 13
 ```
@@ -102,7 +102,7 @@ Return `Str`.
 
 Set or get the value of the object `Str`.
 
-```javascript
+```js
 const str = str('Hello, World!');
 console.log( str.val() ); // Hello, World!
 
@@ -114,7 +114,7 @@ console.log( str.val() ); // New value
 
 Appends a string to the end of the current string `append(str, times = 1)`.
 
-```javascript
+```js
 const str = str('Hello');
 str.append(', World!'); // Hello, World!
 
@@ -126,7 +126,7 @@ str.append('.', 3); // More...
 
 Converts a string to camelCase `camelCase()`.
 
-```javascript
+```js
 const str = str('Hello, World!');
 str.camelCase(); // helloWorld
 ```
@@ -135,7 +135,7 @@ str.camelCase(); // helloWorld
 
 Capitalizes the first letter of a string `capitalize()`.
 
-```javascript
+```js
 const str = str('hello, world!');
 str.capitalize(); // Hello, world!
 ```
@@ -144,7 +144,7 @@ str.capitalize(); // Hello, world!
 
 Returns an array of characters in the string: `chars(str, ignore = [])`.
 
-```javascript
+```js
 const str = str('Hello', ['o']);
 str.chars(); // ['H', 'e', 'l', 'l']
 ```
@@ -153,7 +153,7 @@ str.chars(); // ['H', 'e', 'l', 'l']
 
 Counts the number of chars in the string `count()`.
 
-```javascript
+```js
 const str = str('Hello, World!');
 str.count(); // 13
 ```
@@ -162,7 +162,7 @@ str.count(); // 13
 
 Counts the number of chars in the string `countChars(str, ignore = [])`.
 
-```javascript
+```js
 const str = str('Hello, World!');
 str.countChars(['l']); // 10
 ```

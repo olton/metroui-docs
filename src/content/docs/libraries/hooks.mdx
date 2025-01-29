@@ -59,7 +59,7 @@ All functions to create user hooks collected in the global namespace named `Hook
 
 The `useState` function creates a state variable and a function to change it.
 
-```javascript
+```js
 function onStateChange(){
     console.log([...arguments])
 }
@@ -74,7 +74,7 @@ setState((old_value) => old_value + ' -> new value');
 
 Do memoization with hook `useMemo`. You can pass function as argument to `useMemo` and return memoized function.
 
-```javascript
+```js
 const factorial = Hooks.useMemo( n => {
     return n <= 1 ? 1 : n * factorial(n-1)
 })
@@ -86,7 +86,7 @@ console.log(factorial(5)) // Cached result
 
 The `useDebounce` function creates a debounced function.
 
-```javascript
+```js
 const debounced = Hooks.useDebounce( (value) => {
     console.log(value)
 }, 1000)
@@ -97,7 +97,7 @@ debounced('Hello, World!')
 
 The `useThrottle` function creates a throttled function.
 
-```javascript
+```js
 const throttled = Hooks.useThrottle( (value) => {
     console.log(value)
 }, 1000)
@@ -108,7 +108,7 @@ throttled('Hello, World!')
 
 The `usePipe` function creates a piped function.
 
-```javascript
+```js
 const fn1 = v => v + " world!"
 const fn2 = v => v + " usePipe()"
 const fn3 = v => v + " Enjoy!"
@@ -121,7 +121,7 @@ console.log(pipeResult) // Hello world! usePipe() Enjoy!
 
 The `useCompose` function creates a composed function.
 
-```javascript
+```js
 const fn1 = v => v + " world!"
 const fn2 = v => v + " useCompose()"
 const fn3 = v => v + " Enjoy!"
@@ -134,7 +134,7 @@ console.log(composeResult) // Hello Enjoy! useCompose() world!
 
 The `useCurry` function creates a curried function.
 
-```javascript
+```js
 const sum = Hooks.useCurry((a, b, c) => a + b + c)
 console.log(sum(1)(2)(3)) // 6
 
@@ -153,7 +153,7 @@ This hook is designed to trigger the effect under certain conditions:
 - `children` - perform the effect when the element children changed (add or remove)
 - `data` - perform the effect when the element text content was changed
 
-```javascript
+```js
 import { useEvent, EVENTS } from "@olton/hooks"
 
 useEvent({

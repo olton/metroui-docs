@@ -24,32 +24,48 @@ To initialize a component with `data-role` attribute, you need to add `data-role
 </div>
 ```
 
-### makePlugin() function
+#### Pass Options
 
-The second way to init component - using calling special function. To create component call `Metro.makePlugin(...)` method. 
-This method receives three arguments: `selector`, component `name`, and component `options`.
+When you create a component with attribute `data-role`, you must pass options with attributes `data-*`, 
+where specify `option-name` in `dashed-name` format:
 
 ```html
-// HTML
+<div data-role="accordion" data-one-frame="false">
+...
+</div>
+```
+
+### makePlugin() function
+
+The second way to init component - using calling special fabric function `Metro.makePlugin(...)`. 
+This method receives three arguments: `selector`, component `name`, and component `options`.
+
+```html title="HTML"
 <div id="accordion">
 ...
 </div>    
 ```
     
-```javascript
-// JS
-<script>
-    Metro.makePlugin("#accordion", "accordion", {...});
-</script>
+```js title="JavaScript"
+Metro.makePlugin("#accordion", "accordion", {...});
 ```
+
+When you create a component with a fabric function, you must pass options in third argument in `camel-case` format:
+
+```js title="JavaScript"
+Metro.makePlugin("#accordion", "accordion", {
+    oneFrame: false
+});
+```
+
 
 ## Component API
 
 Each component has a set of methods and properties that allow you to interact with the component.
 To get access to components API, you must call method `Metro.getPlugin(...)`. This method receives two arguments: `element` (can be selector, Dom object, jQuery object or HTMLElement) and component `name`.
 
-```javascript
-var charm = Metro.getPlugin("#left-charm", "charms");
+```js
+const charm = Metro.getPlugin("#left-charm", "charms");
 charm.open(); // API method
 ```
 

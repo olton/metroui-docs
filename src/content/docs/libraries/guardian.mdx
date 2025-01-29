@@ -24,7 +24,7 @@ specifies a schema that the object must match and then uses parsers to check the
 The `Guardian` used in the Metro UI to validate user input in component `Validator`.
 :::
 
-```javascript
+```js
 const schema = G.object({
     name: G.string(), // <-- guard
     email: G.email("Please, enter a valid email address") // <-- guard
@@ -62,7 +62,7 @@ You can use it without any additional installation, but if you want to use it in
 
 and import it in your project:
 
-```javascript
+```js
 import * as G from "@olton/guardian"
 ```
 
@@ -70,7 +70,7 @@ import * as G from "@olton/guardian"
 
 The `Guardian` functions stored in the global namespace named `G`.
 
-```javascript
+```js
 const schema = G.string()
 try {
     G.parse(schema, 123)  
@@ -87,7 +87,7 @@ The `Guardian` provides a set of functions – `guardians`, to create a schema f
 
 Check if the value is an array of specified type: `array(guard_type, err_message?)`. As `guard_type` you can use any guardian.
 
-```javascript
+```js
 const schema_array_of_strings = G.array(G.string())
 const schema_array_of_numbers = G.array(G.number())
 const schema_array_of_dates = G.array(G.date(), "Use only dates")
@@ -97,7 +97,7 @@ const schema_array_of_dates = G.array(G.date(), "Use only dates")
 
 Check if the value is a base64 string: `base64(err_message)`.
 
-```javascript
+```js
 const schema = G.base64()
 ```
 
@@ -105,7 +105,7 @@ const schema = G.base64()
 
 Check if the value is between two numbers or dates: `between(min, max, err_message)`. 
 
-```javascript
+```js
 const schema = G.between(1, 10)
 ```
 
@@ -113,7 +113,7 @@ const schema = G.between(1, 10)
 
 Check if the value is a bigint: `bigint(err_message)`.
 
-```javascript
+```js
 const schema = G.bigint()
 ```
 
@@ -121,7 +121,7 @@ const schema = G.bigint()
 
 Check if the value is a boolean: `boolean(err_message)`.
 
-```javascript
+```js
 const schema = G.boolean()
 ```
 
@@ -129,7 +129,7 @@ const schema = G.boolean()
 
 Check if the value is a bytes: `bytes(err_message)`.
 
-```javascript
+```js
 const schema = G.bytes()
 ```
 
@@ -137,7 +137,7 @@ const schema = G.bytes()
 
 Check if the value is a credit card: `creditCard(err_message)`. Also you can use specified CC guardians: `visa()`, `mastercard()`, `amex()`, `discover()`, `diners()`, `jcb()`, and `union()`.
 
-```javascript
+```js
 const schema = G.creditCard()
 ```
 
@@ -145,7 +145,7 @@ const schema = G.creditCard()
 
 Check if the value is a date object or valid date string: `date(err_message)`.
 
-```javascript
+```js
 const schema = G.date()
 ```
 
@@ -153,7 +153,7 @@ const schema = G.date()
 
 Check if the value contains only digits: `digits(err_message)`.
 
-```javascript
+```js
 const schema = G.digits()
 ```
 
@@ -161,7 +161,7 @@ const schema = G.digits()
 
 Check if the value is a domain: `domain(err_message)`.
 
-```javascript
+```js
 const schema = G.domain()
 ```
 
@@ -169,7 +169,7 @@ const schema = G.domain()
 
 Check if the value is an email: `email(err_message)`.
 
-```javascript
+```js
 const schema = G.email()
 ```
 
@@ -177,7 +177,7 @@ const schema = G.email()
 
 Check if the value is empty: `empty(err_message)`.
 
-```javascript
+```js
 const schema = G.empty()
 ```
 
@@ -185,7 +185,7 @@ const schema = G.empty()
 
 Check if the value ends with a specified string: `endsWith(str, err_message)`.
 
-```javascript
+```js
 const schema = G.endsWith("com")
 ```
 
@@ -193,7 +193,7 @@ const schema = G.endsWith("com")
 
 Check if the value is a finite: `finite(err_message)`.
 
-```javascript
+```js
 const schema = G.finite()
 ```
 
@@ -201,7 +201,7 @@ const schema = G.finite()
 
 Check if the value is a float: `float(err_message)`.
 
-```javascript
+```js
 const schema = G.float()
 ```
 
@@ -209,7 +209,7 @@ const schema = G.float()
 
 Check if the value is a function: `func(err_message)`.
 
-```javascript
+```js
 const schema = G.func()
 ```
 
@@ -222,7 +222,7 @@ Check if the value is a:
 + `rgbColor(err_message)` - rgb or rgba.
 + `hslColor(err_message)` - hsl or hsla.
 
-```javascript
+```js
 const schema = G.color()
 const schema = G.hexColor()
 const schema = G.rgbColor()
@@ -233,7 +233,7 @@ const schema = G.hslColor()
 
 Check if the value is an IMEI: `imei(err_message)`.
 
-```javascript
+```js
 const schema = G.imei()
 ```
 
@@ -241,7 +241,7 @@ const schema = G.imei()
 
 Check if the value is an instance of a specified class: `instance(class, err_message)`.
 
-```javascript
+```js
 const schema = G.instance(Date)
 ```
 
@@ -249,7 +249,7 @@ const schema = G.instance(Date)
 
 Check if the value is an integer: `integer(err_message)`.
 
-```javascript
+```js
 const schema = G.integer()
 ```
 
@@ -257,7 +257,7 @@ const schema = G.integer()
 
 Check if the value is an IP: `ip(err_message)`.
 
-```javascript
+```js
 const schema = G.ip()
 ```
 
@@ -269,7 +269,7 @@ Check if the value has a specified length: `length(val, err_message)`.
 + `minLength(min, err_message)` - check if the value has a minimum length.
 + `maxLength(max, err_message)` - check if the value has a maximum length.
 
-```javascript
+```js
 const schema = G.length(10)
 ```
 
@@ -277,7 +277,7 @@ const schema = G.length(10)
 
 Check if the value is less than a specified number: `maxValue(max, err_message)`.
 
-```javascript
+```js
 const schema = G.max(10)
 ```
 
@@ -285,7 +285,7 @@ const schema = G.max(10)
 
 Check if the value is greater than a specified number: `minValue(min, err_message)`.
 
-```javascript
+```js
 const schema = G.min(1)
 ```
 
@@ -293,7 +293,7 @@ const schema = G.min(1)
 
 Check if the value is not null: `notNull(err_message)`.
 
-```javascript
+```js
 const schema = G.notNull()
 ```
 
@@ -301,7 +301,7 @@ const schema = G.notNull()
 
 Check if the value is not a number: `notNumber(err_message)`.
 
-```javascript
+```js
 const schema = G.notNumber()
 ```
 
@@ -309,7 +309,7 @@ const schema = G.notNumber()
 
 Check if the value is a number: `number(err_message)`.
 
-```javascript
+```js
 const schema = G.number()
 ```
 
@@ -317,7 +317,7 @@ const schema = G.number()
 
 Check if the value matches a specified pattern: `pattern(regexp, err_message)`.
 
-```javascript
+```js
 const schema = G.pattern(/^[a-z]+$/)
 ```
 
@@ -325,7 +325,7 @@ const schema = G.pattern(/^[a-z]+$/)
 
 Check if the value is a promise: `promise(err_message)`.
 
-```javascript
+```js
 const schema = G.promise()
 ```
 
@@ -333,7 +333,7 @@ const schema = G.promise()
 
 Check if the value is required: `required(err_message)`.
 
-```javascript
+```js
 const schema = G.required()
 ```
 
@@ -341,7 +341,7 @@ const schema = G.required()
 
 Check if the value is a safe integer: `safeInteger(err_message)`.
 
-```javascript
+```js
 const schema = G.safeInteger()
 ```
 
@@ -349,7 +349,7 @@ const schema = G.safeInteger()
 
 Check if the value starts with a specified string: `startsWith(str, err_message)`.
 
-```javascript
+```js
 const schema = G.startsWith("https://")
 ```
 
@@ -357,7 +357,7 @@ const schema = G.startsWith("https://")
 
 Check if the value is a string: `string(err_message)`.
 
-```javascript
+```js
 const schema = G.string()
 ```
 
@@ -365,7 +365,7 @@ const schema = G.string()
 
 Check if the value is a symbol: `symbol(err_message)`.
 
-```javascript
+```js
 const schema = G.symbol()
 ```
 
@@ -373,7 +373,7 @@ const schema = G.symbol()
 
 Check if the value is unknown: `unknown(err_message)`.
 
-```javascript
+```js
 const schema = G.unknown()
 ```
 
@@ -381,7 +381,7 @@ const schema = G.unknown()
 
 Check if the value is a URL: `url(err_message)`.
 
-```javascript
+```js
 const schema = G.url()
 ```
 
@@ -389,7 +389,7 @@ const schema = G.url()
 
 Check if the value contains a specified value: `contains(str, err_message)`. This guardian is used only for arrays and strings.
 
-```javascript
+```js
 const schema = G.contains("https://")
 ```
 
@@ -397,7 +397,7 @@ const schema = G.contains("https://")
 
 Check if the value is a specified type: `type(type, err_message)`. The `type` can be: `string`, `number`, `array`, `object`, `null`, `undefined`, `date`, `function`, or `boolean`.
 
-```javascript
+```js
 const schema = G.type("string")
 ```
 
@@ -405,7 +405,7 @@ const schema = G.type("string")
 
 Check if the value is equal to a specified value: `equal(val, err_message)`. This guard used `===` operator.
 
-```javascript
+```js
 const schema = G.equal(10)
 ```
 
@@ -413,7 +413,7 @@ const schema = G.equal(10)
 
 Check if the value is similar to a specified value: `similar(val, err_message)`. This guard used `==` operator.
 
-```javascript
+```js
 const schema = G.similar("10")
 ```
 
@@ -421,7 +421,7 @@ const schema = G.similar("10")
 
 Check if the value is a great of specified value: `great(val, err_message)`.
 
-```javascript
+```js
 const schema = G.great(10)
 ```
 
@@ -429,7 +429,7 @@ const schema = G.great(10)
 
 Check if the value is a great or equal to specified value: `greatOrEqual(val, err_message)`.
 
-```javascript
+```js
 const schema = G.greatOrEqual(10)
 ```
 
@@ -437,7 +437,7 @@ const schema = G.greatOrEqual(10)
 
 Check if the value is a less of specified value: `less(val, err_message)`.
 
-```javascript
+```js
 const schema = G.less(10)
 ```
 
@@ -445,7 +445,7 @@ const schema = G.less(10)
 
 Check if the value is a less or equal to specified value: `lessOrEqual(val, err_message)`.
 
-```javascript
+```js
 const schema = G.lessOrEqual(10)
 ```
 
@@ -453,7 +453,7 @@ const schema = G.lessOrEqual(10)
 
 Create object schema: `object({...}, err_message)`.
 
-```javascript
+```js
 const schema = G.object({
     name: G.string(),
     email: G.email(),
@@ -468,7 +468,7 @@ The `Guardian` provides a set of functions – `combinators`, to combine guardia
 
 Run guardians left to right: `pipe(guard1, guard2, ..., guardN)`.
 
-```javascript
+```js
 const schema = G.object({
     name: G.pipe(G.required(), G.string()),
 })
@@ -478,7 +478,7 @@ const schema = G.object({
 
 Run guardians right to left: `compose(guard1, guard2, ..., guardN)`.
 
-```javascript
+```js
 const schema = G.object({
     name: G.compose(G.string(), G.required()),
 })
@@ -492,7 +492,7 @@ The `Guardian` provides a set of functions – `parsers`, to check the content o
 
 Check the content of the object and throw an error if it is invalid: `parse(schema, object)`.
 
-```javascript
+```js
 const schema = G.string()
 G.parse(schema, 123) // throw error
 ```
@@ -501,7 +501,7 @@ G.parse(schema, 123) // throw error
 
 Check the content of the object and return a special object with `.output` when all ok, and `.error` when invalid data: `safeParse(schema, object)`.
 
-```javascript
+```js
 const schema = G.string()
 const result = G.safeParse(schema, 123)
 

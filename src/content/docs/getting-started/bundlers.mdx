@@ -43,12 +43,12 @@ npm install esbuild \
   esbuild-plugin-replace
 ```
 
-```javascript
+```js
 // metro.js
 import "@olton/metroui";
 ```
 
-```javascript
+```js
 // build.js
 import {build} from 'esbuild'
 import { lessLoader } from "esbuild-plugin-less";
@@ -84,7 +84,7 @@ build({
 
 ## Build with specific components
 
-```javascript
+```js
 // metro.js
 import "@olton/metroui/source/reset/index.js";
 import "@olton/metroui/source/runtime.js";
@@ -102,12 +102,12 @@ import "@olton/metroui/source/components/button/index.js";
 
 ## Build icons
 
-```javascript
+```js
 // icons.js
 import "@olton/metroui/source/icons/index.js";
 ```
 
-```javascript
+```js
 // build.js
 await build({
     entryPoints: ['icons.js'],
