@@ -5,7 +5,7 @@ export default {
     plugins: [pluginLineNumbers()],
     defaultProps: {
         showLineNumbers: false,
-        wrap: true,
+        wrap: false,
         overridesByLang: {
             'js,ts,html': { showLineNumbers: true, },
             'bash,ps,sh': { preserveIndent: false },
