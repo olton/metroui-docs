@@ -55,7 +55,12 @@ export default defineConfig({
 			plugins,
 			expressiveCode: {
 				themes: ['dark-plus', 'github-light']
-			}
+			},
+			tableOfContents: {
+				minHeadingLevel: 2,
+				maxHeadingLevel: 4,
+			},
+			credits: false,
 		}),
 	],
 });

@@ -1,8 +1,5 @@
 ---
 title: Hooks
-tableOfContents:
-    minHeadingLevel: 2
-    maxHeadingLevel: 4
 ---
 
 import Leader from '../../../components/Leader.astro'
@@ -145,13 +142,13 @@ const sum3 = Hooks.useCurry((a, b, c) => a + b + c)
 console.log(sum3(1)(2)(3)) // 6
 ```
 
-### useEvent
+### useEvent()
 This hook is designed to trigger the effect under certain conditions:
-- `load` - perform the effect when the element appears in the document
-- `viewport` - perform the effect when the element appears in the viewport
-- `attribute` - perform the effect when the element attribute(s) changed
-- `children` - perform the effect when the element children changed (add or remove)
-- `data` - perform the effect when the element text content was changed
+- `LOAD` - perform the effect when the element appears in the document
+- `VIEWPORT` - perform the effect when the element appears in the viewport
+- `ATTRIBUTE` - perform the effect when the element attribute(s) changed
+- `CHILDREN` - perform the effect when the element children changed (add or remove)
+- `DATA` - perform the effect when the element text content was changed
 
 ```js
 import { useEvent, EVENTS } from "@olton/hooks"
