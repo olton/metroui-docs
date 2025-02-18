@@ -43,15 +43,6 @@ export default defineConfig({
 				SocialIcons: './src/components/SocialIcons.astro',
 			},
 			lastUpdated: true,
-			head: [
-				// {
-				// 	tag: 'script',
-				// 	attrs: {
-				// 		src: 'https://public.codepenassets.com/embed/index.js',
-				// 		defer: true,
-				// 	},
-				// },
-			],
 			plugins,
 			expressiveCode: {
 				themes: ['dark-plus', 'github-light']
