@@ -29,6 +29,7 @@ export default [
             {label: "Guardian", slug: "libraries/guardian"},
             {label: "Hooks", slug: "libraries/hooks"},
             {label: "Html", slug: "libraries/html"},
+            {label: "Router", slug: "libraries/router"},
         ]
     },
     {

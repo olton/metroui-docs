@@ -83,6 +83,10 @@ table {
     tr:nth-child(even) {
         background-color: var(--sl-color-gray-7);
     }
+    
+    code {
+        white-space: nowrap;
+    }
 }
 
 ul {
