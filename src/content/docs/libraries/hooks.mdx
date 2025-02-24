@@ -164,9 +164,11 @@ useEvent({
 ### useId()
 This hook generates a unique ID. This hook guarantees the same value for element in the same session.
 ```js
+const id = Hooks.useId()
+const id_for_string = Hooks.useId("key")
 const input = $("<input type='text'>").appendTo("body")
 const label = $("<label>").html("Label for input").appendTo("body")
-const id = Hooks.useId(input[0])
+const id_for_element = Hooks.useId(input[0])
 input.id(id)
 label.attr("for", id)
 ```
