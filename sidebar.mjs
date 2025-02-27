@@ -66,7 +66,7 @@ export default [
         collapsed: true,
         items: [
             {label: "Accordion", slug: "components/accordion"},
-            {label: "Color Selector", slug: "components/color-selector"},
+            {label: "Package Manager", slug: "components/package-manager"},
         ]
     }
 ]

@@ -89,16 +89,10 @@ table {
     }
 }
 
-ul {
-    /*line-height: 1.4;*/
-    /*font-size: 14px;*/
-}
-
 code {
     border-radius: 4px;
 }
 
-/*:is(.hero, .sl-markdown-content) .sl-link-button.secondary:is(:hover, :focus-visible) {*/
-/*    border-color: var(--sl-color-red)!important;*/
-/*    color: var(--sl-color-red)!important;*/
-/*}*/
+.sl-markdown-content :is(iframe):not(:where(.not-content *)) {
+     min-height: 600px!important; 
+}

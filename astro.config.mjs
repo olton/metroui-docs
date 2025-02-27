@@ -52,6 +52,15 @@ export default defineConfig({
 				maxHeadingLevel: 4,
 			},
 			credits: false,
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						src: 'https://public.codepenassets.com/embed/index.js',
+						defer: false,
+					},
+				}
+			]
 		}),
 	],
 });
