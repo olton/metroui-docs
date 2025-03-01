@@ -30,6 +30,7 @@ export default [
             {label: "Hooks", slug: "libraries/hooks"},
             {label: "Html", slug: "libraries/html"},
             {label: "Router", slug: "libraries/router"},
+            {label: "Model", slug: "libraries/model"},
         ]
     },
     {

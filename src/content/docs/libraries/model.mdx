@@ -1,0 +1,240 @@
+---
+title: Model
+---
+
+import Leader from '../../../components/Leader.astro'
+import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+import GithubButton from '../../../components/GithubButton.astro';
+
+<div>
+    <GithubButton user="olton" repo="model"/>
+</div> 
+
+<Leader content="Metro UI includes class Model to create reactive two-way binding."/>
+
+## About
+
+:::tip
+To access to a reactive model im Metro UI, use class `Metro.Model`.
+:::
+
+## Installation
+Metro UI already includes the `Model` library.
+You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
+
+<Tabs>
+    <TabItem label="npm" icon="seti:npm">
+        ```bash
+        npm install @olton/model
+        ```
+    </TabItem>
+    <TabItem label="pnpm" icon="pnpm">
+        ```bash
+        pnpm install @olton/model
+        ```
+    </TabItem>
+    <TabItem label="yarm" icon="seti:yarn">
+        ```bash
+        yarn add @olton/model
+        ```
+    </TabItem>
+</Tabs>
+
+## Usage
+
+```html title="index.html"
+<div>
+    <div>{{ name }}</div>
+    <div>{{ age }}</div>
+</div>  
+```
+
+```js title="index.js"
+import { Model } from "@olton/model";
+
+const model = new Model({
+    name: "John",
+    age: 30
+});
+
+model.name = "Mike";
+model.age = 31;
+```
+
+## Binding
+
+You can bind model to HTML elements.
+
+```html
+<div>{{ age }}</div>
+<input type="text" data-model="name">
+```
+
+## Loops
+You can use model in loops.
+
+```html
+<ul>
+    <li data-for="item in items">{{ item }}</li>
+</ul>
+```
+
+## IF
+You can use model in IF.
+
+```html
+<div data-if="isVisible">Hello</div>
+```
+
+## Nested objects
+You can use nested objects in model.
+
+```html
+<div>{{ user.name }}</div>
+```
+
+```js
+const model = new Model({
+    user: {
+        name: "John",
+        age: 30
+    }
+});
+```
+
+## Arrays
+You can use arrays in model.
+
+```html
+<ul>
+    <li data-for="item in items">{{ item }}</li>
+</ul>
+```
+
+```js   
+const model = new Model({
+    items: ["Item 1", "Item 2", "Item 3"]
+});
+```
+
+## Calculated properties
+You can use calculated properties in model.
+
+```html
+<div>{{ fullName }}</div>
+```
+
+```js
+const model = new Model({
+    firstName: "John",
+    lastName: "Doe",
+    fullName() {
+        return this.firstName + " " + this.lastName;
+    }
+});
+```
+
+## Middleware
+You can use middleware in model.
+
+```js
+const model = new Model({
+    name: "John",
+    age: 30,
+    counter: 10,
+});
+
+model.middleware.use(async (context, next) => {
+     if (context.property === 'counter' && context.newValue < 0) {
+         context.preventDefault = true;
+         return;
+     }
+     await next();
+});
+```
+
+## Events
+You can use events in model.
+
+```js
+const model = new Model({
+    name: "John",
+    age: 30,
+});
+
+model.on("change", (property, newValue, oldValue) => {
+    console.log(`Property ${property} changed from ${oldValue} to ${newValue}`);
+});
+```
+
+## Watchers
+You can use watchers in model.
+
+```js   
+const model = new Model({
+    name: "John",
+    age: 30,
+});
+
+model.watch("name", (newValue, oldValue) => {
+    console.log(`Name changed from ${oldValue} to ${newValue}`);
+});
+```
+
+## Validation
+You can use validation in model.
+
+```js
+const model = new Model({
+    name: "John",
+    age: 30,
+});
+
+model.addValidator('name', value => value.length >= 3);
+```
+
+## Formatting
+You can use formatting in model.
+
+```js
+const model = new Model({
+    name: "John",
+    age: 30,
+});
+
+model.addFormatter('name', value => value.toUpperCase());
+```
+
+## State
+You can save and restore model state from localstorage.
+
+```js
+var model
+
+window.addEventListener('beforeunload', () => {
+     model.saveState();
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    model = new Metro.Model(null, {
+        id: 'model-state'});
+    });
+
+   model.loadState()
+   model.init("#root")
+})
+```
+## Batch updates
+You can use batch updates in model. Batch updates are useful when you want to update multiple properties at once without triggering the change event for each property.
+
+```js
+const model = new Model({
+    name: "John",
+    age: 30,
+});
+
+model.batch(() => {
+    model.name = "Mike";
+    model.age = 31;
+});
+```
