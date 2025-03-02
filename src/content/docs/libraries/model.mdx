@@ -173,6 +173,17 @@ model.on("change", (property, newValue, oldValue) => {
 });
 ```
 
+You can use next events in model:
+
+- `init` - when model initialized
+- `change` - when property changed
+- `batchComplete` - when batch complete
+- `compute` - when computed property changed
+- `saveState` - when model state saved
+- `loadState` - when model state loaded
+- `restoreState` - when model state restored
+- `restoreStateError` - when model state restored with error
+
 ## Watchers
 You can use watchers in model.
 
@@ -242,5 +253,19 @@ const model = new Model({
 model.batch(() => {
     model.name = "Mike";
     model.age = 31;
+});
+```
+
+## DevTools
+
+You can activate DevTools for model. DevTools are useful when you want to debug your model.
+
+```js
+const model = new Model({});
+
+const devTools = model.initDevTools({
+    enabled: true,
+    timeTravel: true,
+    maxSnapshots: 50
 });
 ```
