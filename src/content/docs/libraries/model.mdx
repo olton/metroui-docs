@@ -65,8 +65,8 @@ const model = new Model({
 
 model.init("#root");
 
-model.name = "Mike";
-model.age = 31;
+model.data.name = "Mike";
+model.data.age = 31;
 ```
 
 ## Binding
@@ -101,7 +101,7 @@ const model = new Model({
 ```
 
 ## Conditionals (data-if)
-You can use conditionals in model. In example below, if `isVisible` is true, the div will be rendered.
+You can use conditionals in a model. In example below, if `isVisible` is true, the div will be rendered.
 
 ```html
 <div data-if="isVisible">Hello</div>
@@ -170,7 +170,7 @@ const model = new Model({
 ```
 
 ## Middleware
-You can use middleware in model.
+You can use middleware in a model.
 
 ```js
 const model = new Model({
@@ -189,7 +189,7 @@ model.use(async (context, next) => {
 ```
 
 ## Events
-You can use events in model.
+You can use events in a model.
 
 ```js
 const model = new Model({
@@ -301,14 +301,14 @@ const model = new Model({
 });
 
 model.batch(() => {
-    model.name = "Mike";
-    model.age = 31;
+    model.data.name = "Mike";
+    model.data.age = 31;
 });
 ```
 
 ## DevTools
 
-You can activate DevTools for model. DevTools are useful when you want to debug your model.
+You can activate DevTools for a model. DevTools is useful when you want to debug your model.
 
 ```js
 const model = new Model({});
