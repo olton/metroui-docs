@@ -3,25 +3,40 @@ title: Overview
 slug: overview
 ---
 
-Metro UI is a free, open source, html-first toolkit for developing websites with HTML, CSS, and JS. With Metro UI, you can easily and quickly make a site from prototype to production.
-Metro UI includes general styles and JavaScript routines, responsive grid, layouts, typography, 100+ components, and 800+ built-in icons.
+import Leader from '../../components/Leader.astro'
+import GithubButton from '../../components/GithubButton.astro';
+import SourceButton from '../../components/SourceButton.astro';
+
+<Leader content="Welcome to Metro UI - popularity framework for creating websites!"/>
+
+<div>
+    <GithubButton user="olton" repo="metroui"/>
+    <SourceButton icon="rocket" text="Website" href="https://metroui.org.ua"/>
+</div> 
+
+Metro UI is a free, open source, html-first toolkit for developing reactive websites with HTML, CSS, and JS. 
+With Metro UI, you can easily and quickly make a site from prototype to production.
+
+Metro UI includes general styles and JavaScript routines, responsive grid, layouts, typography, 100+ ready to use components, and 800+ built-in icons.
+Also Metro UI includes a set of libraries for working with dates and times, colors, strings, html, and others, including a model to create reactive pages and router for SPA.
 
 ## Features
 
 + **Html-First**: Using Metro UI is straightforward. You don't even need to know javascript to make fully functional websites that interact with the user.
-+ **JS Routines**: Metro UI includes several JS libraries to work with HTML elements, strings, color, datetime, and others. You can create scheme validators with `Guardian` or use functions from `Html` package to create HTML elements with JavaScript.
++ **Libraries**: Metro UI includes 9 JavaScript libraries to work with HTML elements, strings, color, datetime, routing, and data, including reactivity.
 + **100+ Components**: Metro UI includes 100+ components for any purposes.
 + **Dark & Light**: Metro UI supports dark-light switching out of the box, including the relevant components.
++ **Metro Icon Font**: includes 800+ icons carefully selected for any purpose.
 
 ## Started from any source
 
-+ **CDN**: You can start using Metro UI right away by including the CDN link in your HTML file. The CDN is provided by the excellent provider [KeyCDN](https://keycdn.com/).
++ **CDN**: You can start using Metro UI right away by [including the CDN link](/getting-started/download) in your HTML file. The CDN is provided by the excellent provider [KeyCDN](https://keycdn.com/).
 + **NPM**: You can also install Metro UI [from npm](https://www.npmjs.com/package/@olton/metroui). This is the recommended way to use Metro UI in your project.
 + **Download**: You can download Metro UI from the [GitHub repository](https://github.com/olton/metroui)
 
 ## Build with any Bundlers
 
-Use any bundler to create your own set of Metro UI components: **esbuild**, **Webpack**, **Parcel**, **Rollup**, **Vite**, or any other.
+[Use any bundler](/getting-started/bundlers) to create your own set of Metro UI components: **esbuild**, **Webpack**, **Parcel**, **Rollup**, **Vite**, or any other.
 
 ## Metro UI Structure
 
@@ -30,6 +45,10 @@ Moreover, Metro UI contains the `Dom` module, which provides the user with most 
 There are also modules for working with `dates`, `strings`, and `color`.
 
 You can create scheme validators with `Guardian`, or use `Hooks` to create your own hooks: `useDebounce`, `useThrottle`, `useState`, `useEffect`, and others.
+
+Need reactivity? Use `Model` to create a reactive data model with two-way binding for your website.
+
+Building a SPA? Use `Router` to create a router for your application.
 
 All parts are written by the same author, so Metro UI has `zero-dependency`.
 
