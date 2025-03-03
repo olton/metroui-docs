@@ -26,10 +26,10 @@ export default defineConfig({
 				baseUrl: 'https://github.com/olton/metroui-docs/edit/master/',
 			},
 			logo: {
-				light: '/src/assets/king-black.svg',
-				dark: '/src/assets/king-white.svg',
+				light: '/src/assets/crown-black.svg',
+				dark: '/src/assets/crown-white.svg',
 			},
-			favicon: '/king-white.svg',
+			favicon: '/crown-white.svg',
 			social: {
 				github: 'https://github.com/olton/metroui',
 				discord: 'https://discord.gg/bRgdUP7g',
