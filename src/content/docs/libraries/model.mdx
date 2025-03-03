@@ -72,24 +72,32 @@ model.data.name = "Mike";
 model.data.age = 31;
 ```
 
-## Binding
+## Binding model to HTML
 
 You can bind model to HTML elements.
 
 ```html
 <div>{{ age }}</div>
 <input type="text" data-model="name">
+<button :disabled="isDisabled">Click me</button>
+<div data-bind='{"title": "User Counter"}'>Counter: {{ counter }}</div>
 ```
+
 
 ```js
 const model = new Model({
     name: "John",
-    age: 30
+    age: 30,
+    isDisabled: false
 });
 ```
 
 ## Loops (data-for)
 You can use model in loops.
+
+### data-for
+
+Directive `data-for` is used to create a loop by array.
 
 ```html
 <ul>
@@ -103,17 +111,53 @@ const model = new Model({
 });
 ```
 
+### data-in
+Directive `data-in` is used to create a loop by object.
+
+```html
+<ul>
+    <li data-in="key in obj">{{ key }} : {{ obj[key] }}</li>
+</ul>
+```
+
+```js
+const model = new Model({
+    obj: {
+        name: "Serhii",
+        age: 52,
+        address: "Kyiv, Ukraine"
+    }
+});
+```
+
 ## Conditionals (data-if)
-You can use conditionals in a model. In example below, if `isVisible` is true, the div will be rendered.
+You can use conditionals in a model with directives `data-if`, `data-else`, and `data-else-if`. 
+
+### data-if
+
+Directive `data-if` is used to create a conditional block.
 
 ```html
 <div data-if="isVisible">Hello</div>
 ```
 
-```js
-const model = new Model({
-    isVisible: true
-});
+### data-else
+
+Directive `data-else` is used to create an else block after `data-if` or `data-else-if`.
+
+```html
+<div data-if="isVisible">Visible</div>
+<div data-else>Invisible</div>
+```
+
+### data-else-if
+
+Directive `data-else-if` is used to create an else if block after `data-if`.
+
+```html
+<div data-if="counter < 0">Negative</div>
+<div data-else-if="counter > 0">Positive</div>
+<div data-else>Zero</div>
 ```
 
 ## Nested objects
@@ -133,7 +177,7 @@ const model = new Model({
 ```
 
 ## Arrays
-You can use arrays in model.
+You can use arrays in the model.
 
 ```html
 <ul>
@@ -147,16 +191,56 @@ const model = new Model({
 });
 ```
 
+### Array standard methods
+
+#### Mutation methods
+
+Model is able to detect when a reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
+
+- `push()`
+- `pop()`
+- `shift()`
+- `unshift()`
+- `splice()`
+- `sort()`
+- `reverse()`
+
+```js
+model.data.items.push("Item 4");
+```
+
+### Additional Array methods
+
+Also, you can use additional methods to manipulate arrays.
+
+#### applyArrayMethod()
+
+```js
+const model = new Model({
+    items: ["Item 1", "Item 2", "Item 3"]
+});
+
+
+model.store.applyArrayMethod('items', 'push', 'Item 4');
+```
+
 #### applyArrayChanges()
 
 You can use `applyArrayChanges` method to apply changes to array.
 
 ```js
-model.applyArrayChanges('users', (users) => users.push({ name: 'John Dow' }));
+model.store.applyArrayChanges('items', (items) => items.push("Item 4"));
 ```
 
-## Calculated properties
-You can use calculated properties in model.
+### Diff Arrays
+You can use `diffArrays(newArray, oldArray)` method to compare two arrays.
+
+```js
+model.diffArrays([1, 2, 3], [1, 2, 4]); // {added: [3], removed: [4], changed: [2]}
+```
+
+## Computed properties
+You can use computed properties in the model. The computed property must be a function, and calculated based on other properties.
 
 ```html
 <div>{{ fullName }}</div>
@@ -169,6 +253,44 @@ const model = new Model({
     fullName() {
         return this.firstName + " " + this.lastName;
     }
+});
+```
+
+:::caution
+All calculated properties must be defined as methods on the first level of model.
+:::
+
+## Binding attributes
+
+### data-bind
+
+You can bind attributes to elements with directive `data-bind`. 
+This directive allows you to set multiple element attributes at once, based on model properties.
+
+```html
+<div data-bind='{"class": "counter >= 0 ? \"positive\" : \"negative\"", "title": "new_title"}'>Counter: {{ counter }}</div>
+```
+
+```js
+const model = new Model({
+    counter: 10,
+    new_title: "New title"
+});
+```
+
+### :attribute
+
+You can use special syntax `:attribute` to bind specified attribute to elements.
+
+```html
+<div :class="counter >= 0 ? 'positive' : 'negative'">Counter: {{ counter }}</div>
+<img :src="path_to_image" alt="Image"/>
+```
+
+```js
+const model = new Model({
+    counter: 10,
+    path_to_image: "https://example.com/image.jpg"
 });
 ```
 
@@ -207,14 +329,28 @@ model.on("change", (property, newValue, oldValue) => {
 
 You can use next events in model:
 
+### General
 - `init` - when model initialized
+- `destroy` - when model destroyed
+
+### Changes
 - `change` - when property changed
+- `arrayChange` - when array property changed
 - `batchComplete` - when batch complete
 - `compute` - when computed property changed
+
+### State
 - `saveState` - when model state saved
-- `loadState` - when model state loaded
+- `saveStateError` - when model state not saved
 - `restoreState` - when model state restored
 - `restoreStateError` - when model state restored with error
+- `createSnapshot` - when snapshot created
+- `restoreSnapshot` - when snapshot restored
+
+### Plugins
+- `pluginRegistered` - when plugin registered
+- `pluginUnregistered` - when plugin removed
+
 
 ## Watchers
 You can use watchers in model.
@@ -274,24 +410,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Save state
 
+To save model state to localStorage, you can use method `save()`.
+
 ```js
 window.addEventListener('beforeunload', () => {
-     model.saveState();
+     model.save();
 })
+```
+
+### Restore state
+
+To restore model state from localStorage, you can use method `restore()`.
+
+```js
+model.restore();
 ```
 
 ### Auto save state
 
 ```js
-const model = new Model();
-
-model.enableAutoSave(5000); // save every 5 seconds
+model.autoSave(5000); // save every 5 seconds
 ```
 
-### Disable auto save state
+```js
+model.autoSave(false); // disable auto save
+```
+
+### Snapshots
+
+You can create model snapshots to save model state.
+
+#### Create snapshot
 
 ```js
-model.disableAutoSave();
+const snapshot = model.snapshot();
+```
+
+#### Restore snapshot
+
+```js
+model.snapshot(snapshot);
 ```
 
 ## Batch updates
@@ -316,7 +474,7 @@ You can activate DevTools for a model. DevTools is useful when you want to debug
 ```js
 const model = new Model({});
 
-const devTools = model.initDevTools({
+const devTools = model.runDevTools({
     enabled: true,
     timeTravel: true,
     maxSnapshots: 50
@@ -336,7 +494,51 @@ const model = new Model({
     age: 30,
 });
 
-model.validateModel();
-model.isValidPath('name'); // true
-model.isValidPath('lastname'); // false
+model.dom.validateModel();
+model.store.isValidPath('name'); // true
+model.store.isValidPath('lastname'); // false
+```
+
+## Plugins
+You can use plugins in model. Plugins are useful when you want to extend model functionality.
+
+### Register plugin
+
+To register plugin, you must use static method `Model.registerPlugin(name, class)`.
+
+```js
+class MyPlugin {
+    constructor(model, options) {
+        this.model = model;
+    }
+
+    init() {
+        console.log('Plugin initialized');
+    }
+}
+
+Model.registerPlugin('my-plugin', MyPlugin);
+```
+
+### Use plugin
+
+After registering plugin, you can use it in model.
+
+```js
+const model = new Model({
+    name: "John",
+    age: 30,
+})
+
+const pluginOptions = {
+    ...
+}
+model.usePlugin("my-plugin", pluginOptions);
+```
+
+### Unregister plugin
+To unregister plugin, you can use method `Model.removePlugin(name)`.
+
+```js
+Model.removePlugin('my-plugin');
 ```
