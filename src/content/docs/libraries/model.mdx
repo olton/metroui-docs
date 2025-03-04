@@ -93,7 +93,7 @@ const model = new Model({
 });
 ```
 
-## Loops
+## Loops (for, in)
 You can use model in loops.
 
 ### data-for
@@ -131,7 +131,7 @@ const model = new Model({
 });
 ```
 
-## Conditionals (data-if)
+## Conditionals (if-else)
 You can use conditionals in a model with directives `data-if`, `data-else`, and `data-else-if`. 
 
 ### data-if
@@ -192,9 +192,7 @@ const model = new Model({
 });
 ```
 
-### Array standard methods
-
-#### Mutation methods
+### Mutation methods
 
 Model is able to detect when a reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
 
@@ -210,11 +208,7 @@ Model is able to detect when a reactive array's mutation methods are called and 
 model.data.items.push("Item 4");
 ```
 
-### Additional Array methods
-
-Also, you can use additional methods to manipulate arrays.
-
-#### applyArrayMethod()
+### applyArrayMethod()
 
 ```js
 const model = new Model({
@@ -225,15 +219,13 @@ const model = new Model({
 model.store.applyArrayMethod('items', 'push', 'Item 4');
 ```
 
-#### applyArrayChanges()
-
-You can use `applyArrayChanges` method to apply changes to array.
+### applyArrayChanges()
 
 ```js
 model.store.applyArrayChanges('items', (items) => items.push("Item 4"));
 ```
 
-### Diff Arrays
+### diffArrays()
 You can use `diffArrays(newArray, oldArray)` method to compare two arrays.
 
 ```js
@@ -253,6 +245,25 @@ const model = new Model({
     lastName: "Doe",
     fullName() {
         return this.firstName + " " + this.lastName;
+    }
+});
+```
+
+### Asynchronous computed properties
+
+You can use asynchronous computed properties in the model.
+
+```html
+<ul>
+    <li data-for="post in posts">{{ post.title }}</li>
+</ul>
+```
+
+```js
+const model = new Model({
+    posts: [],
+    async getPosts() {
+        this.posts = await fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json());
     }
 });
 ```
