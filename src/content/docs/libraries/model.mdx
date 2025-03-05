@@ -486,7 +486,7 @@ You can activate DevTools for a model. DevTools is useful when you want to debug
 ```js
 const model = new Model({});
 
-const devTools = model.runDevTools({
+model.runDevTools({
     enabled: true,
     timeTravel: true,
     maxSnapshots: 50
@@ -497,8 +497,8 @@ const devTools = model.runDevTools({
 
 To validate model, you can use methods:
 
-+ `validateModel()` - validate model for cycling dependencies and missing properties
-+ `isValidPath(path)` - check if path is valid
++ `validate()` - validate model for cycling dependencies and missing properties
++ `validPath(path)` - check if path is valid
 
 ```js
 const model = new Model({
@@ -506,9 +506,9 @@ const model = new Model({
     age: 30,
 });
 
-model.dom.validateModel();
-model.store.isValidPath('name'); // true
-model.store.isValidPath('lastname'); // false
+model.validate();
+model.validatePath('name'); // true
+model.validatePath('lastname'); // false
 ```
 
 ## Plugins
