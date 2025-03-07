@@ -272,7 +272,7 @@ const model = new Model({
 All calculated properties must be defined as methods on the first level of model.
 :::
 
-## Binding attributes
+## Binding Attributes
 
 ### data-bind
 
@@ -306,6 +306,40 @@ const model = new Model({
 });
 ```
 
+## Binding Events
+
+You can bind events to elements with directive `@event`.
+
+```html
+<button @click="this.counter++">Click me</button>
+<button @click="onClick()">Click me</button>
+```
+
+### Access to Model
+
+```html
+<button @click="onClick($model)">Get Model</button>
+```
+
+### Access to Event
+
+```html
+<button @click="onClick($event)">Get Event</button>
+```
+
+### Access to Model data
+
+```html
+<button @click="onClick($data)">Get Data</button>
+```
+
+### Pass custom arguments
+
+```html
+<button @click="onClick('text', 123)">Custom Arguments</button>
+```
+
+
 ## Middleware
 You can use middleware in a model.
 
@@ -325,7 +359,7 @@ model.use(async (context, next) => {
 });
 ```
 
-## Events
+## Model Events
 You can use events in a model.
 
 ```js
