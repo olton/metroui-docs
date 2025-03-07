@@ -6,9 +6,11 @@ import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 import GithubButton from '../../../components/GithubButton.astro';
 
-<div>
-    <GithubButton user="olton" repo="model"/>
-</div> 
+<div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+    <GithubButton user="olton" repo="model" style="margin-right: auto;"/>
+    ![Package Version](https://img.shields.io/github/package-json/v/olton/model)
+</div>
+
 
 <Leader content="Metro UI includes class Model to create reactive data model with two-way binding!"/>
 

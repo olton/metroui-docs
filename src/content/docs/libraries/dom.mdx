@@ -9,9 +9,10 @@ import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import GithubButton from '../../../components/GithubButton.astro';
 
-<div>
-    <GithubButton user="olton" repo="dom"/>
-</div> 
+<div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+    <GithubButton user="olton" repo="dom" style="margin-right: auto;"/>
+    ![Package Version](https://img.shields.io/github/package-json/v/olton/dom)
+</div>
 
 <Leader content="Metro UI provides a set of methods and properties for working with the HTML elements."/>
 

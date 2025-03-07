@@ -6,9 +6,11 @@ import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 import GithubButton from '../../../components/GithubButton.astro';
 
-<div>
-    <GithubButton user="olton" repo="farbe"/>
-</div> 
+<div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+    <GithubButton user="olton" repo="farbe" style="margin-right: auto;"/>
+    ![Package Version](https://img.shields.io/github/package-json/v/olton/farbe)
+</div>
+
 
 <Leader content="Metro UI provides a set of methods and properties for working with Colors."/>
 

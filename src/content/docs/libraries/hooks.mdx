@@ -6,9 +6,10 @@ import Leader from '../../../components/Leader.astro'
 import { Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 import GithubButton from '../../../components/GithubButton.astro';
 
-<div>
-    <GithubButton user="olton" repo="hooks"/>
-</div> 
+<div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+    <GithubButton user="olton" repo="hooks" style="margin-right: auto;"/>
+    ![Package Version](https://img.shields.io/github/package-json/v/olton/hooks)
+</div>
 
 <Leader content="Metro UI provides a set of methods to create user hooks."/>
 
