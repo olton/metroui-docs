@@ -71,9 +71,11 @@ router.listen()
 | `base` | `string` | Base URL for the router. Default is `/`. |
 | `fallback` | `string` | Fallback route. Default is `/` |
 | `maxRedirects` | `number` | Maximum redirects. Default is `5`. |
+| `useCache` | `boolean` | Enabling cache. |
 | `cahceLimit` | `number` | Cache size. Default is `50`. |
 | `enableSwipeNavigation` | `boolean` | Enable swipe left/right for history navigation. Default is `false`. |
 | `routes` | `object` | Create routes in constructor. Default is `null`. |
+| `plugins` | `array` | Registering plugins in constructor. Default is `null`. |
 
 ```js
 const router = new Router({
@@ -93,7 +95,15 @@ const router = new Router({
 
 #### Add routes
 
-You can add a route using the `addRoute(path, callback)` method:
+To add routes, you can use methods:
++ `addRoute(path, callback)` - add a new route
++ `addNestedRoute(parentPath, path, callback)` - add a nested route
++ `addLazyRoute(path, callback)` - add a lazy route
++ `addLazyNestedRoute(parentPath, path, importFunc)` - add a lazy nested route
++ `addFallbackRoute(path)` - add a fallback route
++ `add404Route(path)` - add a 404 route
++ `addErrorRoute(path)` - add a error route
++ `addProtectedRoute(path, callback, guardFunction, fallback = '/login')` - add a protected route
 
 ```js
 router.addRoute("/", () => { })
@@ -117,7 +127,9 @@ router.updateRoute("/product/:id", (params) => { })
 
 ### Manual navigation
 
-For manual navigation, you can use the `navigateTo(path, replaceState = false)` method:
+Router uses method `navigate(path)` to navigate to a matched route.
+
+For manual navigation, you can use the `navigateTo(path, replaceState = false)`
 
 ```js
 router.navigateTo("/product/1")
@@ -196,9 +208,75 @@ You can test a path, with a `test(path)` method. This method returns object:
 router.test("/product/1") 
 ```
 
-### Debug
-You can enable debug mode with `debug` property:
+### Cache
+
+You can use cache to store routes. To enable cache, use the `useCache` option in the constructor:
 
 ```js
-Router.debug = true
+const router = new Router({
+    useCache: true
+})
+```
+To set the cache limit, use the `cacheLimit` option in the constructor:
+
+```js
+const router = new Router({
+    cacheLimit: 100
+})
+```
+To clear the cache, use the `clearCache()` method:
+
+```js
+router.clearCache()
+```
+
+
+### Debug
+You can enable debug mode with `debug` option. This will log all routes and navigation events to the console:
+
+```js
+const router = new Router({
+    debug: true
+})
+```
+
+## Plugins
+
+You can use plugins to extend the functionality of the router. 
+
+```js
+// Пример плагина логирования
+const loggerPlugin = {
+    install(router, options = {}) {
+        const prefix = options.prefix || '[Router]';
+        const level = options.level || 'info';
+        
+        // Подписываемся на события роутера
+        router.on('beforeNavigate', (route) => {
+            console[level](`${prefix} Переход на: ${route.path}`);
+        });
+        
+        router.on('error', (error) => {
+            console.error(`${prefix} Ошибка:`, error);
+        });
+    },
+    
+    onInit(router) {
+        console.log('Logger plugin initialized');
+    },
+    
+    onDestroy() {
+        console.log('Logger plugin destroyed');
+    }
+};
+
+// Использование
+const router = new Router({
+    plugins: [
+        loggerPlugin, 
+    ]
+});
+
+// or
+router.usePlugin(loggerPlugin, { prefix: '[MyApp Router]', level: 'debug' });
 ```
