@@ -22,7 +22,7 @@ import GithubButton from '../../../components/GithubButton.astro';
 The `String` class provides a set of methods and properties for working with strings.
 
 ## Installation
-Metro UI already includes the `String` library. 
+Metro UI already includes the `String` library as global class `Str` and fabric method `str()`. 
 You can use it without any additional installation, but if you want to use it in your project, you can install it with package manager:
 
 <Tabs>
@@ -43,6 +43,17 @@ You can use it without any additional installation, but if you want to use it in
     </TabItem>
 </Tabs>
 
+```js
+import { Str, str } from "@olton/string";
+```
+also, you can use `import` statement to import the specific string functions you need:
+```js
+import { camelCase, capitalize } from "@olton/string";
+
+console.log(camelCase("hello world")); // helloWorld
+console.log(capitalize("hello world")); // Hello world
+```
+
 or use CDN:
 
 ```html
@@ -50,10 +61,6 @@ or use CDN:
     import { Str, str } from "https://esm.run/@olton/string";
 </script>
 ```
-
-## Population
-
-With Metro UI, you can use the `String` class to work with strings over global fabric function `str()` or class `Str`.
 
 ## Constructor
 
