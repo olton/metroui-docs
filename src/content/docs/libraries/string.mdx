@@ -703,10 +703,11 @@ str.wrapTag('b', {class: 'bold'}); // <b class="bold">Hello, World!</b>
 ```
 
 ### `nvl()`
-Returns the first non-null value from the list of arguments `nvl(val, nullIf)`.
+Returns the first non-null value from the list of arguments `nvl(val, ...args)`.
 
 ```js
 const str = str('Hello, World!');
 str.nvl('Hello', 'World!'); // Hello
 str.nvl(null, 'World!'); // World
+str.nvl(null, null, 'Third!'); // Third
 ```
