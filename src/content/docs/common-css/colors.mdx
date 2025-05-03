@@ -1,3 +1,216 @@
 ---
 title: Colors
 ---
+
+The Colors CSS component provides a comprehensive set of color utilities for styling your Metro UI applications. It includes predefined color variables, background colors, foreground (text) colors, border colors, and more.
+
+## Color Palette
+
+The component defines a wide range of CSS variables that can be used throughout your application:
+
++ Standard colors: `dark`, `light`, `gray`, `gray-blue`, `gray-white`, and `gray-mouse`.
++ Main palette: `lime`, `green`, `emerald`, `blue`, `teal`, `cyan`, `cobalt`, `indigo`, `almost`, `violet`, `pink`, `magenta`, `crimson`, `red`, `clown`, `orange`, `amber`, `yellow`, `brown`, `olive`, `steel`, `mauve`, `taupe`, `champagne`, `khaki`, `charcoal`, `bronze`, `windstorm`, `nude`, `terracotta`, `coral`, `army`, `seashell`, and `sand`.
+
+
+### Color Variants
+
+The component also provides dark, saturated, and light variants of all standard colors:
+
+- General: `--color-[color]` (e.g., `--color-blue`)
+- Dark variants: `--color-dark-[color]` (e.g., `--color-dark-blue`)
+- Saturated variants: `--color-sat-[color]` (e.g., `--color-sat-blue`)
+- Light variants: `--color-light-[color]` (e.g., `--color-light-blue`)
+
+<details>
+<summary>Click to open Color Palette</summary>
+
+    ![](./src/assets/color-palette.png)
+    
+</details>
+
+## CSS Classes
+
+### Background Colors
+
+Apply background colors to elements:
+
+```html
+<div class="bg-blue">Blue background</div>
+<div class="bg-red">Red background</div>
+```
+
+#### Background Modifiers
+
+- `.bg-[color]`: Apply a background color
+- `.bg-[color]-active`: Apply a background color on active state
+- `.bg-[color]-hover`: Apply a background color on hover
+- `.bg-[color]-focus`: Apply a background color on focus
+
+#### Special Background Classes
+
+- `.bg-transparent`: Transparent background
+- `.bg-default`: Default background color
+- `.bg-hover`: Hover background effect
+- `.bg-glassmorphism`: Glass morphism effect with blur
+
+### Foreground Colors
+
+Apply text colors to elements:
+
+```html
+<p class="fg-blue">Blue text</p>
+<p class="fg-red">Red text</p>
+```
+
+#### Foreground Modifiers
+
+- `.fg-[color]`: Apply a text color
+- `.fg-[color]-active`: Apply a text color on active state
+- `.fg-[color]-hover`: Apply a text color on hover
+- `.fg-[color]-focus`: Apply a text color on focus
+
+#### Special Foreground Classes
+- `.fg-default`: Default text color
+
+
+### Border Colors
+
+Apply border colors to elements:
+
+```html
+<div class="bd-blue">Element with blue border</div>
+<div class="bd-red">Element with red border</div>
+```
+
+#### Border Modifiers
+- `.bd-[color]`: Apply a border color
+- `.bd-[color]-active`: Apply a border color on active state
+- `.bd-[color]-hover`: Apply a border color on hover
+- `.bd-[color]-focus`: Apply a border color on focus
+- `.bd-before-[color]`: Apply a border color to `::before`
+- `.bd-after-[color]`: Apply a border color to `::after`
+
+#### Special Border Classes
+- `.bd-transparent`: Transparent border
+- `.bd-default`: Default border color
+
+### Opacity
+
+Control the opacity of elements:
+
+```html
+<div class="op-red">50% opacity</div>
+<div class="op-red-hi">20% opacity</div>
+<div class="op-red-low">80% opacity</div>
+```
+
+#### Opacity Modifiers
+- `.op-[color]`: Apply a color with 50% opacity
+- `.op-[color]-hi`: Apply a color with 20% opacity
+- `.op-[color]-low`: Apply a color with 80% opacity
+
+### Accent Colors
+
+Apply accent colors to UI components: `--color-primary`, `--color-secondary`, `--color-tertiary`, `--color-success`, `--color-alert`, `--color-warning`, and `--color-info`.
+
+You can use accent colors with buttons, inputs, and other components:
+
+```html
+<button class="button primary">Blue Button</button>
+<input type="text" class="input primary" placeholder="Primary Input">
+<div class="card primary">Primary Card</div>
+```
+
+#### Focusable Elements
+
+Add class `focusable` to elements that should be focusable and add accent class to show focus effect:
+
+```html
+<a href="#" class="button primary focusable">Focusable Button</a>
+```
+
+### Gradient Colors
+
+Apply gradient backgrounds and text. You can define gradient colors using the following classes:
+
+- `.gr-[color]`: Apply a gradient background color
+- `.gr-text-[color]`: Apply a gradient background color
+
+#### Custom Gradients
+
+Use class `gradient` to apply a custom gradient background with CSS variables:
+
+```html
+<div class="gradient" style="--gradient-direction: to right; --gradient-from-color: #00ff00; --gradient-to-color: #0000ff;">
+    Custom Gradient Background
+</div>
+```
+
+:::note
+In `dark` mode, gradients are defined as gray with rule:
+
+```
+    background: linear-gradient(var(--gradient-direction), 
+        rgba(255, 238, 238, 0.15), 
+        rgba(255, 252, 252, 0.1))!important;
+```
+:::
+
+### SVG Colors
+
+You can use SVG colors with the following classes:
+
+- `.fc-[color]`: Apply a fill color
+- `.sc-[color]`: Apply a stroke color
+
+#### Colors Modifiers
+- `.fc-[color]-active`: Apply a fill color on active state
+- `.fc-[color]-hover`: Apply a fill color on hover
+- `.fc-[color]-focus`: Apply a fill color on focus
+- `.sc-[color]-active`: Apply a stroke color on active state
+- `.sc-[color]-hover`: Apply a stroke color on hover
+- `.sc-[color]-focus`: Apply a stroke color on focus
+
+### Outline Colors
+
+Apply outline colors to elements:
+
+- `old-[color]`: Apply an outline color
+- `old-[color]-active`: Apply an outline color on active state
+- `old-[color]-hover`: Apply an outline color on hover
+- `old-[color]-focus`: Apply an outline color on focus
+
+### Pseudo elements
+
+You can use pseudo elements with the following classes:
+
+- `.before-bg-[color]`: Apply a color to `::before` background
+- `.before-fg-[color]`: Apply a color to `::before` text
+- `.before-bd-[color]`: Apply a color to `::before` border
+- `.after-bg-[color]`: Apply a color to `::after` background
+- `.after-fg-[color]`: Apply a color to `::after` text
+- `.after-bd-[color]`: Apply a color to `::after` border
+
+### Stroke Colors
+Apply stroke colors to SVG elements:
+
+- `stroke-[color]`: Apply a stroke color
+- `stroke-light-[color]`: Apply a stroke color with light variant
+- `stroke-dark-[color]`: Apply a stroke color with dark variant
+- `stroke-sat-[color]`: Apply a stroke color with saturated variant
+
+### Ribbed Colors
+
+Apply ribbed background to elements:
+
+- `ribbed-[color]`: Apply a ribbed background color
+
+You can use CSS variables to customize the ribbed effect:
+
+```css
+:root {
+    --ribbed-size: 20px;
+    --ribbed-alpha: .15;
+    --ribbed-angle: -45deg;
+}
+```

@@ -30,10 +30,10 @@ export default defineConfig({
 				dark: '/src/assets/crown-white.svg',
 			},
 			favicon: '/crown-white.svg',
-			social: {
-				github: 'https://github.com/olton/metroui',
-				discord: 'https://discord.gg/bRgdUP7g',
-			},
+			social: [
+				{icon: 'github', label: 'GitHub', href: 'https://github.com/olton/metroui'},
+				{icon: 'discord', label: 'Discord', href: 'https://discord.gg/bRgdUP7g'},
+			], 
 			sidebar,
 			customCss: [
 				'./src/styles/index.css',

@@ -57,9 +57,7 @@ export default [
         items: [
             {label: "Globals", slug: "common-js/globals"},
             {label: "Utils", slug: "common-js/utils"},
-            {label: "Swipe", slug: "common-js/swipe"},
             {label: "i18n", slug: "common-js/i18n"},
-            {label: "Hotkeys", slug: "common-js/hotkeys"},
         ]
     },
     {
