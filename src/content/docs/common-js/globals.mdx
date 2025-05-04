@@ -1,3 +1,44 @@
 ---
 title: Global Definitions
+slug: common-js/globals
 ---
+
+Metro UI uses some global variables in its work. You can change them with `meta` tags in the head of your document.
+
+
+| Name | Tag | Default | Description |
+| ---- | --- | ------- | ----------- |
+| `init` | `<meta name="metro:init">` | `true` | Auto initialization of the Metro UI library. |
+| `blur` | `<meta name="metro:blur">` | `false` | Blur effect for images without `alt` attribute. |
+| `smooth` | `<meta name="metro:smooth">` | `true` | Smooth scrolling for the page. |
+| `theme` | `<meta name="metro:theme">` | `undefined` | Theme of the Metro UI library: `auto`, `dark`, `light` |
+| `info` | `<meta name="metro:info">` | `true` | Show information about the Metro UI library in console. |
+
+## Usage
+
+You can use the following code to set up the global variables:
+
+```html
+<meta name="metro:init" content="true">
+<meta name="metro:blur" content="false">
+<meta name="metro:smooth" content="true">
+<meta name="metro:theme" content="auto">
+<meta name="metro:info" content="true">
+```
+
+## Metro Init
+
+The `init` variable is used to initialize the Metro UI library. 
+If set to `true` (default), the library will automatically initialize all components on the page. 
+If set to `false`, you need to manually initialize components using JavaScript.
+
+```html
+<meta name="metro:init" content="false">
+```
+
+```javascript   
+$.ready(function() {
+    // Initialize components manually
+    Metro.init();
+});
+```

@@ -18,12 +18,14 @@ jobs:
         run: npm run build
 
       - name: Push files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: sand4rt/ftp-deployer@v1.8
         with:
-          server: eg77.mirohost.net
+          host: eg77.mirohost.net
+          port: 21
           username: metrouiS
           password: ${{ secrets.FTP_PASSWORD }}
-          dangerous-clean-slate: true
-          local-dir: ./dist/
-          server-dir: docs-new.metroui.org.ua/
+          cleanup: true
+          passive: true
+          local_folder: ./dist/
+          remote_folder: docs-new.metroui.org.ua/
           
