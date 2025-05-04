@@ -43,12 +43,15 @@ export default [
             {label: "Display", slug: "common-css/display"},
             {label: "Embed", slug: "common-css/embed"},
             {label: "FlexBox", slug: "common-css/flex"},
-            {label: "Images & Lists", slug: "common-css/images"},
-            {label: "Position & Floating", slug: "common-css/position"},
-            {label: "Spacing & Sizing", slug: "common-css/sizing"},
+            {label: "Images", slug: "common-css/images"},
+            {label: "Lists", slug: "common-css/lists"},
+            {label: "Position", slug: "common-css/position"},
+            {label: "Spacing", slug: "common-css/spacing"},
+            {label: "Sizing", slug: "common-css/sizing"},
             {label: "Typography", slug: "common-css/typography"},
             {label: "Utils", slug: "common-css/utils"},
             {label: "Colors", slug: "common-css/colors"},
+            {label: "Z-Index", slug: "common-css/z-index"},
         ]
     },
     {
@@ -57,12 +60,24 @@ export default [
         items: [
             {label: "Globals", slug: "common-js/globals"},
             {label: "Utils", slug: "common-js/utils"},
-            {label: "i18n", slug: "common-js/i18n"},
+            {label: "Extensions", slug: "common-js/extensions"},
         ]
     },
     {
         label: "Components",
         collapsed: true,
         autogenerate: {directory: "components", exclude: []},
-    }
+    },
+    {
+        label: "Resources",
+        collapsed: false,
+        items: [
+            {label: "Latte Testing Framework", link: "https://latte.org.ua"},
+            {label: "Metro UI Site", link: "https://metroui.org.ua"},
+            {label: "Metro UI Repository", link: "https://github.com/olton/metroui"},
+            {label: "Panda Templates", link: "https://panda.metroui.org.ua"},
+            {label: "Premium Support", link: "https://korzh.com/metroui"},
+            {label: "Author", link: "https://pimenov.com.ua"},
+        ]
+    },
 ]

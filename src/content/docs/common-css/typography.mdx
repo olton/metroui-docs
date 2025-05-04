@@ -1,3 +1,310 @@
 ---
 title: Typography
+slug: common-css/typography
 ---
+
+Typography utilities in Metro UI provide a comprehensive set of classes for controlling text styles, weights, sizes, alignment, and other typographical features.
+
+## Headings
+
+Standard HTML headings are styled with appropriate sizes and weights:
+
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+```
+
+You can also use classes to apply heading styles to other elements:
+
+```html
+<div class="h1">Heading 1 Style</div>
+<div class="h2">Heading 2 Style</div>
+<!-- etc. -->
+```
+
+## Display Headings
+
+For larger, more impactful headings:
+
+```html
+<div class="display4">Display 4</div>
+<div class="display3">Display 3</div>
+<div class="display2">Display 2</div>
+<div class="display1">Display 1</div>
+```
+
+## Heading Alternatives
+
+Alternative heading styles for different hierarchical needs:
+
+```html
+<div class="leader">Leader Text</div>
+<div class="sub-leader">Sub-leader Text</div>
+<div class="header">Header Text</div>
+<div class="sub-header">Sub-header Text</div>
+<div class="alt-header">Alternative Header</div>
+<div class="sub-alt-header">Sub Alternative Header</div>
+```
+
+## Text Weight
+
+Control the weight of text with these utility classes:
+
+```html
+<p class="text-ultralight">Ultralight weight text (100)</p>
+<p class="text-light">Light weight text (300)</p>
+<p class="text-normal">Normal weight text (400)</p>
+<p class="text-medium">Medium weight text (500)</p>
+<p class="text-bold">Bold weight text (600)</p>
+```
+
+For more precise control, use numeric weight classes:
+
+```html
+<p class="text-weight-1">Weight 100</p>
+<p class="text-weight-3">Weight 300</p>
+<p class="text-weight-5">Weight 500</p>
+<p class="text-weight-7">Weight 700</p>
+<p class="text-weight-9">Weight 900</p>
+```
+
+## Text Transformation
+
+Change the case of text with these utilities:
+
+```html
+<p class="text-upper">Uppercase text</p>
+<p class="text-lower">Lowercase text</p>
+<p class="text-cap">Capitalized text</p>
+```
+
+## Text Alignment
+
+Control text alignment with these classes:
+
+```html
+<p class="text-left">Left-aligned text</p>
+<p class="text-center">Center-aligned text</p>
+<p class="text-right">Right-aligned text</p>
+<p class="text-just">Justified text that spans multiple lines to demonstrate the justification</p>
+```
+
+## Text Styles
+
+Apply various text decoration styles:
+
+```html
+<p class="text-italic">Italic text</p>
+<p class="text-oblique">Oblique text</p>
+<p class="text-overline">Overlined text</p>
+<p class="text-linethrough">Text with a line through it</p>
+<p class="text-underline">Underlined text</p>
+<p class="text-underover">Text with underline and overline</p>
+```
+
+## Vertical Alignment
+
+Control the vertical alignment of inline or table-cell elements:
+
+```html
+<span class="va-top">Top aligned</span>
+<span class="va-middle">Middle aligned</span>
+<span class="va-bottom">Bottom aligned</span>
+<span class="va-baseline">Baseline aligned</span>
+<span class="va-sub">Sub aligned</span>
+<span class="va-super">Super aligned</span>
+<span class="va-text-top">Text-top aligned</span>
+<span class="va-text-bottom">Text-bottom aligned</span>
+```
+
+## Special Text Elements
+
+### Mark
+
+```html
+<p>Highlight text with <mark>mark element</mark>.</p>
+```
+
+### Code & Keyboard
+
+```html
+<p>This is <code>inline code</code> within text.</p>
+<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.</p>
+```
+
+### Abbreviations
+
+```html
+<p><abbr title="HyperText Markup Language">HTML</abbr> is a markup language.</p>
+```
+
+### Blockquote
+
+```html
+<blockquote>
+    This is a blockquote with a <small>source attribution</small>
+</blockquote>
+
+<blockquote class="right-side">
+    This is a right-aligned blockquote <small>with source</small>
+</blockquote>
+```
+
+### Lead Text
+
+```html
+<p class="text-leader">Larger, lighter text typically used for introductory content.</p>
+<p class="text-leader2">Slightly smaller lead text for secondary introductions.</p>
+```
+
+### Secondary Text
+
+```html
+<p class="text-secondary">Smaller text typically used for captions or notes.</p>
+<p class="text-muted">Text with muted, lower-contrast color.</p>
+<small>Small text element</small>
+```
+
+## Lists
+
+### Unordered Lists
+
+```html
+<ul>
+    <li>First item</li>
+    <li>Second item
+        <ul>
+            <li>Nested item</li>
+            <li>Another nested item</li>
+        </ul>
+    </li>
+</ul>
+```
+
+### Ordered Lists
+
+```html
+<ol>
+    <li>First item</li>
+    <li>Second item
+        <ol>
+            <li>Nested item</li>
+            <li>Another nested item</li>
+        </ol>
+    </li>
+</ol>
+```
+
+### Description Lists
+
+```html
+<dl>
+    <dt>Term</dt>
+    <dd>Definition for the term</dd>
+    <dt>Another term</dt>
+    <dd>Definition for another term</dd>
+</dl>
+
+<dl class="horizontal">
+    <dt>Term</dt>
+    <dd>Definition with horizontal layout</dd>
+    <dt>Another term</dt>
+    <dd>Another definition with horizontal layout</dd>
+</dl>
+```
+
+## Text Size Modifiers
+
+### Reduce Text Size
+
+```html
+<p class="reduce-1">10% smaller text</p>
+<p class="reduce-2">20% smaller text</p>
+<!-- reduce-3 through reduce-9 continue the pattern -->
+```
+
+### Enlarge Text Size
+
+```html
+<p class="enlarge-1">10% larger text</p>
+<p class="enlarge-2">20% larger text</p>
+<!-- enlarge-3 through enlarge-9 continue the pattern -->
+<p class="enlarge-2x">2x larger text</p>
+<p class="enlarge-3x">3x larger text</p>
+<p class="enlarge-4x">4x larger text</p>
+```
+
+## Text Overflow
+
+```html
+<div class="text-ellipsis" style="width: 200px">
+    This text is too long and will be truncated with an ellipsis
+</div>
+```
+
+## Responsive Typography
+
+All text alignment, transformation, and size classes have responsive variants for different screen sizes:
+
+```html
+<p class="text-left text-center-md">Left-aligned by default, center-aligned on medium screens and above</p>
+<p class="text-normal text-bold-lg">Normal weight by default, bold on large screens and above</p>
+<p class="enlarge-1 enlarge-3-xl">10% larger by default, 30% larger on extra large screens</p>
+```
+
+Available breakpoint suffixes:
+- `-xs`: ≥ 0px (Extra small screens)
+- `-sm`: ≥ 576px (Small screens)
+- `-md`: ≥ 768px (Medium screens)
+- `-lg`: ≥ 992px (Large screens)
+- `-xl`: ≥ 1200px (Extra large screens)
+- `-xxl`: ≥ 1452px (Extra extra large screens)
+
+## Special Text Treatments
+
+```html
+<p class="indent">Text with first line indentation</p>
+<p class="indent-letter">Text with first letter styling (drop cap)</p>
+<p class="error">Text marked as an error</p>
+<p class="wrap-long">Text with long words that will be broken to prevent overflow</p>
+<p class="mono">Monospace font text</p>
+```
+
+## CSS Variables
+
+The typography component uses the following CSS variables:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `--h1-size` | `2rem` | Size for h1 headings |
+| `--h2-size` | `1.5rem` | Size for h2 headings |
+| `--h3-size` | `1.25rem` | Size for h3 headings |
+| `--h4-size` | `1rem` | Size for h4 headings |
+| `--h5-size` | `0.875rem` | Size for h5 headings |
+| `--h6-size` | `0.75rem` | Size for h6 headings |
+| `--base-text-weight-ultralight` | `100` | Ultralight text weight |
+| `--base-text-weight-light` | `300` | Light text weight |
+| `--base-text-weight-normal` | `400` | Normal text weight |
+| `--base-text-weight-medium` | `500` | Medium text weight |
+| `--base-text-weight-semibold` | `600` | Semibold text weight |
+| `--mark-background` | `#a6d2ff` | Background color for mark elements |
+| `--mark-color` | `#191919` | Text color for mark elements |
+| `--code-background` | `#99a1b31a` | Background color for code elements |
+| `--code-color` | `#191919` | Text color for code elements |
+| `--kbd-background` | `#004D6FFF` | Background color for keyboard elements |
+| `--kbd-color` | `#ffffff` | Text color for keyboard elements |
+
+Example of customizing CSS variables:
+
+```css
+:root {
+    --h1-size: 2.5rem;
+    --h2-size: 2rem;
+    --base-text-weight-semibold: 700;
+    --mark-background: #ffcc00;
+}
+```

@@ -1,3 +1,132 @@
 ---
-title: Spacing and Sizing
+title: Sizing
+slug: common-css/sizing
 ---
+
+Sizing utilities in Metro UI provide a comprehensive set of classes for controlling width and height of elements using various units including percentages, viewport units, and breakpoint-specific sizes.
+
+## Auto Sizing
+
+| Class | Description |
+| --- | --- |
+| `.w-auto` | Sets width to auto |
+| `.h-auto` | Sets height to auto |
+
+## Percentage-based Sizing
+
+Control width and height using percentage values:
+
+| Class Pattern | Example | Description |
+| --- | --- | --- |
+| `.w-{value}` | `.w-25`, `.w-50`, `.w-100` | Sets width to specified percentage |
+| `.h-{value}` | `.h-25`, `.h-50`, `.h-100` | Sets height to specified percentage |
+| `.w-max-{value}` | `.w-max-100` | Sets maximum width to specified percentage |
+| `.h-max-{value}` | `.h-max-100` | Sets maximum height to specified percentage |
+| `.w-min-{value}` | `.w-min-50` | Sets minimum width to specified percentage |
+| `.h-min-{value}` | `.h-min-50` | Sets minimum height to specified percentage |
+
+Available percentage values: 0, 10, 20, 25, 30, 33, 40, 50, 60, 67, 70, 75, 80, 90, 100
+
+## Viewport-based Sizing
+
+Control width and height using viewport units:
+
+| Class Pattern | Example | Description |
+| --- | --- | --- |
+| `.w-{value}-vw` | `.w-100-vw` | Sets width to specified percentage of viewport width |
+| `.h-{value}-vh` | `.h-100-vh` | Sets height to specified percentage of viewport height |
+
+Available viewport percentage values: 0, 10, 20, 25, 30, 33, 40, 50, 60, 67, 70, 75, 80, 90, 100
+
+## Breakpoint-specific Widths
+
+Metro UI provides breakpoint-specific width classes:
+
+| Class | Description |
+| --- | --- |
+| `.w-xs` | Width set to extra small breakpoint (0px) |
+| `.w-sm` | Width set to small breakpoint (576px) |
+| `.w-md` | Width set to medium breakpoint (768px) |
+| `.w-lg` | Width set to large breakpoint (992px) |
+| `.w-xl` | Width set to extra large breakpoint (1200px) |
+| `.w-xxl` | Width set to extra extra large breakpoint (1452px) |
+
+## Responsive Sizing
+
+All sizing utilities have responsive variants that apply at specific breakpoints and above:
+
+| Suffix | Screen Width |
+| --- | --- |
+| `-xs` | ≥ 0px (Extra small screens) |
+| `-sm` | ≥ 576px (Small screens) |
+| `-md` | ≥ 768px (Medium screens) |
+| `-lg` | ≥ 992px (Large screens) |
+| `-xl` | ≥ 1200px (Extra large screens) |
+| `-xxl` | ≥ 1452px (Extra extra large screens) |
+
+Examples:
+- `.w-50-md` - Element width is 50% on medium screens and above
+- `.h-100-lg` - Element height is 100% on large screens and above
+- `.w-auto-xl` - Element width is auto on extra large screens and above
+
+## Usage Examples
+
+### Basic Width and Height
+
+```html
+<div class="w-50 h-100">
+    Element with 50% width and 100% height
+</div>
+```
+
+### Viewport-based Sizing
+
+```html
+<div class="w-100-vw h-100-vh">
+    Element that spans the entire viewport
+</div>
+
+<div class="w-50-vw h-50-vh">
+    Element that spans half the viewport width and height
+</div>
+```
+
+### Maximum and Minimum Sizes
+
+```html
+<div class="w-100 w-max-500">
+    Element that is 100% wide but not more than 500px
+</div>
+
+<div class="h-min-50">
+    Element with minimum height of 50%
+</div>
+```
+
+### Responsive Width
+
+```html
+<div class="w-100 w-50-md w-25-xl">
+    Element that:
+    - Is 100% wide on small screens
+    - 50% wide on medium and large screens
+    - 25% wide on extra large screens
+</div>
+```
+
+### Auto Size with Breakpoints
+
+```html
+<div class="w-100 w-auto-lg">
+    Full width on mobile, automatic width on desktop
+</div>
+```
+
+### Combined with Flex
+
+```html
+<div class="d-flex">
+    <div class="w-25">25% width</div>
+    <div class="w-75">75% width</div>
+</div>
+```

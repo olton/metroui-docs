@@ -1,3 +1,114 @@
 ---
 title: Embed Media
+slug: common-css/embed
 ---
+
+The Embed Utilities in Metro UI provide a responsive container system for embedded media content like videos, iframes, and other embeddable elements, ensuring they maintain proper aspect ratios across all screen sizes.
+
+## Usage
+
+```html
+<!-- Basic 16:9 embed (default) -->
+<div class="embed-container">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+</div>
+
+<!-- 4:3 aspect ratio embed -->
+<div class="embed-container size-4x3">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+</div>
+```
+
+## Available Aspect Ratios
+
+The embed container supports several common aspect ratios:
+
+| Class | Aspect Ratio | Common Use |
+| --- | --- | --- |
+| `size-21x9` | 21:9 | Ultrawide/Cinematic video |
+| `size-16x9` | 16:9 | Standard widescreen video (default) |
+| `size-4x3` | 4:3 | Traditional TV/monitor ratio |
+| `size-1x1` | 1:1 | Square format (Instagram, etc.) |
+
+## Supported Content Types
+
+The embed container works with various content types:
+
+- `<iframe>` elements (YouTube, Vimeo, maps, etc.)
+- `<video>` elements (HTML5 video)
+- `<object>` elements
+- `<embed>` elements
+- Any element with class `.embed-item`
+
+## Examples
+
+### YouTube Video
+
+```html
+<div class="embed-container">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+</div>
+```
+
+### Vimeo Video
+
+```html
+<div class="embed-container">
+    <iframe src="https://player.vimeo.com/video/VIDEO_ID" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+</div>
+```
+
+### HTML5 Video
+
+```html
+<div class="embed-container">
+    <video controls>
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+</div>
+```
+
+### Google Maps
+
+```html
+<div class="embed-container size-4x3">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!..." 
+            frameborder="0" 
+            style="border:0" 
+            allowfullscreen>
+    </iframe>
+</div>
+```
+
+### Custom Content with Embed Item
+
+```html
+<div class="embed-container">
+    <div class="embed-item">
+        <!-- Your custom content here -->
+        <div class="centered-content">
+            Custom responsive content
+        </div>
+    </div>
+</div>
+```
+
+## How It Works
+
+The embed container uses a padding-based trick to maintain aspect ratio:
+
+1. The container establishes a responsive width (100% of parent)
+2. A pseudo-element creates the correct height based on aspect ratio
+3. The embedded content is absolutely positioned to fill the container
+
+This approach ensures that your embedded content always maintains the correct aspect ratio regardless of screen size, avoiding distortion or awkward whitespace.

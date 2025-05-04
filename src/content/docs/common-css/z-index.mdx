@@ -1,0 +1,122 @@
+---
+title: Z-Index
+slug: common-css/z-index
+---
+
+Z-Index utilities in Metro UI provide a consistent system for managing stacking contexts through CSS variables and utility classes. These utilities help maintain predictable layering of elements like modals, dropdowns, tooltips and other components that need specific stacking order.
+
+## CSS Variables
+
+Metro UI defines the following CSS variables to ensure consistent z-index values across the framework:
+
+| Variable | Value | Description |
+| --- | --- | --- |
+| `--z-index-selected` | 100 | Selected elements (selected state indicator) |
+| `--z-index-absolute` | 500 | Basic absolutely positioned elements |
+| `--z-index-dropdown` | 1000 | Dropdown menus and basic popups |
+| `--z-index-sticy` | 1020 | Sticky positioned elements |
+| `--z-index-fixed` | 1030 | Fixed positioned elements (navbars, fixed toolbars) |
+| `--z-index-modal-backdrop` | 1040 | Background overlay behind modals |
+| `--z-index-modal` | 1050 | Modal dialogs and windows |
+| `--z-index-popover` | 1060 | Popovers |
+| `--z-index-tooltip` | 1070 | Tooltips |
+| `--z-index-top` | 1080 | Elements that should appear above most other content |
+| `--z-index-notify` | 1085 | Notifications |
+| `--z-index-charms` | 1090 | Charm bars and edge-aligned panels |
+| `--z-index-overlay` | 2000 | System overlays |
+| `--z-index-fullscreen` | 2147483647 | Fullscreen elements (maximum possible value) |
+
+## Utility Classes
+
+### Named Z-Index Classes
+
+These classes apply specific z-index values according to the component type:
+
+| Class | Description |
+| --- | --- |
+| `.z-absolute` | For absolutely positioned elements |
+| `.z-dropdown` | For dropdown menus |
+| `.z-sticky` | For sticky elements (like sticky headers) |
+| `.z-fixed` | For fixed position elements |
+| `.z-modal-backdrop` | For modal backgrounds/overlays |
+| `.z-modal` | For modal dialogs |
+| `.z-popover` | For popovers |
+| `.z-tooltip` | For tooltips |
+| `.z-top` | For elements that should appear near the top of stacking context |
+| `.z-notify` | For notification elements |
+| `.z-charms` | For charm bars |
+| `.z-overlay` | For overlay elements |
+| `.z-fullscreen` | For fullscreen elements |
+
+### Numeric Z-Index Classes
+
+For more granular control, you can use numbered classes for lower z-index values:
+
+| Class | Value |
+| --- | --- |
+| `.z-1` | z-index: 1 |
+| `.z-2` | z-index: 2 |
+| `.z-3` | z-index: 3 |
+| `.z-4` | z-index: 4 |
+| `.z-5` | z-index: 5 |
+| `.z-6` | z-index: 6 |
+| `.z-7` | z-index: 7 |
+| `.z-8` | z-index: 8 |
+| `.z-9` | z-index: 9 |
+| `.z-10` | z-index: 10 |
+
+## Usage Examples
+
+### Basic Positioning
+
+```html
+<div class="position-absolute z-1">
+    This appears above normal content but below other positioned elements
+</div>
+
+<div class="position-absolute z-5">
+    This appears above elements with lower z-index
+</div>
+```
+
+### Component Layering
+
+```html
+<!-- Navigation bar that stays on top of content when scrolling -->
+<nav class="position-sticky z-sticky">
+    Sticky navigation
+</nav>
+
+<!-- Modal dialog -->
+<div class="z-modal-backdrop">
+    <!-- Overlay background -->
+</div>
+<div class="z-modal">
+    Modal content appears above the backdrop
+</div>
+
+<!-- Notification that appears above modal -->
+<div class="z-notify">
+    Important system notification
+</div>
+```
+
+## Stacking Context Guidelines
+
+When developing complex interfaces with multiple overlapping elements, follow these guidelines:
+
+1. Use the predefined z-index classes where possible instead of custom z-index values
+2. For custom components, use CSS variables (e.g., `z-index: var(--z-index-dropdown)`)
+3. Only increase z-index values when necessary to resolve specific stacking issues
+4. Remember that z-index only works on positioned elements (relative, absolute, fixed, or sticky)
+
+```html
+<div class="position-relative">
+    <div class="position-absolute z-1">
+        Item 1
+    </div>
+    <div class="position-absolute z-2">
+        Item 2 (appears above Item 1)
+    </div>
+</div>
+```

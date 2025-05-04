@@ -1,3 +1,159 @@
 ---
 title: Cursors
+slug: common-css/cursors
 ---
+
+# Cursor Utilities
+
+The Cursor Utilities in Metro UI provide a comprehensive set of classes for controlling cursor appearance when hovering over elements.
+
+## Basic Cursor Classes
+
+### General Purpose Cursors
+
+| Class | Description | Visual |
+| --- | --- | --- |
+| `.c-auto` | Browser default cursor | ![Auto Cursor]() |
+| `.c-default` | Default pointer | ![Default Cursor]() |
+| `.c-none` | No cursor displayed | (invisible) |
+| `.c-help` | Help indicator (question mark) | ![Help Cursor]() |
+| `.c-pointer` | Pointing hand (for links/buttons) | ![Pointer Cursor]() |
+| `.c-progress` | Program is busy (but element is still usable) | ![Progress Cursor]() |
+| `.c-wait` | System is busy | ![Wait Cursor]() |
+
+### Text Operations
+
+| Class | Description | Visual |
+| --- | --- | --- |
+| `.c-text` | Text input cursor | ![Text Cursor]() |
+| `.c-text-vertical` | Vertical text input cursor | ![Vertical Text Cursor]() |
+| `.c-cell` | Cell selection cursor | ![Cell Cursor]() |
+| `.c-crosshair` | Precise selection cursor | ![Crosshair Cursor]() |
+
+### Drag and Drop Operations
+
+| Class | Description | Visual |
+| --- | --- | --- |
+| `.c-alias` | Create alias/shortcut | ![Alias Cursor]() |
+| `.c-copy` | Copy operation available | ![Copy Cursor]() |
+| `.c-move` | Element can be moved | ![Move Cursor]() |
+| `.c-no-drop` | Drop not allowed | ![No Drop Cursor]() |
+| `.c-not-allowed` | Operation not allowed | ![Not Allowed Cursor]() |
+| `.c-grab` | Element can be grabbed | ![Grab Cursor]() |
+| `.c-grabbing` | Element being grabbed | ![Grabbing Cursor]() |
+
+### Resizing Operations
+
+| Class | Description | Visual |
+| --- | --- | --- |
+| `.c-all-scroll` | Element can be scrolled in any direction | ![All Scroll Cursor]() |
+| `.c-col-resize` | Column can be resized horizontally | ![Column Resize Cursor]() |
+| `.c-row-resize` | Row can be resized vertically | ![Row Resize Cursor]() |
+
+### Directional Resizing
+
+| Class | Description | Visual |
+| --- | --- | --- |
+| `.c-n-resize` | Resize from the north edge | ![North Resize Cursor]() |
+| `.c-e-resize` | Resize from the east edge | ![East Resize Cursor]() |
+| `.c-s-resize` | Resize from the south edge | ![South Resize Cursor]() |
+| `.c-w-resize` | Resize from the west edge | ![West Resize Cursor]() |
+| `.c-ne-resize` | Resize from the northeast edge | ![Northeast Resize Cursor]() |
+| `.c-nw-resize` | Resize from the northwest edge | ![Northwest Resize Cursor]() |
+| `.c-se-resize` | Resize from the southeast edge | ![Southeast Resize Cursor]() |
+| `.c-sw-resize` | Resize from the southwest edge | ![Southwest Resize Cursor]() |
+| `.c-ew-resize` | Resize horizontally | ![East-West Resize Cursor]() |
+| `.c-ns-resize` | Resize vertically | ![North-South Resize Cursor]() |
+| `.c-nesw-resize` | Resize diagonally (northeast/southwest) | ![NESW Resize Cursor]() |
+| `.c-nwse-resize` | Resize diagonally (northwest/southeast) | ![NWSE Resize Cursor]() |
+
+### Zooming Operations
+
+| Class | Description | Visual |
+| --- | --- | --- |
+| `.c-zoom-in` | Indicate ability to zoom in | ![Zoom In Cursor]() |
+| `.c-zoom-out` | Indicate ability to zoom out | ![Zoom Out Cursor]() |
+
+## Usage Examples
+
+### Interactive Elements
+
+Use interactive cursors to visually indicate when elements are clickable or when actions are available:
+
+```html
+<button class="c-pointer">Click Me</button>
+<a href="#" class="c-pointer">Link</a>
+<div class="c-help" title="Click for help">Help Item</div>
+```
+
+### Indicating Operations
+
+Use cursors to indicate what operation is possible:
+
+```html
+<!-- Draggable element -->
+<div class="draggable c-grab">
+  Drag me (changes to grabbing when active)
+</div>
+
+<!-- Not allowed action -->
+<div class="disabled-area c-not-allowed">
+  This action is not available
+</div>
+
+<!-- Loading indicator -->
+<div class="loading-area c-progress">
+  Loading content...
+</div>
+```
+
+### Resizing Handles
+
+Use resize cursors on elements that can be resized:
+
+```html
+<div class="resize-container">
+  <div class="resize-handle top c-n-resize"></div>
+  <div class="resize-handle right c-e-resize"></div>
+  <div class="resize-handle bottom c-s-resize"></div>
+  <div class="resize-handle left c-w-resize"></div>
+  <div class="resize-handle top-right c-ne-resize"></div>
+  <div class="resize-handle bottom-right c-se-resize"></div>
+  <div class="resize-handle bottom-left c-sw-resize"></div>
+  <div class="resize-handle top-left c-nw-resize"></div>
+</div>
+```
+
+### Text Editing
+
+Use text cursors for text-related elements:
+
+```html
+<div class="text-area c-text" contenteditable="true">
+  Editable text
+</div>
+```
+
+### Custom Implementation
+
+You can combine cursor utilities with other classes and use them in JavaScript interactions:
+
+```html
+<div id="my-element" class="c-default">
+  Hover me to change cursor
+</div>
+
+<script>
+  const element = document.getElementById('my-element');
+  
+  element.addEventListener('mousedown', () => {
+    element.classList.remove('c-default');
+    element.classList.add('c-grabbing');
+  });
+  
+  element.addEventListener('mouseup', () => {
+    element.classList.remove('c-grabbing');
+    element.classList.add('c-default');
+  });
+</script>
+```

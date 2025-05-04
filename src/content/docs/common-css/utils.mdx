@@ -1,3 +1,245 @@
 ---
 title: Utils
+slug: common-css/utils
 ---
+
+A collection of helpful utility classes for controlling element behavior, overflow, interactions, and more across different screen sizes.
+
+## Transition
+
+| Class | Description |
+| --- | --- |
+| `.transition` | Adds a smooth transition effect to all properties with 0.3s linear timing |
+
+```html
+<div class="transition">
+    This element will smoothly transition all property changes
+</div>
+```
+
+## Color Inheritance
+
+| Class | Description |
+| --- | --- |
+| `.inherit-colors` | Forces element to inherit both background color and text color from parent |
+| `.inherit-background` | Forces element to inherit only background color from parent |
+| `.inherit-color` | Forces element to inherit only text color from parent |
+
+```html
+<div style="background-color: red; color: white;">
+    <div class="inherit-colors">
+        This will have red background and white text
+    </div>
+</div>
+```
+
+## Clearing and Floating
+
+### Float Classes
+
+Float utilities in Metro UI provide a straightforward way to control the floating behavior of elements, with responsive variants for different screen sizes.
+
+Control the CSS float property of elements:
+
+| Class | Aliases | Description |
+| --- | --- | --- |
+| `.float-left` | `.place-left` | Floats element to the left |
+| `.float-right` | `.place-right` | Floats element to the right |
+| `.float-none` | `.place-none`, `.no-float` | Removes float (sets float: none) |
+
+```html
+<div class="float-left">Floated to left</div>
+<div class="float-right">Floated to right</div>
+<div class="float-none">Not floated</div>
+```
+
+#### Clearing Floats
+
+To prevent layout issues with floated elements, use the clearing class:
+
+| Class | Description |
+| --- | --- |
+| `.clear-float` | Clears floats (using clearfix method) |
+
+```html
+<div>
+    <div class="float-left">Floated left</div>
+    <div class="float-right">Floated right</div>
+    <div class="clear-float"></div>
+    <!-- Content after floats will start on a new line -->
+</div>
+```
+
+### Responsive Float Classes
+
+All float classes have responsive variants that apply at specific breakpoints and above:
+
+| Suffix | Screen Width |
+| --- | --- |
+| `-xs` | ≥ 0px (Extra small screens) |
+| `-sm` | ≥ 576px (Small screens) |
+| `-md` | ≥ 768px (Medium screens) |
+| `-lg` | ≥ 992px (Large screens) |
+| `-xl` | ≥ 1200px (Extra large screens) |
+| `-xxl` | ≥ 1452px (Extra extra large screens) |
+
+Examples:
+- `.float-left-md` - Element floats left on medium screens and above
+- `.float-right-lg` - Element floats right on large screens and above
+- `.float-none-xl` - Element doesn't float on extra large screens and above
+
+```html
+<!-- Float left on mobile, right on desktop -->
+<div class="float-left float-right-lg">
+    This content floats left on small screens and right on large screens
+</div>
+
+<!-- Float only on desktop -->
+<div class="float-none float-left-md">
+    This content doesn't float on mobile but floats left on medium screens and above
+</div>
+```
+
+### Common Use Cases
+
+#### Image Alignment
+
+```html
+<img src="image.jpg" class="float-left" style="margin-right: 10px;">
+<p>Text flows around the image that's floated to the left...</p>
+<div class="clear-float"></div>
+```
+
+#### Button Alignment
+
+```html
+<div class="dialog-actions">
+    <button class="button float-right">Submit</button>
+    <button class="button float-left">Cancel</button>
+    <div class="clear-float"></div>
+</div>
+```
+
+#### Responsive Layout
+
+```html
+<!-- On mobile: stacked, On desktop: side-by-side -->
+<div>
+    <div class="float-none float-left-md" style="width: 30%;">
+        Sidebar content
+    </div>
+    <div class="float-none float-right-md" style="width: 65%;">
+        Main content
+    </div>
+    <div class="clear-float"></div>
+</div>
+```
+
+:::note
+While floats are still useful for certain layout tasks, consider using Flexbox or Grid for more complex layouts, as they offer more powerful alignment capabilities.
+:::
+
+### Clearing
+
+| Class | Description |
+| --- | --- |
+| `.clear`, `.clear-fix`, `.clearfix` | Clears floats within an element |
+
+## Overflow Control
+
+| Class | Description |
+| --- | --- |
+| `.overflow` | Sets overflow to auto (adds scrollbars when needed) |
+| `.no-overflow` | Hides overflow content |
+| `.scroll` | Always shows scrollbars on both axes |
+| `.scroll-x` | Adds horizontal scrolling when needed |
+| `.scroll-y` | Adds vertical scrolling when needed |
+| `.no-scroll` | Hides overflow on both axes |
+| `.no-scroll-x` | Hides horizontal overflow |
+| `.no-scroll-y` | Hides vertical overflow |
+
+```html
+<div class="scroll-y" style="height: 200px;">
+    Content that will scroll vertically when it exceeds the height
+</div>
+```
+
+## Text Wrapping
+
+| Class | Description |
+| --- | --- |
+| `.wrap` | Forces text to wrap normally |
+| `.no-wrap` | Prevents text from wrapping |
+
+## User Interaction
+
+| Class | Description |
+| --- | --- |
+| `.no-user-select` | Prevents text selection |
+| `.no-appearance` | Removes default browser styling from form elements |
+| `.disabled`, `.-disabled` | Disables all pointer events for an element |
+| `.stop-pointer` | Prevents pointer events and text selection |
+
+```html
+<div class="no-user-select">
+    This text cannot be selected
+</div>
+```
+
+## Collapsing and Expanding
+
+| Class | Description |
+| --- | --- |
+| `.collapse` | Collapses element (sets height to 0) |
+| `.expand` | Expands element to its natural height |
+
+## Selection Styling
+
+| Class | Description |
+| --- | --- |
+| `.selected` | Applies a selection style with check mark in the corner |
+
+```html
+<div class="selected" style="position: relative; padding: 20px; border: 1px solid #ccc;">
+    This element appears selected with a checkmark
+</div>
+```
+
+## Responsive Utilities
+
+All overflow, scroll, wrapping, collapse, and expand classes have responsive variants:
+
+| Suffix | Screen Width |
+| --- | --- |
+| `-xs` | ≥ 0px (Extra small screens) |
+| `-sm` | ≥ 576px (Small screens) |
+| `-md` | ≥ 768px (Medium screens) |
+| `-lg` | ≥ 992px (Large screens) |
+| `-xl` | ≥ 1200px (Extra large screens) |
+| `-xxl` | ≥ 1452px (Extra extra large screens) |
+
+Examples:
+- `.overflow-md` - Content overflows with auto scrollbars on medium screens and above
+- `.no-wrap-lg` - Text doesn't wrap on large screens and above
+- `.collapse-sm` - Element collapses on small screens and above
+
+```html
+<!-- Element scrolls horizontally on mobile, but not on desktop -->
+<div class="scroll-x scroll-x-lg-none">
+    Wide content that scrolls on mobile
+</div>
+```
+
+## CSS Variables
+
+| Variable | Description |
+| --- | --- |
+| `--selected-color` | Color used for the selected state highlight |
+
+You can customize the selection appearance:
+
+```css
+:root {
+    --selected-color: #0078d7;
+}
+```

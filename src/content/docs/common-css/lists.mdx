@@ -1,0 +1,208 @@
+---
+title: Lists
+slug: common-css/lists
+---
+
+Metro UI provides a variety of list styles and utilities for displaying content in organized, consistent ways. These list utilities help you create step-by-step instructions, feed layouts, grouped items, and more.
+
+## Step List
+
+Step lists create numbered instructions with connecting lines between steps:
+
+```html
+<ol class="step-list">
+    <li>First step in the process</li>
+    <li>Second step with details</li>
+    <li>Final step to complete the task</li>
+</ol>
+```
+
+## Custom List Marker
+
+Create lists with custom markers for each item:
+
+```html
+<ul class="custom-list-marker">
+    <li data-marker="✓">Completed task</li>
+    <li data-marker="→">Current task</li>
+    <li data-marker="⚠">Important task</li>
+</ul>
+```
+
+## Items List
+
+A clean list style for displaying items with avatars and descriptions:
+
+```html
+<ul class="items-list">
+    <li>
+        <img class="avatar" src="avatar.jpg" alt="User">
+        <span class="label">Primary text</span>
+        <span class="second-label">Secondary information</span>
+        <span class="second-action">⋯</span>
+    </li>
+    <li>
+        <img class="avatar" src="avatar2.jpg" alt="User">
+        <span class="label">Another item</span>
+        <span class="second-label">More details</span>
+    </li>
+</ul>
+```
+
+You can also use div elements instead of list items:
+
+```html
+<div class="items-list">
+    <div class="item">
+        <img class="avatar" src="avatar.jpg" alt="User">
+        <span class="label">Primary text</span>
+        <span class="second-label">Secondary information</span>
+    </div>
+</div>
+```
+
+## Feed List
+
+An expanded version of the items list, designed for content feeds with larger avatars:
+
+```html
+<div class="feed-list">
+    <span class="title">Today</span>
+    <div class="item">
+        <img class="avatar" src="news1.jpg" alt="News">
+        <span class="label">News headline</span>
+        <span class="second-label">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+    </div>
+    <span class="title">Yesterday</span>
+    <div class="item">
+        <img class="avatar" src="news2.jpg" alt="News">
+        <span class="label">Another headline</span>
+        <span class="second-label">Brief summary of the article content</span>
+    </div>
+</div>
+```
+
+You can position the avatar on the right side:
+
+```html
+<div class="feed-list">
+    <div class="item">
+        <img class="avatar on-right" src="news1.jpg" alt="News">
+        <span class="label">News headline</span>
+        <span class="second-label">Content summary</span>
+    </div>
+</div>
+```
+
+## Group List
+
+Group related items with borders between them:
+
+```html
+<ul class="group-list">
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+</ul>
+```
+
+Create a horizontal group list:
+
+```html
+<ul class="group-list horizontal">
+    <li>Category 1</li>
+    <li>Category 2</li>
+    <li>Category 3</li>
+</ul>
+```
+
+## Inline List
+
+Display list items horizontally inline:
+
+```html
+<ul class="inline-list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+```
+
+## Unstyled List
+
+Remove default list styling:
+
+```html
+<ul class="unstyled-list">
+    <li>Item without bullets</li>
+    <li>Another unstyled item</li>
+</ul>
+```
+
+## Ordered List Styles
+
+Various numbering styles for ordered lists:
+
+```html
+<!-- Decimal numbers (default) -->
+<ol class="decimal">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+
+<!-- Upper Roman numerals -->
+<ol class="roman-upper">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+
+<!-- Lower Roman numerals -->
+<ol class="roman-lower">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+
+<!-- Upper alpha (A, B, C) -->
+<ol class="alpha-upper">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+
+<!-- Lower alpha (a, b, c) -->
+<ol class="alpha-lower">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+
+<!-- Upper Latin -->
+<ol class="latin-upper">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+
+<!-- Lower Latin -->
+<ol class="latin-lower">
+    <li>First item</li>
+    <li>Second item</li>
+</ol>
+```
+
+## No Style
+
+Remove list style type completely:
+
+```html
+<ul class="no-style">
+    <li>Completely unstyled item</li>
+    <li>Another unstyled item</li>
+</ul>
+```
+
+## CSS Variables
+
+The list utilities use the following CSS variables:
+
+| Variable | Default (Light Theme) | Default (Dark Theme) | Description |
+| --- | --- | --- | --- |
+| `--step-list-number-color` | `#757575` | `#ffedbc` | Color for step list numbers |
+| `--border-color` | System default | System default | Color for borders in lists |

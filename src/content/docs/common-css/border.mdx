@@ -1,3 +1,176 @@
 ---
 title: Borders
+slug: common-css/border
 ---
+
+The Border Utilities in Metro UI provide a comprehensive set of classes for controlling borders, border radius, and animated borders in your application.
+
+## Basic Border Classes
+
+### Border Presence
+
+| Class | Description |
+| --- | --- |
+| `.no-border`, `.border-none` | Removes all borders |
+| `.no-border-left`, `.border-left-none` | Removes left border |
+| `.no-border-right`, `.border-right-none` | Removes right border |
+| `.no-border-top`, `.border-top-none` | Removes top border |
+| `.no-border-bottom`, `.border-bottom-none` | Removes bottom border |
+| `.no-border-visible`, `.border-visible-none` | Makes border transparent |
+
+### Border Direction
+
+| Class | Description |
+| --- | --- |
+| `.border` | Adds 1px transparent border on all sides |
+| `.border-left` | Adds 1px transparent left border |
+| `.border-right` | Adds 1px transparent right border |
+| `.border-top` | Adds 1px transparent top border |
+| `.border-bottom` | Adds 1px transparent bottom border |
+
+## Border Radius
+
+| Class | Description |
+| --- | --- |
+| `.border-radius`, `.rounded` | Adds border radius using the `--border-radius` variable (default: 6px) |
+| `.border-radius-half`, `.to-cycle` | Creates a circular border (border-radius: 50%) |
+| `.border-radius-{n}` | Sets border radius to n pixels (1-20) |
+
+## Border Size
+
+| Class | Description |
+| --- | --- |
+| `.border-size-{n}` | Sets border width to n pixels (1-20) |
+
+## Border Styles
+
+| Class | Description |
+| --- | --- |
+| `.border-solid` | Solid border style |
+| `.border-dashed` | Dashed border style |
+| `.border-dotted` | Dotted border style |
+| `.border-double` | Double border style |
+| `.border-groove` | Groove border style |
+| `.border-inset` | Inset border style |
+| `.border-outset` | Outset border style |
+| `.border-ridge` | Ridge border style |
+
+## Responsive Border Control
+
+Media-query controlled border removal:
+
+| Class | Description |
+| --- | --- |
+| `.border-none-{breakpoint}` | Removes all borders at specified breakpoint |
+| `.border-top-none-{breakpoint}` | Removes top border at specified breakpoint |
+| `.border-right-none-{breakpoint}` | Removes right border at specified breakpoint |
+| `.border-bottom-none-{breakpoint}` | Removes bottom border at specified breakpoint |
+| `.border-left-none-{breakpoint}` | Removes left border at specified breakpoint |
+
+Where `{breakpoint}` can be: xs, sm, md, lg, xl, xxl
+
+## Animated Borders
+
+### Rainbow Borders
+
+Rainbow borders apply a colorful, animated gradient border to elements:
+
+```html
+<div class="rainbow-border p-4 bg-white">
+  Content with animated rainbow border
+</div>
+
+<!-- Only on hover -->
+<div class="rainbow-border-hover p-4 bg-white">
+  Border appears on hover
+</div>
+```
+
+### Animated Borders
+
+Animated borders create a dynamic, moving border effect:
+
+```html
+<div class="animated-border p-4 bg-white">
+  Content with animated border
+</div>
+
+<!-- Only on hover -->
+<div class="animated-border-hover p-4 bg-white">
+  Border appears on hover
+</div>
+
+<!-- Colored animated borders -->
+<div class="animated-border-info p-4 bg-white">
+  Blue animated border
+</div>
+
+<div class="animated-border-hover-alert p-4 bg-white">
+  Red animated border on hover
+</div>
+```
+
+## CSS Variables
+
+The border utilities use the following CSS variables:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `--border-radius` | `6px` | Default border radius for `.border-radius` class |
+| `--animated-border-speed` | `3s` | Animation speed for animated borders |
+| `--animated-border-size` | `2px` | Size of animated border |
+| `--animated-border-color` | `#50a8ff` | Default color for animated border |
+| `--animated-border-color-1` | `#ff4545` | First color in rainbow gradient |
+| `--animated-border-color-2` | `#00ff99` | Second color in rainbow gradient |
+| `--animated-border-color-3` | `#006aff` | Third color in rainbow gradient |
+| `--animated-border-color-4` | `#ff0095` | Fourth color in rainbow gradient |
+| `--animated-border-color-5` | `#ff4545` | Fifth color in rainbow gradient |
+
+You can customize these variables in your CSS:
+
+```css
+:root {
+  --border-radius: 10px;
+  --animated-border-speed: 5s;
+  --animated-border-color: #2196F3;
+}
+```
+
+## Usage Examples
+
+### Basic Borders
+
+```html
+<!-- Add a solid border of 2px -->
+<div class="border border-solid border-size-2">
+  Content with border
+</div>
+
+<!-- Add a dashed border on top only -->
+<div class="border-top border-dashed">
+  Content with top border
+</div>
+
+<!-- Rounded element with border -->
+<div class="border border-solid rounded">
+  Content with rounded corners
+</div>
+```
+
+### Responsive Borders
+
+```html
+<!-- Border disappears on medium screens and above -->
+<div class="border border-solid border-none-md">
+  Content with responsive border
+</div>
+```
+
+### Combined Properties
+
+```html
+<!-- Circle with animated rainbow border -->
+<div class="border-radius-half rainbow-border" style="width: 100px; height: 100px;">
+  Circle
+</div>
+```

@@ -1,0 +1,57 @@
+---
+title: Extensions
+slug: common-js/extensions
+---
+
+The Extensions module provides a way to extend the functionality of standard JavaScript types. 
+
+## Array
+
+- `shuffle()` - Shuffles the elements of an array randomly.
+- `clone()` - Creates a shallow copy of the array.
+- `unique()` - Returns a new array with unique elements from the original array.
+- `pack()` - Packs the array, remove empty elements.
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+let shuffled = arr.shuffle();
+console.log(shuffled); // Random order
+```
+
+## Number 
+
+- `format()` - Formats a number with specified decimal places and thousands separator.
+
+```javascript
+let num = 1234567.89;
+let formatted = num.format(2, ".", ",");
+console.log(formatted); // "1,234,567.89"
+```
+
+## String
+
+- `toArray()` - Converts a string to an array of characters.
+
+This method is useful for manipulating strings as arrays. Method has a lot of arguments:
+
+```javascript
+  "...".toArray(
+      delimiter = ',', 
+      type = 'string', 
+      format = '', 
+      locale = 'en', 
+      pack = false
+  );
+```
+
+- `delimiter` - by which character to split the string
+- `type` - type of values in returned array: `string`, `number`, `float`, `int`, `integer`, `date` and `boolean`
+- `format` - format of the value in the array. Used with `date` type: `YYYY-MM-DD`
+- `locale` - locale for the date format. For example, `en` for English
+- `pack` - if true, remove empty elements from the array
+
+```javascript
+let str = "Hello, world!";
+let arr = str.toArray();
+console.log(arr) // ["Hello", "world!"]
+```

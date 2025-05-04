@@ -1,3 +1,175 @@
 ---
-title: Position & Floating
+title: Position
+slug: common-css/position
 ---
+
+Position Utilities in Metro UI provide a comprehensive set of classes for controlling element positioning. These utilities include classes for basic positioning types, fixed positioning, precise element placement, and responsive variants.
+
+## Basic Position Classes
+
+Control the CSS position property of elements:
+
+| Class | Description |
+| --- | --- |
+| `.pos-relative` | Sets position to relative |
+| `.pos-absolute` | Sets position to absolute |
+| `.pos-static` | Sets position to static (default) |
+| `.pos-fixed` | Sets position to fixed |
+| `.pos-sticky` | Sets position to sticky (sticks to top when scrolling) |
+
+```html
+<div class="pos-relative">
+    <div class="pos-absolute">
+        Absolutely positioned within the relative parent
+    </div>
+</div>
+```
+
+## Fixed Position Shortcuts
+
+Quickly create fixed headers and footers:
+
+| Class | Description |
+| --- | --- |
+| `.fixed-top` | Fixed position at the top of the viewport |
+| `.fixed-bottom` | Fixed position at the bottom of the viewport |
+
+```html
+<header class="fixed-top">
+    Fixed header that stays at the top of the screen
+</header>
+
+<footer class="fixed-bottom">
+    Fixed footer that stays at the bottom of the screen
+</footer>
+```
+
+## Element Placement
+
+Position elements precisely by combining positioning type with placement classes:
+
+### Standard Placements
+
+| Class | Description |
+| --- | --- |
+| `.pos-top-left` | Positions element at the top-left corner |
+| `.pos-top-center` | Positions element at the top-center |
+| `.pos-top-right` | Positions element at the top-right corner |
+| `.pos-bottom-left` | Positions element at the bottom-left corner |
+| `.pos-bottom-center` | Positions element at the bottom-center |
+| `.pos-bottom-right` | Positions element at the bottom-right corner |
+| `.pos-left-center` | Positions element at the middle of the left side |
+| `.pos-right-center` | Positions element at the middle of the right side |
+| `.pos-center` | Positions element at the center of the container |
+
+```html
+<div class="pos-relative" style="height: 300px; border: 1px solid #ccc;">
+    <div class="pos-absolute pos-center">
+        Centered element
+    </div>
+    <div class="pos-absolute pos-top-right">
+        Top-right corner
+    </div>
+</div>
+```
+
+### Advanced Placements
+
+Place elements outside of their container relative to a specific edge:
+
+| Class | Description | Position |
+| --- | --- | --- |
+| `.put-n` | North - above center | ↑ |
+| `.put-ne` | North-east - above right corner | ↗ |
+| `.put-e` | East - right of middle | → |
+| `.put-se` | South-east - below right corner | ↘ |
+| `.put-s` | South - below left | ↓ |
+| `.put-sw` | South-west - below center | ↙ |
+| `.put-w` | West - left of middle | ← |
+| `.put-nw` | North-west - above left corner | ↖ |
+| `.put-wn` | West-north - left of top | ← (top) |
+| `.put-ws` | West-south - left of bottom | ← (bottom) |
+| `.put-en` | East-north - right of top | → (top) |
+| `.put-es` | East-south - right of bottom | → (bottom) |
+
+```html
+<div class="pos-relative" style="height: 100px; width: 200px; border: 1px solid #ccc; margin: 50px;">
+    <div class="pos-absolute put-n" style="background-color: #ffc0cb; padding: 5px;">
+        Tooltip above
+    </div>
+    
+    <div class="pos-absolute put-e" style="background-color: #c0ffee; padding: 5px;">
+        Right side
+    </div>
+</div>
+```
+
+### Simple Edge Alignment
+
+| Class | Description |
+| --- | --- |
+| `.put-left` | Align to left edge |
+| `.put-right` | Align to right edge |
+
+## Responsive Variants
+
+All position classes have responsive variants that apply at specific breakpoints and above:
+
+| Suffix | Screen Width |
+| --- | --- |
+| `-xs` | ≥ 0px (Extra small screens) |
+| `-sm` | ≥ 576px (Small screens) |
+| `-md` | ≥ 768px (Medium screens) |
+| `-lg` | ≥ 992px (Large screens) |
+| `-xl` | ≥ 1200px (Extra large screens) |
+| `-xxl` | ≥ 1452px (Extra extra large screens) |
+
+Examples:
+- `.pos-relative-md` - Element is relatively positioned on medium screens and above
+- `.pos-absolute-lg` - Element is absolutely positioned on large screens and above
+- `.put-right-xl` - Element is aligned to the right on extra large screens and above
+
+```html
+<!-- Element is static on mobile, absolute on desktop -->
+<div class="pos-static pos-absolute-lg pos-top-right-lg">
+    Responsive positioning
+</div>
+```
+
+## Common Use Cases
+
+### Modal Dialog
+
+```html
+<div class="pos-fixed pos-center">
+    Modal dialog centered in the viewport
+</div>
+```
+
+### Dropdown Menu
+
+```html
+<div class="pos-relative">
+    <button>Dropdown</button>
+    <div class="pos-absolute put-s">
+        Dropdown content appears below the button
+    </div>
+</div>
+```
+
+### Floating Action Button
+
+```html
+<button class="pos-fixed pos-bottom-right" style="margin: 20px;">
+    Add
+</button>
+```
+
+### Responsive Header
+
+```html
+<!-- Fixed on desktop, static on mobile -->
+<header class="pos-static pos-fixed-lg pos-top-left-lg">
+    Header content
+</header>
+```

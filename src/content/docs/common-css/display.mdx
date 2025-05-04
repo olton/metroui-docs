@@ -1,3 +1,130 @@
 ---
 title: Display
+slug: common-css/display
 ---
+
+The Display Utilities in Metro UI provide a comprehensive set of classes for controlling element visibility and display properties, with responsive variants for different screen sizes.
+
+## Visibility Classes
+
+These classes control the CSS `visibility` property:
+
+| Class | Description |
+| --- | --- |
+| `.visible` | Makes element visible (visibility: visible) |
+| `.no-visible` | Hides element but preserves its space in layout (visibility: hidden) |
+
+## Display Classes
+
+These classes control the CSS `display` property:
+
+| Class | Description |
+| --- | --- |
+| `.d-none` | Removes element from layout (display: none) |
+| `.d-block` | Displays element as a block (display: block) |
+| `.d-inline` | Displays element as an inline element (display: inline) |
+| `.d-inline-block` | Displays element as an inline-block (display: inline-block) |
+| `.d-table` | Displays element as a table (display: table) |
+| `.d-table-row` | Displays element as a table row (display: table-row) |
+| `.d-table-cell` | Displays element as a table cell (display: table-cell) |
+
+## Responsive Classes
+
+All display and visibility classes have responsive variants that apply at specific breakpoints and above:
+
+| Breakpoint Suffix | Screen Width |
+| --- | --- |
+| `-xs` | ≥ 0px (Extra small screens) |
+| `-sm` | ≥ 576px (Small screens) |
+| `-md` | ≥ 768px (Medium screens) |
+| `-lg` | ≥ 992px (Large screens) |
+| `-xl` | ≥ 1200px (Extra large screens) |
+| `-xxl` | ≥ 1452px (Extra extra large screens) |
+
+Examples:
+- `.d-none-md` - Element is hidden on medium screens and larger
+- `.d-block-lg` - Element displays as block on large screens and larger
+- `.visible-xl` - Element becomes visible on extra large screens and larger
+
+## Usage Examples
+
+### Basic Display Control
+
+```html
+<!-- Hide an element -->
+<div class="d-none">This content is hidden</div>
+
+<!-- Display as block -->
+<span class="d-block">This span displays as a block element</span>
+
+<!-- Display as inline-block -->
+<div class="d-inline-block">This div displays as an inline-block</div>
+```
+
+### Visibility Control
+
+```html
+<!-- Element is invisible but still occupies space -->
+<div class="no-visible">
+    This content is hidden but maintains its layout space
+</div>
+```
+
+### Responsive Display Control
+
+```html
+<!-- Hidden on small screens, visible on medium and larger screens -->
+<div class="d-none d-block-md">
+    This content is visible only on medium screens and larger
+</div>
+
+<!-- Visible on mobile, hidden on desktop -->
+<div class="d-block d-none-lg">
+    This content is visible on mobile but hidden on desktop
+</div>
+
+<!-- Change display type based on screen size -->
+<div class="d-block d-inline-block-md d-inline-lg">
+    Display changes across different screen sizes
+</div>
+```
+
+### Table Layout Responsive Behavior
+
+```html
+<!-- Create a responsive layout that converts between block and table -->
+<div class="d-block d-table-md">
+    <div class="d-block d-table-row-md">
+        <div class="d-block d-table-cell-md">Cell 1</div>
+        <div class="d-block d-table-cell-md">Cell 2</div>
+    </div>
+</div>
+```
+
+### Common Patterns
+
+#### Mobile-First Navigation
+
+```html
+<!-- Mobile menu button (visible on small screens only) -->
+<button class="d-block d-none-md">Menu</button>
+
+<!-- Desktop navigation (visible on medium screens and up) -->
+<nav class="d-none d-block-md">
+    <!-- Navigation items -->
+</nav>
+```
+
+#### Responsive Layout Adaption
+
+```html
+<!-- Sidebar: column on large screens, full width on small -->
+<div class="d-block d-inline-block-lg" style="width: 100%; max-width: 300px;">
+    Sidebar content
+</div>
+
+<!-- Main content: column on large screens, full width on small -->
+<div class="d-block d-inline-block-lg">
+    Main content
+</div>
+```

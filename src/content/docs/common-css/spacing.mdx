@@ -1,0 +1,165 @@
+---
+title: Spacing and Sizing
+slug: common-css/spacing
+---
+
+Spacing utilities in Metro UI provide a comprehensive set of classes for controlling margins and padding with consistent scales. These utilities follow a simple naming convention and include responsive variants.
+
+## Naming Convention
+
+The spacing utility classes follow this pattern:
+
+```
+{property}{sides}-{size}
+```
+
+Where:
+- **property** is either `m` (margin) or `p` (padding)
+- **sides** is one of:
+- Empty: applies to all sides
+- `t`: top
+- `b`: bottom
+- `l`: left
+- `r`: right
+- `x`: left and right (horizontal)
+- `y`: top and bottom (vertical)
+- **size** is a number from 0 to 20, where each unit equals 4px by default
+
+## Auto Margins
+
+| Class | Description |
+| --- | --- |
+| `.mx-auto` | Sets left and right margins to auto (useful for centering) |
+| `.my-auto` | Sets top and bottom margins to auto |
+| `.ml-auto` | Sets left margin to auto |
+| `.mr-auto` | Sets right margin to auto |
+| `.mt-auto` | Sets top margin to auto |
+| `.mb-auto` | Sets bottom margin to auto |
+
+## Zero Spacing
+
+| Class | Description |
+| --- | --- |
+| `.m-0` | Removes margin on all sides |
+| `.mt-0` | Removes margin on top |
+| `.mb-0` | Removes margin on bottom |
+| `.ml-0` | Removes margin on left |
+| `.mr-0` | Removes margin on right |
+| `.mx-0` | Removes margin on left and right |
+| `.my-0` | Removes margin on top and bottom |
+| `.p-0` | Removes padding on all sides |
+| `.pt-0` | Removes padding on top |
+| `.pb-0` | Removes padding on bottom |
+| `.pl-0` | Removes padding on left |
+| `.pr-0` | Removes padding on right |
+| `.px-0` | Removes padding on left and right |
+| `.py-0` | Removes padding on top and bottom |
+
+## Positive Spacing
+
+Use these classes to apply margins or padding from 1 to 20 units (4px to 80px by default):
+
+| Class Pattern | Examples | Description |
+| --- | --- | --- |
+| `.m-{n}` | `.m-1`, `.m-2`... | Margin on all sides |
+| `.mt-{n}` | `.mt-1`, `.mt-2`... | Margin on top |
+| `.mb-{n}` | `.mb-1`, `.mb-2`... | Margin on bottom |
+| `.ml-{n}` | `.ml-1`, `.ml-2`... | Margin on left |
+| `.mr-{n}` | `.mr-1`, `.mr-2`... | Margin on right |
+| `.mx-{n}` | `.mx-1`, `.mx-2`... | Margin on left and right |
+| `.my-{n}` | `.my-1`, `.my-2`... | Margin on top and bottom |
+| `.p-{n}` | `.p-1`, `.p-2`... | Padding on all sides |
+| `.pt-{n}` | `.pt-1`, `.pt-2`... | Padding on top |
+| `.pb-{n}` | `.pb-1`, `.pb-2`... | Padding on bottom |
+| `.pl-{n}` | `.pl-1`, `.pl-2`... | Padding on left |
+| `.pr-{n}` | `.pr-1`, `.pr-2`... | Padding on right |
+| `.px-{n}` | `.px-1`, `.px-2`... | Padding on left and right |
+| `.py-{n}` | `.py-1`, `.py-2`... | Padding on top and bottom |
+
+## Negative Margins
+
+Negative margins are available for pulling elements closer to another element:
+
+| Class Pattern | Examples | Description |
+| --- | --- | --- |
+| `.mt-{n}-minus` | `.mt-1-minus`, `.mt-2-minus`... | Negative margin on top |
+| `.mb-{n}-minus` | `.mb-1-minus`, `.mb-2-minus`... | Negative margin on bottom |
+| `.ml-{n}-minus` | `.ml-1-minus`, `.ml-2-minus`... | Negative margin on left |
+| `.mr-{n}-minus` | `.mr-1-minus`, `.mr-2-minus`... | Negative margin on right |
+
+## Responsive Spacing
+
+All spacing utilities have responsive variants that apply at specific breakpoints and above:
+
+| Suffix | Screen Width |
+| --- | --- |
+| `-xs` | ≥ 0px (Extra small screens) |
+| `-sm` | ≥ 576px (Small screens) |
+| `-md` | ≥ 768px (Medium screens) |
+| `-lg` | ≥ 992px (Large screens) |
+| `-xl` | ≥ 1200px (Extra large screens) |
+| `-xxl` | ≥ 1452px (Extra extra large screens) |
+
+Examples:
+- `.mt-2-md` - Adds top margin of 2 units on medium screens and above
+- `.p-3-lg` - Adds padding of 3 units on large screens and above
+- `.mx-auto-xl` - Centers element horizontally on extra large screens and above
+
+## Usage Examples
+
+### Basic Spacing
+
+```html
+<div class="p-4 m-2">
+    Content with padding of 4 units and margin of 2 units
+</div>
+```
+
+### Different Values on Different Sides
+
+```html
+<div class="pt-4 pb-2 px-3">
+    Content with different padding values for top, bottom, and sides
+</div>
+```
+
+### Horizontally Centered Element
+
+```html
+<div class="mx-auto" style="width: 80%;">
+    This element will be centered horizontally
+</div>
+```
+
+### Responsive Spacing
+
+```html
+<div class="p-2 p-4-md p-6-lg">
+    Element with increasing padding at larger screen sizes
+</div>
+```
+
+### Negative Margins
+
+```html
+<div class="mt-2-minus">
+    This element will overlap the element above it by 2 units
+</div>
+```
+
+## Value Scale
+
+By default, the spacing scale is based on a 4px unit:
+
+| Class | Value |
+| --- | --- |
+| 0 | 0 |
+| 1 | 4px |
+| 2 | 8px |
+| 3 | 12px |
+| 4 | 16px |
+| 5 | 20px |
+| ... | ... |
+| 10 | 40px |
+| ... | ... |
+| 20 | 80px |

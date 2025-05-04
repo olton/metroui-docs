@@ -1,3 +1,183 @@
 ---
-title: Images & Lists
+title: Images
+slug: common-css/images
 ---
+
+The Image Utilities in Metro UI provide a comprehensive set of classes for handling images, creating thumbnails, adding overlays, and controlling image display properties.
+
+## Basic Image Classes
+
+| Class | Description |
+| --- | --- |
+| `.img-fluid` | Makes image responsive (width: 100%, height: auto) |
+| `.img-thumbnail` | Adds light padding, border and background color to image |
+| `.img-container` | Basic container for images with additional features |
+
+## Image Container Features
+
+The `.img-container` class provides the foundation for advanced image displays:
+
+```html
+<div class="img-container">
+    <img src="image.jpg" alt="Description">
+</div>
+```
+
+### Image Overlay
+
+Add an overlay effect that appears on hover with text content:
+
+```html
+<div class="img-container">
+    <img src="image.jpg" alt="Description">
+    <div class="image-overlay">
+        <h3>Image Title</h3>
+        <p>Image description text here</p>
+    </div>
+</div>
+```
+
+### Thumbnail with Title and Description
+
+Create a thumbnail container with additional metadata:
+
+```html
+<div class="img-container thumbnail">
+    <img src="image.jpg" alt="Description">
+    <div class="title">Image Title</div>
+    <div class="description">Detailed description about this image</div>
+</div>
+```
+
+## Image Transformation
+
+Control image orientation with transformation classes:
+
+| Class | Description |
+| --- | --- |
+| `.flip-image-horizontal` | Flips image horizontally (mirror effect) |
+| `.flip-image-vertical` | Flips image vertically (upside down) |
+| `.flip-image` | Flips image both horizontally and vertically |
+
+```html
+<img src="image.jpg" class="flip-image-horizontal" alt="Horizontally flipped image">
+```
+
+## Object-Fit Properties
+
+Control how an image fits within its container:
+
+| Class | Description |
+| --- | --- |
+| `.fit-cover` | Image covers entire container while maintaining aspect ratio (crops if necessary) |
+| `.fit-contain` | Image contained within bounds while maintaining aspect ratio (may leave space) |
+| `.fit-fill` | Image stretches to fill the container (may distort aspect ratio) |
+| `.fit-scale-down` | Uses either contain or none, whichever results in a smaller concrete object size |
+| `.fit-none` | Image is not resized |
+
+```html
+<div style="width: 300px; height: 200px;">
+    <img src="image.jpg" class="fit-cover" alt="Cover fitted image">
+</div>
+```
+
+## Figure Element Support
+
+The utilities also support the HTML `<figure>` element:
+
+```html
+<figure>
+    <img src="image.jpg" alt="Description">
+    <figcaption>Image caption here</figcaption>
+</figure>
+```
+
+## CSS Variables
+
+The image utilities use the following CSS variables that you can customize:
+
+| Variable | Default (Light Theme) | Default (Dark Theme) | Description |
+| --- | --- | --- | --- |
+| `--thumb-background` | `rgba(255,255,255,.8)` | `rgba(0,0,0,.8)` | Background color for thumbnails |
+| `--img-overlay-background` | `rgba(70,140,255,.7)` | `rgba(70,140,255,.7)` | Background color for image overlays |
+| `--img-overlay-color` | `#ffffff` | `#ffffff` | Text color for image overlays |
+| `--img-border-radius` | `6px` | `6px` | Border radius for images |
+
+Example of customizing CSS variables:
+
+```css
+:root {
+    --thumb-background: rgba(240,240,240,.9);
+    --img-overlay-background: rgba(0,0,0,.6);
+    --img-overlay-color: #f0f0f0;
+    --img-border-radius: 10px;
+}
+```
+
+## Example Layouts
+
+### Gallery with Overlays
+
+```html
+<div class="grid">
+    <div class="row">
+        <div class="cell-md-4">
+            <div class="img-container">
+                <img src="image1.jpg" alt="Image 1">
+                <div class="image-overlay">
+                    <h4>Image Title</h4>
+                    <p>Description text</p>
+                </div>
+            </div>
+        </div>
+        <div class="cell-md-4">
+            <div class="img-container">
+                <img src="image2.jpg" alt="Image 2">
+                <div class="image-overlay">
+                    <h4>Image Title</h4>
+                    <p>Description text</p>
+                </div>
+            </div>
+        </div>
+        <div class="cell-md-4">
+            <div class="img-container">
+                <img src="image3.jpg" alt="Image 3">
+                <div class="image-overlay">
+                    <h4>Image Title</h4>
+                    <p>Description text</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### Thumbnail Gallery
+
+```html
+<div class="grid">
+    <div class="row">
+        <div class="cell-md-4">
+            <div class="img-container thumbnail">
+                <img src="image1.jpg" alt="Image 1">
+                <div class="title">Mountain View</div>
+                <div class="description">Beautiful mountain landscape at sunset</div>
+            </div>
+        </div>
+        <div class="cell-md-4">
+            <div class="img-container thumbnail">
+                <img src="image2.jpg" alt="Image 2">
+                <div class="title">Ocean Waves</div>
+                <div class="description">Crashing waves on a rocky shore</div>
+            </div>
+        </div>
+        <div class="cell-md-4">
+            <div class="img-container thumbnail">
+                <img src="image3.jpg" alt="Image 3">
+                <div class="title">Forest Trail</div>
+                <div class="description">A winding path through a dense forest</div>
+            </div>
+        </div>
+    </div>
+</div>
+```
