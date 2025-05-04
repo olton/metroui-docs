@@ -27,5 +27,5 @@ jobs:
           cleanup: true
           passive: true
           local_folder: ./dist/
-          remote_folder: docs-new.metroui.org.ua/
+          remote_folder: v5.metroui.org.ua/
           
