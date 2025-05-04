@@ -63,9 +63,6 @@ export default [
     {
         label: "Components",
         collapsed: true,
-        items: [
-            {label: "Accordion", slug: "components/accordion"},
-            {label: "Package Manager", slug: "components/package-manager"},
-        ]
+        autogenerate: {directory: "components", exclude: []},
     }
 ]
