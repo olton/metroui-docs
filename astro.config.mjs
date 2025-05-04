@@ -19,6 +19,7 @@ if (!production) {
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://docs.metroui.org.ua',
 	integrations: [
 		starlight({
 			title: 'Metro UI 5.1',
