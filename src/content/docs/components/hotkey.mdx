@@ -31,6 +31,16 @@ Metro.hotkeys["ctrl+g"] = ["#globalAction", function() {
 }];
 ```
 
+### Combining Hotkeys
+
+You can combine multiple keys using the ` ` (space) symbol. For example:
+
+```html
+<button data-hotkey="alt+1 2">Button</button>
+```
+
+In the example above, pressing `Alt+1` will trigger the hotkey, and then pressing `2` will execute the action associated with the button.
+
 ## Configuration Options
 
 The Hotkey component can be configured globally through the following options:

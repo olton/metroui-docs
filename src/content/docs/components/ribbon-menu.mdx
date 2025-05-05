@@ -173,7 +173,7 @@ Button with a main action and a dropdown for related options.
         <span class="caption">Paste</span>
     </button>
     <span class="ribbon-split dropdown-toggle">Paste options</span>
-    <ul class="ribbon-dropdown" data-role="dropdown">
+    <ul class="ribbon-dropdown" data-role="drop-menu">
         <li><a href="#">Paste Special</a></li>
         <li><a href="#">Paste as Link</a></li>
         <li><a href="#">Paste as Image</a></li>
@@ -293,7 +293,7 @@ The Ribbon Menu component has the following structure:
                         <span class="caption">Export</span>
                     </button>
                     <span class="ribbon-split dropdown-toggle">Export options</span>
-                    <ul class="ribbon-dropdown" data-role="dropdown">
+                    <ul class="ribbon-dropdown" data-role="dropmenu">
                         <li><a href="#">Export as PDF</a></li>
                         <li><a href="#">Export as DOCX</a></li>
                         <li><a href="#">Export as HTML</a></li>
@@ -308,8 +308,8 @@ The Ribbon Menu component has the following structure:
 </div>
 
 <script>
-    Metro.init(function(){
-        var ribbonMenu = Metro.getPlugin('#documentEditor', 'ribbon-menu');
+    $(() => {
+        const ribbonMenu = Metro.getPlugin('#documentEditor', 'ribbon-menu');
         
         // Handle tab changes
         ribbonMenu.options.onTab = function(e){

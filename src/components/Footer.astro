@@ -2,13 +2,14 @@
 import Default from '@astrojs/starlight/components/Footer.astro';
 
 const isHomepage = Astro.locals.starlightRoute.id === '';
+const version = "5.1.1";
 ---
 
 {
     isHomepage ? (
        <footer class="page-footer">
            <p>Copyright 2012-{new Date().getFullYear()} by <a href="https://pimenov.com.ua">Serhii Pimenov</a></p>
-           <p><small>Metro UI 5.1, Doc 2025.1</small></p>
+           <p><small>Metro UI {version}, Doc 202{version}</small></p>
        </footer>
     ) : (
         <Default {...Astro.props}>
