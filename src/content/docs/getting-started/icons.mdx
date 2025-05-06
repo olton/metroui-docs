@@ -22,20 +22,23 @@ Use Metro CDN to deliver a cached version of Metro UI Icons.
 <Tabs>
     <TabItem label="Latest">
         ```html
-        <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css"/>
+        <link rel="stylesheet" 
+              href="https://cdn.metroui.org.ua/current/icons.css"/>
         ```
     </TabItem>
     <TabItem label="Development">
         ```html
-        <link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/icons.css"/>
+        <link rel="stylesheet" 
+              href="https://cdn.metroui.org.ua/dev/icons.css"/>
         ```
     </TabItem>
 </Tabs>
 
 If you want to use a specific version of Metro UI, you can specify the version in the URL instead of `current` or `dev`.
-For example, to use version `5.0.13`, you can use the following URLs:
+For example, to use version `5.1.1`, you can use the following URLs:
 ```html
-<link rel="stylesheet" href="https://cdn.metroui.org.ua/5.0.13/icons.css"/>
+<link rel="stylesheet" 
+    href="https://cdn.metroui.org.ua/5.1.1/icons.css"/>
 ```
 
 ## Including from NPM
@@ -46,7 +49,7 @@ import "@olton/metroui/source/icons"
 
 ## Using
 
-To use icons, you need to add class `mif-icon_name` to the HTML element:
+To use icons, you need to add class `mif-[icon_name]` to the HTML element:
 
 ```html
 <span class="mif-rocket"></span>
@@ -54,7 +57,7 @@ To use icons, you need to add class `mif-icon_name` to the HTML element:
 
 ## Size
 
-To change icon size, you can:
+To change the icon size, you can:
 
 **Add built-in class `mif-2x`...`mif-10x`**
 
@@ -70,9 +73,9 @@ To change icon size, you can:
 
 ## Color
 
-To change icon color you can:
+To change the icon color, you can:
 
-**Use built-in classes `fg-color_name`**
+**Use built-in classes `fg-[color]`**
 
 ```html
 <span class="mif-rocket fg-red"></span>
@@ -84,4 +87,5 @@ To change icon color you can:
 <span class="mif-rocket" style="color: darkred;"></span>
 ```
 
-
+## Custom Icons
+Of course, you can link your own icons font and use them. Metro UI does not impose any restrictions!

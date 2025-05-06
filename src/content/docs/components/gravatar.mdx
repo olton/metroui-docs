@@ -51,8 +51,8 @@ Gets a Gravatar image element for the specified email.
 // Get Gravatar image as DOM element
 const gravatarElement = Metro.getPlugin('#myGravatar', 'gravatar').getImage('user@example.com', 100, 'identicon', false);
 
-// Get Gravatar image as jQuery object
-const gravatarObject = Metro.getPlugin('#myGravatar', 'gravatar').getImage('user@example.com', 100, 'identicon', true);
+// Get Gravatar image as DomElement or jQuery object
+const gravatarObject = $('#myGravatar').data('gravatar').getImage('user@example.com', 100, 'identicon', true);
 ```
 
 ### getImageSrc(email, size, def)
