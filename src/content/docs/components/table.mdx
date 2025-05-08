@@ -3,7 +3,58 @@ title: Table
 slug: components/table
 ---
 
-The Table Component is a powerful and feature-rich data table for displaying, sorting, filtering, and manipulating tabular data. It supports pagination, searching, row selection, and many other features.
+The Table Component is a powerful and feature-rich data table for displaying, sorting, filtering, and manipulating tabular data. 
+It supports pagination, searching, row selection, and many other features.
+
+## Usage
+
+### Basic Table
+
+You can convert any HTML table into a Metro Table by adding the `data-role="table"` attribute.
+
+```html
+<table data-role="table">
+    ...
+</table>
+```
+
+or load data from a JSON file using the `data-source` attribute.
+
+```html
+<div class="example" lang="ua">
+        <table class="table striped row-hover border responsive-md fixed-header"
+               data-role="table"
+               data-caption="Table caption"
+               data-rows="50"
+               data-rows-steps="5, 10, 50, 100"
+               data-show-activity="false"
+               data-source="data/table.json"
+               data-show-skip="true"
+               data-pagination-wrapper="#pagination"
+               data-pagination-island-size="1"
+               data-pagination-short-track="5"
+               data-skip-wrapper="#skip"
+               data-check="true"
+               data-check-style="2"
+               data-use-current-slice="true"
+               data-show-inspector-button="true"
+               data-horizontal-scroll="true"
+               data-horizontal-scroll-stop="xxl"
+               data-cell-wrapper="true"
+        >
+            <thead id="head1"></thead>
+            <tbody id="body1"></tbody>
+        </table>
+        <div class="row">
+            <div class="cell-md-8">
+                <div id="pagination"></div>
+            </div>
+            <div class="cell-md-4">
+                <div id="skip"></div>
+            </div>
+        </div>
+    </div>
+```
 
 ## Plugin Parameters
 

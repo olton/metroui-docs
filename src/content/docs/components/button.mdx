@@ -3,7 +3,8 @@ title: Button
 slug: components/button
 ---
 
-The Button component provides a versatile and customizable way to create buttons with various styles, sizes, and behaviors. It supports standard HTML button elements as well as styled links and inputs.
+The Button component provides a versatile and customizable way to create buttons with various styles, sizes, and behaviors. 
+It supports standard HTML button elements as well as styled links and inputs.
 
 ## Usage
 
@@ -11,7 +12,7 @@ The Button component provides a versatile and customizable way to create buttons
 
 ```html
 <!-- Standard button -->
-<button class="button">Standard Button</button>
+<button>Standard Button</button>
 
 <!-- Link styled as button -->
 <a href="#" class="button">Link Button</a>
@@ -22,6 +23,10 @@ The Button component provides a versatile and customizable way to create buttons
 <input type="reset" value="Reset Button">
 ```
 
+:::note
+For non-button elements, you must use the class `button` to apply button styles.
+:::
+
 ### Button Variants
 
 ```html
@@ -29,41 +34,41 @@ The Button component provides a versatile and customizable way to create buttons
 <button class="flat-button">Flat Button</button>
 
 <!-- Outline button -->
-<button class="button outline">Outline Button</button>
+<button class="outline">Outline Button</button>
 
 <!-- Link style button -->
-<button class="button link">Link Button</button>
+<button class="link">Link Button</button>
 ```
 
 ### Button Sizes
 
 ```html
 <!-- Mini button -->
-<button class="button mini">Mini</button>
+<button class="mini">Mini</button>
 
 <!-- Small button -->
-<button class="button small">Small</button>
+<button class="small">Small</button>
 
 <!-- Default size button -->
-<button class="button">Default</button>
+<button>Default</button>
 
 <!-- Large button -->
-<button class="button large">Large</button>
+<button class="large">Large</button>
 ```
 
 ### Button Shapes
 
 ```html
 <!-- Pill button (rounded edges) -->
-<button class="button pill-button">Pill Button</button>
+<button class="pill-button">Pill Button</button>
 
 <!-- Square button -->
-<button class="button square">
+<button class="square">
     <span class="icon mif-home"></span>
 </button>
 
 <!-- Circular button -->
-<button class="button cycle">
+<button class="cycle">
     <span class="icon mif-plus"></span>
 </button>
 ```
@@ -72,12 +77,12 @@ The Button component provides a versatile and customizable way to create buttons
 
 ```html
 <!-- Disabled button -->
-<button class="button" disabled>Disabled Button</button>
+<button disabled>Disabled Button</button>
 
 <!-- Loading button -->
-<button class="button loading">
-    <span class="load-marker mif-spinner"></span>
-    <span class="load-caption">Loading</span>
+<button class="loading active">
+    <span class="loader mif-spinner"></span>
+    <span class="caption">Loading</span>
 </button>
 ```
 
@@ -85,26 +90,26 @@ The Button component provides a versatile and customizable way to create buttons
 
 ```html
 <!-- Shadow effect -->
-<button class="button shadow">Shadow Button</button>
+<button class="shadow">Shadow Button</button>
 
 <!-- Shift effect (moves when clicked) -->
-<button class="button shift">Shift Button</button>
+<button class="shift">Shift Button</button>
 ```
 
 ### Color Variants
 
 ```html
 <!-- Colored buttons -->
-<button class="button button-primary">Primary</button>
-<button class="button button-secondary">Secondary</button>
-<button class="button button-success">Success</button>
-<button class="button button-warning">Warning</button>
-<button class="button button-alert">Alert</button>
-<button class="button button-info">Info</button>
+<button class="button-primary">Primary</button>
+<button class="button-secondary">Secondary</button>
+<button class="button-success">Success</button>
+<button class="button-warning">Warning</button>
+<button class="button-alert">Alert</button>
+<button class="button-info">Info</button>
 
 <!-- Soft colored buttons -->
-<button class="button button-soft-primary">Soft Primary</button>
-<button class="button button-soft-secondary">Soft Secondary</button>
+<button class="button-soft-primary">Soft Primary</button>
+<button class="button-soft-secondary">Soft Secondary</button>
 ```
 
 ## Styling with CSS Variables

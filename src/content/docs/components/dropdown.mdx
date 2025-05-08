@@ -3,50 +3,59 @@ title: Dropdown
 slug: components/dropdown
 ---
 
-The Dropdown component provides a flexible way to create dropdown menus and lists that can be toggled to show or hide content. It supports various positioning options and can be customized through configuration options and CSS variables.
+The Dropdown component provides a flexible way to create dropdown menus and lists that can be toggled to show or hide content. 
+It supports various positioning options and can be customized through configuration options and CSS variables.
+
+:::note
+When one `dropdown` element opens, others close. If you want the item to remain open, use the component `collapse`.
+:::
+
+You can use different elements for dropdown.
 
 ## Usage
 
 ### Basic Dropdown
 
 ```html
-<!-- Basic dropdown -->
-<div class="dropdown-toggle">Click me
-    <div class="dropdown" data-role="dropdown">
-        <div>Dropdown content here</div>
-    </div>
+<!-- Basic drop menu -->
+<div class="pos-relative">
+    <button class="button dropdown-toggle">Menu</button>
+    <ul data-role="dropdown" class="d-menu">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+    </ul>
 </div>
-
-<!-- Using with a button -->
-<button class="button dropdown-toggle">
-    Options
-    <div class="dropdown" data-role="dropdown">
-        <ul>
-            <li><a href="#">Option 1</a></li>
-            <li><a href="#">Option 2</a></li>
-            <li><a href="#">Option 3</a></li>
-        </ul>
-    </div>
-</button>
 ```
 
 ### Dropdown Positioning
 
 ```html
-<!-- Dropdown that opens upward -->
-<div class="dropdown-toggle">
-    Click me
-    <div class="dropdown drop-up" data-role="dropdown">
-        <div>Content appears above the toggle</div>
-    </div>
+<div class="pos-relative">
+    <button class="button dropdown-toggle">Menu</button>
+    <ul data-role="dropdown" class="d-menu drop-up">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+    </ul>
 </div>
 
-<!-- Dropdown aligned to the right -->
-<div class="dropdown-toggle">
-    Click me
-    <div class="dropdown drop-down-right" data-role="dropdown">
-        <div>Content aligned to the right</div>
-    </div>
+<div class="pos-relative">
+    <button class="button dropdown-toggle">Menu</button>
+    <ul data-role="dropdown" class="d-menu drop-left">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+    </ul>
+</div>
+
+<div class="pos-relative">
+    <button class="button dropdown-toggle">Menu</button>
+    <ul data-role="dropdown" class="d-menu drop-right">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+    </ul>
 </div>
 ```
 
@@ -54,11 +63,13 @@ The Dropdown component provides a flexible way to create dropdown menus and list
 
 ```html
 <!-- Dropdown that stays open when clicking outside -->
-<div class="dropdown-toggle">
-    Click me
-    <div class="dropdown keep-open" data-role="dropdown" data-no-close="true">
-        <div>This dropdown won't close when clicking elsewhere</div>
-    </div>
+<div class="pos-relative">
+    <button class="button dropdown-toggle">Menu</button>
+    <ul data-role="dropdown" class="d-menu no-auto-close">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+    </ul>
 </div>
 ```
 

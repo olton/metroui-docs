@@ -9,21 +9,22 @@ import CodePen from '../../../components/CodePen.astro';
 
 # Package Manager Component
 
-The Package Manager component provides a tabbed interface for displaying installation commands for different package managers (npm, pnpm, yarn, bun). It allows users to easily copy the correct installation command for their preferred package manager.
+The Package Manager component provides a tabbed interface for displaying installation commands for different package managers (npm, pnpm, yarn, bun). 
+It allows users to easily copy the correct installation command for their preferred package manager.
 
 ## Usage
 
 ### Basic Usage
 
 ```html
-<div data-role="package-manager" data-package="metro4"></div>
+<div data-role="package-manager" data-package="@olton/metroui"></div>
 ```
 
 ### With Options
 
 ```html
 <div data-role="package-manager" 
-     data-package="metro4" 
+     data-package="@olton/metroui" 
      data-default="yarn" 
      data-deps="dev">
 </div>
@@ -34,7 +35,7 @@ The Package Manager component provides a tabbed interface for displaying install
 ```javascript
 // Create a package manager component programmatically
 const packageManager = $("<div>").packageManager({
-    package: "metro4",
+    package: "@olton/metroui",
     default: "npm",
     deps: "dev"
 }).appendTo("#container");

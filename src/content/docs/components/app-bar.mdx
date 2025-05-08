@@ -8,17 +8,24 @@ The App Bar component provides a responsive navigation bar that can be placed at
 ## Usage
 
 ```html
-<div class="app-bar" data-role="app-bar">
-    <button class="hamburger menu-down"></button>
+<div data-role="app-bar" data-expand-point="md">
     <a href="#" class="brand">
         <span class="icon"><img src="..."></span>
         <span class="caption">Brand</span>
     </a>
-    <ul class="app-bar-menu">
+
+    <a href="/" class="app-bar-item-static">Static Link</a>
+    <a href="/" class="app-bar-item">Item</a>
+
+    <ul class="app-bar-menu ml-auto">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
+
+    <div class="app-bar-item-static">
+        <input type="checkbox" data-role="theme-switcher"/>
+    </div>
 </div>
 ```
 
@@ -31,6 +38,33 @@ The App Bar component provides a responsive navigation bar that can be placed at
 | expandPoint | string | null | Media query string at which the app bar will expand |
 | duration | number | 100 | Animation duration for menu open/close in milliseconds |
 | checkHamburgerColor | boolean | false | If true, hamburger color will be set dependent on app-bar background color |
+
+## Items
+
+- `app-bar-item` - A link or button in the app bar.
+- `app-bar-item-static` - A static item in the app bar.
+- `app-bar-menu` - A menu in the app bar that can be opened or closed.  
+- `app-bar-button` - A button in the app bar.
+- `app-bar-container` - A container for the app bar items.
+- `brand` - A brand logo or name in the app bar.
+- `app-bar-input` - An input field in the app bar.
+
+### App Bar Menu
+This component is displayed dinamically, depending on the width of the element.
+The expansion point is determined by the parameter `data-expand-point = ...`. 
+The value of `md` means that the menu will be displayed on screens with width `More Then 768px`.
+You can use other values such as `Sm`,` lg`, `xl` or` xxl`.
+By default, the menu will be hidden and displayed only when you click on the menu button (`Hamburger`).
+
+```html
+<ul class="app-bar-menu">
+    <li><a href="#">Menu Item 1</a></li>
+    <li><a href="#">Menu Item 2</a></li>
+    <li><a href="#">Menu Item 3</a></li>
+</ul>
+```
+
+
 
 ## Methods
 
@@ -86,22 +120,6 @@ The App Bar component can be styled using the following CSS variables:
 | --appbar-item-color-hover | #000000 | #ffffff | Text color of app bar items on hover |
 | --appbar-item-background-hover | #e8e8e8 | #2b2d30 | Background color of app bar items on hover |
 
-## Example
-
-```html
-<div class="app-bar" data-role="app-bar" data-expand-point="md">
-    <a href="#" class="brand">
-        <span class="caption">Metro UI</span>
-    </a>
-    <ul class="app-bar-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</div>
-```
 
 ## Custom Styling Example
 

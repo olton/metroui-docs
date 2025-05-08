@@ -5,6 +5,31 @@ slug: components/tabs
 
 The Tabs Component provides a way to organize content into multiple tabs, allowing users to switch between different views without navigating to a new page.
 
+## Usage
+
+```html
+<div class="example">
+        <ul
+                id="tabs"
+                data-role="tabs"
+                data-expand="true"
+                data-on-tab="console.log('tab', arguments)"
+                data-on-tab-close="console.log('close', arguments)"
+                data-on-tab-open="console.log('open', arguments)"
+                data-update-uri="true"
+        >
+            <li id="1"><a href="#home">Home</a></li>
+            <li id="2"><a href="#profile">Profile</a></li>
+            <li id="3"><a href="#links">Links</a></li>
+        </ul>
+        <div class="tabs-targets">
+            <div id="home">Home</div>
+            <div id="profile">Profile</div>
+            <div id="links">Links</div>
+        </div>
+    </div>
+```
+
 ## Plugin Parameters
 
 The Tabs Component accepts the following parameters:

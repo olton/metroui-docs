@@ -3,7 +3,12 @@ title: Drop Menu
 slug: components/drop-menu
 ---
 
-The Drop Menu component provides a flexible and interactive dropdown menu system that can be attached to any element. It supports nested menus, positioning options, and customizable styling.
+The Drop Menu component provides a flexible and interactive dropdown menu system that can be attached to any element. 
+It supports nested menus, positioning options, and customizable styling.
+
+:::note
+Unlike the `dropdown` component, in which the drop element is positioning absolutely, `drop-menu` has static position.
+:::
 
 ## Usage
 
@@ -11,21 +16,21 @@ The Drop Menu component provides a flexible and interactive dropdown menu system
 
 ```html
 <!-- Basic drop menu -->
-<button class="button menu-toggle">Menu
-    <!-- Toggle icon will be added automatically -->
-</button>
-<ul data-role-dropmenu>
-    <li><a href="#">Item 1</a></li>
-    <li><a href="#">Item 2</a></li>
-    <li><a href="#">Item 3</a></li>
-</ul>
+<div class="pos-relative">
+    <button class="button dropdown-toggle">Menu</button>
+    <ul data-role="dropmenu" class="d-menu">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+    </ul>
+</div>
 ```
 
 ### Nested Drop Menu
 
 ```html
 <button class="button menu-toggle">Menu</button>
-<ul data-role-dropmenu>
+<ul data-role="dropmenu" class="d-menu">
     <li><a href="#">Item 1</a></li>
     <li>
         <a href="#" class="menu-toggle">Submenu</a>
@@ -42,7 +47,7 @@ The Drop Menu component provides a flexible and interactive dropdown menu system
 
 ```html
 <button class="button menu-toggle">Menu</button>
-<ul data-role-dropmenu data-align="right">
+<ul data-role="dropmenu" class="d-menu" data-align="right">
     <li><a href="#">Item 1</a></li>
     <li><a href="#">Item 2</a></li>
     <li><a href="#">Item 3</a></li>
@@ -53,7 +58,7 @@ The Drop Menu component provides a flexible and interactive dropdown menu system
 
 ```html
 <button class="button menu-toggle">Menu</button>
-<ul data-role-dropmenu data-height="200">
+<ul data-role="dropmenu" class="d-menu" data-height="200">
     <li><a href="#">Item 1</a></li>
     <li><a href="#">Item 2</a></li>
     <li><a href="#">Item 3</a></li>
@@ -180,7 +185,7 @@ The component supports unlimited nesting of menus. Each submenu:
 Add the class `keep-open`, `stay-open`, or `ignore-document-click` to prevent a menu from closing when clicking elsewhere on the document:
 
 ```html
-<ul data-role-dropmenu class="keep-open">
+<ul data-role="dropmenu" class="keep-open">
     <!-- This menu will stay open until explicitly closed -->
 </ul>
 ```

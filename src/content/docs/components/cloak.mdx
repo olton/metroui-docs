@@ -9,14 +9,20 @@ The Cloak component provides a simple way to hide elements initially and then re
 
 ## Usage
 
+It is recommended to use the `cloak` class for items that you need to hide when downloading a page. 
+When the item is ready to display, add the class `remove-cloak` to animate its appearance. 
+Use the `add-cloak` class to hide the visible element.
+
+If class `cloak` is applied to `body`, Metro UI will delete it automatically on completed page loading.
+
 ### Basic Usage
 
-Add the `cloak` or `m4-cloak` class to elements that should be initially hidden:
+Add the `cloak` class to elements that should be initially hidden:
 
 ```html
-<div class="cloak">
+<body class="cloak">
     This content will be initially hidden.
-</div>
+</body>
 ```
 
 ### Revealing Cloaked Elements

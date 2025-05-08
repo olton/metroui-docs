@@ -3,7 +3,8 @@ title: Collapse
 slug: components/collapse
 ---
 
-The Collapse component provides a way to toggle the visibility of content with smooth animations. It's commonly used for accordion-style interfaces, expandable panels, and other UI elements that need to show or hide content.
+The Collapse component provides a way to toggle the visibility of content with smooth animations. 
+It's commonly used for accordion-style interfaces, expandable panels, and other UI elements that need to show or hide content.
 
 ## Usage
 
@@ -11,27 +12,25 @@ The Collapse component provides a way to toggle the visibility of content with s
 
 ```html
 <!-- Basic collapse structure -->
-<div class="collapse-toggle">Toggle Content</div>
-<div class="collapse">
-    <p>This content can be collapsed or expanded.</p>
-</div>
-```
+<button class="button alert">Toggle</button>
 
-### Custom Toggle Element
-
-```html
-<!-- Using a custom toggle element -->
-<button id="customToggle">Toggle Content</button>
-<div data-role="collapse" data-toggle-element="#customToggle">
-    <p>This content is toggled by a custom element.</p>
+<div class="border bd-dark mt-10" data-role="collapse" id="collapsedBlock">
+    <div class="p-20">This is a collapsed block</div>
 </div>
+
+<script>
+$("button").on("click", function(){
+    const collapse = Metro.getPlugin('#collapsedBlock', 'collapse');
+    collapse.isCollapsed() ? collapse.expand() : collapse.collapse();
+})
+</script>
+
 ```
 
 ### Initially Collapsed
 
 ```html
 <!-- Initially collapsed content -->
-<div class="collapse-toggle">Toggle Content</div>
 <div data-role="collapse" data-collapsed="true">
     <p>This content is initially hidden.</p>
 </div>

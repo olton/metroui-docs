@@ -5,6 +5,29 @@ slug: components/chat
 
 The Chat component provides a versatile and interactive chat interface for web applications. It supports message exchange, customizable avatars, timestamps, and various styling options.
 
+## Usage
+
+```html
+<div id="chat" class="mx-auto"
+             data-role="chat"
+             data-width="480"
+             data-height="640"
+             data-title="Direct chat"
+             data-cls-send-button="bg-crimson fg-white"
+             data-send-button-icon="<span class='mif-paper-plane'>"
+             data-send-button-title=" "
+             data-random-color="true"
+             data-welcome="Welcome to the chat!"
+             data-cls-message-left="default"
+             data-cls-message-right="bg-crimson fg-white bd-crimson"
+             data-on-send="sendMessage"
+             data-on-message="onMessage"
+             data-avatar="<span>👦</span>"
+             data-welcome-avatar="<span>📎</span>"
+             data-readonly="false"
+        ></div>
+```
+
 ## Plugin Parameters
 
 The Chat component accepts the following configuration options:

@@ -10,10 +10,10 @@ The Split Button component provides a button with two parts: a main button and a
 ```html
 <div class="split-button">
   <button class="button">Main Action</button>
-  <button class="split dropdown-toggle" data-role="dropdown" data-toggle-element="#split-dropdown">
+  <button class="split dropdown-toggle">
     <span class="mif-chevron-down"></span>
   </button>
-  <ul class="d-menu" id="split-dropdown">
+  <ul class="d-menu" id="split-dropdown" data-role="dropdown">
     <li><a href="#">Option 1</a></li>
     <li><a href="#">Option 2</a></li>
     <li><a href="#">Option 3</a></li>
@@ -30,10 +30,10 @@ You can remove the gap between the main button and the dropdown toggle by adding
 ```html
 <div class="split-button no-gap">
   <button class="button">Main Action</button>
-  <button class="split dropdown-toggle" data-role="dropdown" data-toggle-element="#split-dropdown-no-gap">
+  <button class="split dropdown-toggle">
     <span class="mif-chevron-down"></span>
   </button>
-  <ul class="d-menu" id="split-dropdown-no-gap">
+  <ul class="d-menu" data-role="dropdown">
     <li><a href="#">Option 1</a></li>
     <li><a href="#">Option 2</a></li>
     <li><a href="#">Option 3</a></li>
@@ -48,10 +48,10 @@ You can use the outline style for the split button by adding the `outline` class
 ```html
 <div class="split-button">
   <button class="button outline">Main Action</button>
-  <button class="split outline dropdown-toggle" data-role="dropdown" data-toggle-element="#split-dropdown-outline">
+  <button class="split outline dropdown-toggle">
     <span class="mif-chevron-down"></span>
   </button>
-  <ul class="d-menu" id="split-dropdown-outline">
+  <ul class="d-menu" id="split-dropdown-outline" data-role="dropdown">
     <li><a href="#">Option 1</a></li>
     <li><a href="#">Option 2</a></li>
     <li><a href="#">Option 3</a></li>
@@ -99,8 +99,11 @@ The Split Button has the following structure:
   <!-- Dropdown toggle -->
   <button class="split dropdown-toggle">...</button>
   
-  <!-- Dropdown menu -->
-  <ul class="d-menu">...</ul>
+  <!-- Dropdown component -->
+  <ul class="d-menu" data-role="dropdown">...</ul>
+
+  <!-- Or Dropdown menu -->
+  <ul class="d-menu" data-role="dropmenu">...</ul>
 </div>
 ```
 

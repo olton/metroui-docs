@@ -10,53 +10,29 @@ The Page Control component provides a tabbed interface for organizing content in
 ### Basic Usage
 
 ```html
-<ul data-role="page-control">
-    <li class="active">Home</li>
-    <li>Profile</li>
-    <li>Settings</li>
-</ul>
-```
+<div class="example mt-10">
+    <ul data-role="page-control" id="pc1"
+        data-append-button="true"
+        data-tabs-actions="tabActions"
+        data-ref-control="true"
+    >
+        <li data-ref="#report1" data-icon="mif-sql">Report 1</li>
+        <li data-ref="#report2" data-icon="mif-sql">Report 2</li>
+        <li data-ref="#report3" data-icon="mif-sql">Report 3</li>
+    </ul>
 
-### With Icons and Close Buttons
-
-```html
-<ul data-role="page-control">
-    <li class="active" data-icon="mif-home">Home</li>
-    <li data-icon="mif-user">Profile</li>
-    <li data-icon="mif-cog" data-close="false">Settings</li>
-</ul>
-```
-
-### With Reference Control
-
-```html
-<ul data-role="page-control" data-ref-control="true">
-    <li class="active" data-ref="#home-content">Home</li>
-    <li data-ref="#profile-content">Profile</li>
-    <li data-ref="#settings-content">Settings</li>
-</ul>
-
-<div id="home-content">Home content here</div>
-<div id="profile-content" style="display: none;">Profile content here</div>
-<div id="settings-content" style="display: none;">Settings content here</div>
-```
-
-### JavaScript Creation
-
-```javascript
-// Create a page control programmatically
-const pageControl = $("<ul>").pageControl({
-    tabsPosition: "center",
-    appendButton: true,
-    defaultNewTabTitle: "New Tab"
-}).appendTo("#container");
-
-// Add tabs
-pageControl.pageControl("addTab", {
-    caption: "Home",
-    icon: "mif-home",
-    canClose: false
-});
+    <div class="content-holder">
+        <div id="report1">
+            Report 1
+        </div>
+        <div id="report2">
+            Report 2
+        </div>
+        <div id="report3">
+            Report 3
+        </div>
+    </div>
+</div>
 ```
 
 ## Plugin Parameters

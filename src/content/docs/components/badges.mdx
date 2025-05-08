@@ -3,23 +3,28 @@ title: Badges
 slug: components/badges
 ---
 
-The Badges component provides a simple way to add small, customizable badges to your UI elements. Badges can be used to display counts, status indicators, or labels.
+The Badges component provides a simple way to add small, customizable badges to your UI elements. 
+Badges can be used to display counts, status indicators, or labels.
 
 ## Usage
 
 ```html
 <!-- Basic usage -->
-<span class="badge">New</span>
-
+<button>
+    <span class="caption">Button</span>
+    <span class="badge">12</span>
+</button>
 <!-- Badge in corner position -->
-<div style="position: relative; width: 100px; height: 100px; background-color: #f0f0f0;">
-    <span class="badge corner">8</span>
-</div>
+<button>
+    <span class="caption">Button</span>
+    <span class="badge corner">12</span>
+</button>
 
 <!-- Badge outside corner position -->
-<div style="position: relative; width: 100px; height: 100px; background-color: #f0f0f0;">
+<button>
+    <span class="caption">Button</span>
     <span class="badge corner-outside">12</span>
-</div>
+</button>
 ```
 
 ## Classes
