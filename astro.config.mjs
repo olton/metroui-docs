@@ -33,7 +33,7 @@ export default defineConfig({
 			favicon: '/crown-white.svg',
 			social: [
 				{icon: 'github', label: 'GitHub', href: 'https://github.com/olton/metroui'},
-				{icon: 'discord', label: 'Discord', href: 'https://discord.gg/bRgdUP7g'},
+				{icon: 'discord', label: 'Discord', href: 'https://discord.gg/cxrhV7pGG8'},
 			], 
 			sidebar,
 			customCss: [
