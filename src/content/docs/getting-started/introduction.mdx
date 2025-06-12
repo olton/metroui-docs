@@ -27,9 +27,31 @@ Get started by including production-ready CSS and JavaScript via CDN without the
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css">
   </head>
   <body class="h-vh-100 d-flex flex-column flex-justify-center flex-align-center">
-    <h1>Hello, world!</h1>
-    <div data-role="cube" data-show-axis="true"></div>
+    <div id="root" class="h-100 d-flex flex-center flex-column">
+        <div class="h1">Counter</div>
+        <div class="m-2">Counter: {{ counter }}</div>
+        <div class="m-2"><input class="text-center" type="text" data-model="counter"></div>
+        <div>Статус: {{ status }}</div>
+        <div class="m-2 d-flex flex-row gap-2">
+            <button @click="this.counter++">Inc Counter</button>
+            <button @click="this.counter--">Dec Counter</button>
+        </div>
+    </div>
     <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+    <script>
+        var app = new Model({
+            counter: 0,
+            status() {
+                return this.counter === 0
+                    ? "Zero"
+                    : this.counter > 0
+                    ? "Positive"
+                    : "Negative";
+            }
+        });
+
+        app.init("#root");
+    </script>
   </body>
 </html>
 ```
