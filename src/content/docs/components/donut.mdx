@@ -55,7 +55,7 @@ This component has no additional dependencies beyond the core Metro UI library.
 | `fill` | string | "#49649f" | Color of the value circle |
 | `fontSize` | number | 0 | Font size (0 means auto-calculated) |
 | `total` | number | 100 | Total value (for percentage calculation) |
-| `cap` | string | "%" | Suffix for the displayed value |
+| `cap` | string | `%` | Suffix for the displayed value |
 | `showText` | boolean | true | Whether to show text |
 | `showValue` | boolean | false | Whether to show the actual value instead of percentage |
 | `animate` | number | 0 | Animation duration in milliseconds |
@@ -104,7 +104,7 @@ The donut component doesn't use CSS variables directly, but it can be styled usi
 - `.donut` - The main container class for the donut component
 
 ### Color Classes
-- `.donut-{color}` - Color variants where {color} can be any of the Metro UI color names (e.g., `.donut-red`, `.donut-blue`, etc.)
+- `.donut-[color]` - Color variants where [color] can be any of the Metro UI color names (e.g., `.donut-red`, `.donut-blue`, etc.)
 
 #### Example of Custom Styling
 
