@@ -3,112 +3,148 @@ title: Embed Media
 slug: common-css/embed
 ---
 
-The Embed Utilities in Metro UI provide a responsive container system for embedded media content like videos, iframes, and other embeddable elements, ensuring they maintain proper aspect ratios across all screen sizes.
+This component provides utility classes for creating responsive embedded content containers in Metro UI.
 
-## Usage
+## Overview
+
+The `embed` component defines CSS classes that help create responsive containers for embedded content such as videos, maps, and iframes. These containers maintain specific aspect ratios while resizing with the viewport, ensuring that embedded content displays properly on all screen sizes.
+
+## Available Classes
+
+### Main Container Class
+
+| Class | Description |
+|-------|-------------|
+| `.embed-container` | Creates a responsive container for embedded content with a default 16:9 aspect ratio |
+
+### Aspect Ratio Modifier Classes
+
+| Class | Description | Aspect Ratio |
+|-------|-------------|--------------|
+| `.size-21x9` | Ultra-widescreen aspect ratio | 21:9 |
+| `.size-16x9` | Standard widescreen aspect ratio (default) | 16:9 |
+| `.size-4x3` | Standard fullscreen aspect ratio | 4:3 |
+| `.size-1x1` | Square aspect ratio | 1:1 |
+
+## How It Works
+
+The `.embed-container` class uses the "padding-top" technique to maintain aspect ratios:
+
+1. The container has `position: relative` and `width: 100%`
+2. A pseudo-element (::before) with a percentage-based `padding-top` creates the aspect ratio
+3. Embedded elements inside the container are positioned absolutely to fill the container
+
+This approach ensures that embedded content maintains its aspect ratio regardless of the viewport size.
+
+## Supported Elements
+
+The following elements are automatically styled when placed inside an `.embed-container`:
+
+- `<iframe>`
+- `<object>`
+- `<embed>`
+- `<video>`
+- Elements with class `.embed-item`
+
+These elements will be positioned to fill the entire container while maintaining the specified aspect ratio.
+
+## Usage Examples
+
+### Basic Embed Container (16:9)
 
 ```html
-<!-- Basic 16:9 embed (default) -->
+<!-- Default 16:9 aspect ratio container -->
 <div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+</div>
+```
+
+### Different Aspect Ratios
+
+```html
+<!-- 21:9 ultra-widescreen aspect ratio -->
+<div class="embed-container size-21x9">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
 </div>
 
-<!-- 4:3 aspect ratio embed -->
+<!-- 4:3 standard fullscreen aspect ratio -->
 <div class="embed-container size-4x3">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+</div>
+
+<!-- 1:1 square aspect ratio -->
+<div class="embed-container size-1x1">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
 </div>
 ```
 
-## Available Aspect Ratios
-
-The embed container supports several common aspect ratios:
-
-| Class | Aspect Ratio | Common Use |
-| --- | --- | --- |
-| `size-21x9` | 21:9 | Ultrawide/Cinematic video |
-| `size-16x9` | 16:9 | Standard widescreen video (default) |
-| `size-4x3` | 4:3 | Traditional TV/monitor ratio |
-| `size-1x1` | 1:1 | Square format (Instagram, etc.) |
-
-## Supported Content Types
-
-The embed container works with various content types:
-
-- `<iframe>` elements (YouTube, Vimeo, maps, etc.)
-- `<video>` elements (HTML5 video)
-- `<object>` elements
-- `<embed>` elements
-- Any element with class `.embed-item`
-
-## Examples
-
-### YouTube Video
+### Embedding Google Maps
 
 ```html
 <div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d-73.9876!3d40.7654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zNDUnMzAuNiJOIDczwrA1OSczMC4wIlc!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen></iframe>
 </div>
 ```
 
-### Vimeo Video
-
-```html
-<div class="embed-container">
-    <iframe src="https://player.vimeo.com/video/VIDEO_ID" 
-            frameborder="0" 
-            allow="autoplay; fullscreen; picture-in-picture" 
-            allowfullscreen>
-    </iframe>
-</div>
-```
-
-### HTML5 Video
+### Embedding Videos
 
 ```html
 <div class="embed-container">
     <video controls>
         <source src="video.mp4" type="video/mp4">
-        <source src="video.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
 </div>
 ```
 
-### Google Maps
-
-```html
-<div class="embed-container size-4x3">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!..." 
-            frameborder="0" 
-            style="border:0" 
-            allowfullscreen>
-    </iframe>
-</div>
-```
-
-### Custom Content with Embed Item
+### Using with Custom Elements
 
 ```html
 <div class="embed-container">
     <div class="embed-item">
-        <!-- Your custom content here -->
-        <div class="centered-content">
-            Custom responsive content
-        </div>
+        <!-- Any custom content that should fill the container -->
     </div>
 </div>
 ```
 
-## How It Works
+## CSS Properties
 
-The embed container uses a padding-based trick to maintain aspect ratio:
+The `.embed-container` class applies the following CSS properties:
 
-1. The container establishes a responsive width (100% of parent)
-2. A pseudo-element creates the correct height based on aspect ratio
-3. The embedded content is absolutely positioned to fill the container
+```css
+.embed-container {
+    position: relative;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
 
-This approach ensures that your embedded content always maintains the correct aspect ratio regardless of screen size, avoiding distortion or awkward whitespace.
+.embed-container::before {
+    padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625 = 56.25%) */
+    display: block;
+    content: "";
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed,
+.embed-container video,
+.embed-container .embed-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+```
+
+## Best Practices
+
+1. Always include the `.embed-container` class on the parent element of your embedded content.
+2. Choose the appropriate aspect ratio modifier class based on the content you're embedding.
+3. For YouTube videos, use the embed URL format (youtube.com/embed/VIDEO_ID) rather than the standard URL.
+4. For responsive designs, you may want to place the `.embed-container` inside another container with width constraints.
+5. If you need a custom aspect ratio not provided by the default classes, you can create your own using the same technique.

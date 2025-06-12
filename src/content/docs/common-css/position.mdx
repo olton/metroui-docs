@@ -3,173 +3,146 @@ title: Position
 slug: common-css/position
 ---
 
-Position Utilities in Metro UI provide a comprehensive set of classes for controlling element positioning. These utilities include classes for basic positioning types, fixed positioning, precise element placement, and responsive variants.
+This component provides basic positioning utility classes for controlling how elements are positioned in Metro UI.
+
+## Overview
+
+The `position` component defines CSS classes for setting the CSS `position` property and creating fixed headers and footers. These utilities form the foundation for more advanced positioning techniques.
 
 ## Basic Position Classes
 
-Control the CSS position property of elements:
+These classes set the CSS `position` property:
 
 | Class | Description |
-| --- | --- |
-| `.pos-relative` | Sets position to relative |
-| `.pos-absolute` | Sets position to absolute |
-| `.pos-static` | Sets position to static (default) |
-| `.pos-fixed` | Sets position to fixed |
-| `.pos-sticky` | Sets position to sticky (sticks to top when scrolling) |
+|-------|-------------|
+| `.pos-relative` | Sets `position: relative` |
+| `.pos-absolute` | Sets `position: absolute` |
+| `.pos-static` | Sets `position: static` |
+| `.pos-fixed` | Sets `position: fixed` |
+| `.pos-sticky` | Sets `position: sticky` with `top: 0` and `align-self: flex-start` |
 
-```html
-<div class="pos-relative">
-    <div class="pos-absolute">
-        Absolutely positioned within the relative parent
-    </div>
-</div>
-```
+## Fixed Position Utilities
 
-## Fixed Position Shortcuts
-
-Quickly create fixed headers and footers:
+These classes create fixed elements that span the full width of the viewport:
 
 | Class | Description |
-| --- | --- |
-| `.fixed-top` | Fixed position at the top of the viewport |
-| `.fixed-bottom` | Fixed position at the bottom of the viewport |
-
-```html
-<header class="fixed-top">
-    Fixed header that stays at the top of the screen
-</header>
-
-<footer class="fixed-bottom">
-    Fixed footer that stays at the bottom of the screen
-</footer>
-```
-
-## Element Placement
-
-Position elements precisely by combining positioning type with placement classes:
-
-### Standard Placements
-
-| Class | Description |
-| --- | --- |
-| `.pos-top-left` | Positions element at the top-left corner |
-| `.pos-top-center` | Positions element at the top-center |
-| `.pos-top-right` | Positions element at the top-right corner |
-| `.pos-bottom-left` | Positions element at the bottom-left corner |
-| `.pos-bottom-center` | Positions element at the bottom-center |
-| `.pos-bottom-right` | Positions element at the bottom-right corner |
-| `.pos-left-center` | Positions element at the middle of the left side |
-| `.pos-right-center` | Positions element at the middle of the right side |
-| `.pos-center` | Positions element at the center of the container |
-
-```html
-<div class="pos-relative" style="height: 300px; border: 1px solid #ccc;">
-    <div class="pos-absolute pos-center">
-        Centered element
-    </div>
-    <div class="pos-absolute pos-top-right">
-        Top-right corner
-    </div>
-</div>
-```
-
-### Advanced Placements
-
-Place elements outside of their container relative to a specific edge:
-
-| Class | Description | Position |
-| --- | --- | --- |
-| `.put-n` | North - above center | ↑ |
-| `.put-ne` | North-east - above right corner | ↗ |
-| `.put-e` | East - right of middle | → |
-| `.put-se` | South-east - below right corner | ↘ |
-| `.put-s` | South - below left | ↓ |
-| `.put-sw` | South-west - below center | ↙ |
-| `.put-w` | West - left of middle | ← |
-| `.put-nw` | North-west - above left corner | ↖ |
-| `.put-wn` | West-north - left of top | ← (top) |
-| `.put-ws` | West-south - left of bottom | ← (bottom) |
-| `.put-en` | East-north - right of top | → (top) |
-| `.put-es` | East-south - right of bottom | → (bottom) |
-
-```html
-<div class="pos-relative" style="height: 100px; width: 200px; border: 1px solid #ccc; margin: 50px;">
-    <div class="pos-absolute put-n" style="background-color: #ffc0cb; padding: 5px;">
-        Tooltip above
-    </div>
-    
-    <div class="pos-absolute put-e" style="background-color: #c0ffee; padding: 5px;">
-        Right side
-    </div>
-</div>
-```
-
-### Simple Edge Alignment
-
-| Class | Description |
-| --- | --- |
-| `.put-left` | Align to left edge |
-| `.put-right` | Align to right edge |
+|-------|-------------|
+| `.fixed-top` | Creates a fixed element at the top of the viewport |
+| `.fixed-bottom` | Creates a fixed element at the bottom of the viewport |
 
 ## Responsive Variants
 
-All position classes have responsive variants that apply at specific breakpoints and above:
+Most position classes have responsive variants that apply at specific breakpoints. The responsive variants follow the naming pattern `.{class}-{breakpoint}`.
 
-| Suffix | Screen Width |
-| --- | --- |
-| `-xs` | ≥ 0px (Extra small screens) |
-| `-sm` | ≥ 576px (Small screens) |
-| `-md` | ≥ 768px (Medium screens) |
-| `-lg` | ≥ 992px (Large screens) |
-| `-xl` | ≥ 1200px (Extra large screens) |
-| `-xxl` | ≥ 1452px (Extra extra large screens) |
+For example:
+- `.pos-relative-md` - Sets `position: relative` on medium screens and above
+- `.pos-fixed-lg` - Sets `position: fixed` on large screens and above
 
-Examples:
-- `.pos-relative-md` - Element is relatively positioned on medium screens and above
-- `.pos-absolute-lg` - Element is absolutely positioned on large screens and above
-- `.put-right-xl` - Element is aligned to the right on extra large screens and above
+Where `{breakpoint}` can be: xs, sm, md, lg, xl, xxl, xxxl
+
+*Note: The `.pos-sticky` and fixed position utilities (`.fixed-top`, `.fixed-bottom`) do not have responsive variants.*
+
+## Usage Examples
+
+### Basic Positioning
 
 ```html
-<!-- Element is static on mobile, absolute on desktop -->
-<div class="pos-static pos-absolute-lg pos-top-right-lg">
-    Responsive positioning
-</div>
-```
-
-## Common Use Cases
-
-### Modal Dialog
-
-```html
-<div class="pos-fixed pos-center">
-    Modal dialog centered in the viewport
-</div>
-```
-
-### Dropdown Menu
-
-```html
+<!-- Relative positioning (creates a positioning context for absolute children) -->
 <div class="pos-relative">
-    <button>Dropdown</button>
-    <div class="pos-absolute put-s">
-        Dropdown content appears below the button
-    </div>
+    <!-- Absolutely positioned within the parent -->
+    <div class="pos-absolute">This element is positioned absolutely</div>
+</div>
+
+<!-- Static positioning (default flow) -->
+<div class="pos-static">This element follows the normal document flow</div>
+
+<!-- Fixed positioning (stays in place during scroll) -->
+<div class="pos-fixed">This element stays fixed on the screen</div>
+
+<!-- Sticky positioning (becomes fixed when scrolled to) -->
+<div class="pos-sticky">This element sticks to the top when scrolled</div>
+```
+
+### Fixed Headers and Footers
+
+```html
+<!-- Fixed header -->
+<header class="fixed-top">
+    This header stays at the top of the viewport
+</header>
+
+<!-- Main content -->
+<main>
+    Content goes here
+</main>
+
+<!-- Fixed footer -->
+<footer class="fixed-bottom">
+    This footer stays at the bottom of the viewport
+</footer>
+```
+
+### Responsive Positioning
+
+```html
+<!-- Element is static by default, relative on medium screens, absolute on large screens -->
+<div class="pos-static pos-relative-md pos-absolute-lg">
+    This element changes its positioning behavior at different screen sizes
 </div>
 ```
 
-### Floating Action Button
+## CSS Properties
 
-```html
-<button class="pos-fixed pos-bottom-right" style="margin: 20px;">
-    Add
-</button>
+### Basic Position Classes
+
+```css
+.pos-relative {position: relative !important;}
+.pos-absolute {position: absolute !important;}
+.pos-static {position: static !important;}
+.pos-fixed {position: fixed !important;}
+.pos-sticky {
+    position: sticky !important;
+    top: 0;
+    align-self: flex-start !important;
+}
 ```
 
-### Responsive Header
+### Fixed Position Utilities
 
-```html
-<!-- Fixed on desktop, static on mobile -->
-<header class="pos-static pos-fixed-lg pos-top-left-lg">
-    Header content
-</header>
+```css
+.fixed-top, .fixed-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.fixed-top {
+    top: 0;
+    bottom: auto;
+}
+
+.fixed-bottom {
+    top: auto;
+    bottom: 0;
+}
 ```
+
+## Best Practices
+
+1. **Creating Positioning Contexts**: Use `.pos-relative` to create a positioning context for absolutely positioned child elements.
+
+2. **Fixed Headers and Footers**: When using `.fixed-top` or `.fixed-bottom`, add appropriate padding to the body or main content to prevent content from being hidden behind these fixed elements.
+
+3. **Sticky Positioning**: Be aware that `.pos-sticky` requires a scrollable container and may not work in all browsers. Always test thoroughly.
+
+4. **Responsive Positioning**: Use responsive variants to change positioning behavior based on screen size, which is particularly useful for navigation elements that might be fixed on desktop but static on mobile.
+
+5. **Combining with Other Utilities**: These position utilities work well with other Metro UI utilities:
+- Use with spacing utilities to add padding or margin
+- Use with z-index utilities to control stacking order
+- Use with width and height utilities to control dimensions
+
+## Related Utilities
+
+For more advanced positioning options, see the `position-ext.less` file, which provides utilities for precise positioning of elements in relation to their containers.

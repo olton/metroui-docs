@@ -3,122 +3,109 @@ title: Lists
 slug: common-css/lists
 ---
 
-Metro UI provides a variety of list styles and utilities for displaying content in organized, consistent ways. These list utilities help you create step-by-step instructions, feed layouts, grouped items, and more.
+This component provides a comprehensive set of utility classes for styling and formatting lists in Metro UI.
 
-## Step List
+## Overview
 
-Step lists create numbered instructions with connecting lines between steps:
+The `lists` component defines CSS classes for various list styles, from simple utility classes to complex list layouts with avatars, titles, and descriptions. These utilities make it easy to create visually appealing and functional lists for different purposes.
+
+## CSS Variables
+
+| Variable | Light Theme | Dark Theme | Description |
+|----------|-------------|------------|-------------|
+| `--step-list-number-color` | #757575 | #ffedbc | Color of the numbers in step lists |
+
+## List Types
+
+### Step List
+
+A numbered list with a vertical line connecting the items, useful for displaying steps in a process:
 
 ```html
 <ol class="step-list">
     <li>First step in the process</li>
-    <li>Second step with details</li>
-    <li>Final step to complete the task</li>
+    <li>Second step in the process</li>
+    <li>Third step in the process</li>
 </ol>
 ```
 
-## Custom List Marker
+### Custom List Marker
 
-Create lists with custom markers for each item:
+A list where you can define custom markers for each item using the `data-marker` attribute:
 
 ```html
 <ul class="custom-list-marker">
-    <li data-marker="✓">Completed task</li>
-    <li data-marker="→">Current task</li>
-    <li data-marker="⚠">Important task</li>
+    <li data-marker="→">Item with arrow marker</li>
+    <li data-marker="✓">Item with checkmark marker</li>
+    <li data-marker="•">Item with bullet marker</li>
 </ul>
 ```
 
-## Items List
+### Items List
 
-A clean list style for displaying items with avatars and descriptions:
+A list for displaying items with optional avatars and secondary information:
 
 ```html
 <ul class="items-list">
     <li>
-        <img class="avatar" src="avatar.jpg" alt="User">
-        <span class="label">Primary text</span>
-        <span class="second-label">Secondary information</span>
-        <span class="second-action">⋯</span>
+        <img class="avatar" src="avatar.jpg" alt="User Avatar">
+        <span class="label">Primary Text</span>
+        <span class="second-label">Secondary Text</span>
+        <span class="second-action">⋮</span>
     </li>
     <li>
-        <img class="avatar" src="avatar2.jpg" alt="User">
-        <span class="label">Another item</span>
-        <span class="second-label">More details</span>
+        <img class="avatar" src="avatar2.jpg" alt="User Avatar">
+        <span class="label">Another Item</span>
+        <span class="second-label">More information</span>
+        <span class="second-action">⋮</span>
     </li>
 </ul>
 ```
 
-You can also use div elements instead of list items:
+### Feed List
 
-```html
-<div class="items-list">
-    <div class="item">
-        <img class="avatar" src="avatar.jpg" alt="User">
-        <span class="label">Primary text</span>
-        <span class="second-label">Secondary information</span>
-    </div>
-</div>
-```
-
-## Feed List
-
-An expanded version of the items list, designed for content feeds with larger avatars:
+An extended version of the items list, designed for content feeds with larger avatars/images:
 
 ```html
 <div class="feed-list">
     <span class="title">Today</span>
     <div class="item">
-        <img class="avatar" src="news1.jpg" alt="News">
-        <span class="label">News headline</span>
-        <span class="second-label">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <img class="avatar" src="image1.jpg" alt="Content Image">
+        <span class="label">Article Title</span>
+        <span class="second-label">Article summary or description goes here</span>
     </div>
     <span class="title">Yesterday</span>
     <div class="item">
-        <img class="avatar" src="news2.jpg" alt="News">
-        <span class="label">Another headline</span>
-        <span class="second-label">Brief summary of the article content</span>
+        <img class="avatar" src="image2.jpg" alt="Content Image">
+        <span class="label">Another Article</span>
+        <span class="second-label">Another summary or description</span>
     </div>
 </div>
 ```
 
-You can position the avatar on the right side:
+### Group List
+
+A simple list with borders between items, can be horizontal or vertical:
 
 ```html
-<div class="feed-list">
-    <div class="item">
-        <img class="avatar on-right" src="news1.jpg" alt="News">
-        <span class="label">News headline</span>
-        <span class="second-label">Content summary</span>
-    </div>
-</div>
-```
-
-## Group List
-
-Group related items with borders between them:
-
-```html
+<!-- Vertical Group List -->
 <ul class="group-list">
-    <li>First item</li>
-    <li>Second item</li>
-    <li>Third item</li>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
 </ul>
-```
 
-Create a horizontal group list:
-
-```html
+<!-- Horizontal Group List -->
 <ul class="group-list horizontal">
-    <li>Category 1</li>
-    <li>Category 2</li>
-    <li>Category 3</li>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
 </ul>
 ```
 
-## Inline List
+### Inline List
 
-Display list items horizontally inline:
+A list where items are displayed inline (horizontally):
 
 ```html
 <ul class="inline-list">
@@ -128,81 +115,195 @@ Display list items horizontally inline:
 </ul>
 ```
 
-## Unstyled List
+### Unstyled List
 
-Remove default list styling:
+A list with no bullets or numbers:
 
 ```html
 <ul class="unstyled-list">
-    <li>Item without bullets</li>
-    <li>Another unstyled item</li>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
 </ul>
 ```
 
 ## Ordered List Styles
 
-Various numbering styles for ordered lists:
+The file provides several style variants for ordered lists:
 
+| Class | Description |
+|-------|-------------|
+| `.decimal` | Standard decimal numbering (1, 2, 3) |
+| `.roman-upper` | Uppercase Roman numerals (I, II, III) |
+| `.roman-lower` | Lowercase Roman numerals (i, ii, iii) |
+| `.alpha-upper` | Uppercase letters (A, B, C) |
+| `.alpha-lower` | Lowercase letters (a, b, c) |
+| `.latin-upper` | Uppercase Latin letters (A, B, C) |
+| `.latin-lower` | Lowercase Latin letters (a, b, c) |
+
+Example:
 ```html
-<!-- Decimal numbers (default) -->
-<ol class="decimal">
-    <li>First item</li>
-    <li>Second item</li>
-</ol>
-
-<!-- Upper Roman numerals -->
 <ol class="roman-upper">
     <li>First item</li>
     <li>Second item</li>
-</ol>
-
-<!-- Lower Roman numerals -->
-<ol class="roman-lower">
-    <li>First item</li>
-    <li>Second item</li>
-</ol>
-
-<!-- Upper alpha (A, B, C) -->
-<ol class="alpha-upper">
-    <li>First item</li>
-    <li>Second item</li>
-</ol>
-
-<!-- Lower alpha (a, b, c) -->
-<ol class="alpha-lower">
-    <li>First item</li>
-    <li>Second item</li>
-</ol>
-
-<!-- Upper Latin -->
-<ol class="latin-upper">
-    <li>First item</li>
-    <li>Second item</li>
-</ol>
-
-<!-- Lower Latin -->
-<ol class="latin-lower">
-    <li>First item</li>
-    <li>Second item</li>
+    <li>Third item</li>
 </ol>
 ```
 
-## No Style
+## Additional Utilities
 
-Remove list style type completely:
+| Class | Description |
+|-------|-------------|
+| `.no-style` | Removes all list styling (bullets, numbers, indentation) |
+
+## Detailed Components
+
+### Items List and Feed List Components
+
+Both the `.items-list` and `.feed-list` support these components:
+
+| Component | Description |
+|-----------|-------------|
+| `.avatar` | An image or icon representing the list item |
+| `.label` | Primary text for the list item |
+| `.second-label` | Secondary text for the list item (smaller, lighter color) |
+| `.second-action` | An action button/icon positioned at the right side |
+| `.title` (feed-list only) | A section header for grouping list items |
+
+### Feed List Image Positioning
+
+The `.feed-list` supports positioning the image/avatar on the right side:
 
 ```html
-<ul class="no-style">
-    <li>Completely unstyled item</li>
-    <li>Another unstyled item</li>
+<div class="feed-list">
+    <div class="item">
+        <img class="avatar on-right" src="image.jpg" alt="Content Image">
+        <span class="label">Article Title</span>
+        <span class="second-label">Description with image on the right</span>
+    </div>
+</div>
+```
+
+## CSS Properties
+
+### Step List
+
+```css
+.step-list {
+    margin: 0 0 0 3em;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: li;
+}
+
+.step-list > li {
+    border-left: 1px var(--border-color) solid;
+    position: relative;
+    padding: 0 1rem;
+    margin: 1rem;
+    vertical-align: top;
+}
+
+.step-list > li::before {
+    position: absolute;
+    content: counter(li);
+    counter-increment: li;
+    font-size: 2rem;
+    color: var(--step-list-number-color);
+    left: -.5rem;
+    top: 0;
+    margin-left: -2em;
+    width: 1.8em;
+    text-align: right;
+}
+```
+
+## Usage Examples
+
+### Step List for a Process
+
+```html
+<ol class="step-list">
+    <li>Create an account</li>
+    <li>Set up your profile</li>
+    <li>Connect with friends</li>
+    <li>Start sharing content</li>
+</ol>
+```
+
+### Contact List with Items List
+
+```html
+<ul class="items-list">
+    <li>
+        <img class="avatar" src="john.jpg" alt="John's Avatar">
+        <span class="label">John Doe</span>
+        <span class="second-label">Software Developer</span>
+        <span class="second-action">📞</span>
+    </li>
+    <li>
+        <img class="avatar" src="jane.jpg" alt="Jane's Avatar">
+        <span class="label">Jane Smith</span>
+        <span class="second-label">UX Designer</span>
+        <span class="second-action">📞</span>
+    </li>
 </ul>
 ```
 
-## CSS Variables
+### News Feed with Feed List
 
-The list utilities use the following CSS variables:
+```html
+<div class="feed-list">
+    <span class="title">Breaking News</span>
+    <div class="item">
+        <img class="avatar" src="news1.jpg" alt="News Image">
+        <span class="label">Major Discovery Announced</span>
+        <span class="second-label">Scientists have made a breakthrough in quantum computing...</span>
+    </div>
+    <div class="item">
+        <img class="avatar" src="news2.jpg" alt="News Image">
+        <span class="label">New Policy Implemented</span>
+        <span class="second-label">The government has announced a new environmental policy...</span>
+    </div>
+    <span class="title">Earlier This Week</span>
+    <div class="item">
+        <img class="avatar" src="news3.jpg" alt="News Image">
+        <span class="label">Sports Team Wins Championship</span>
+        <span class="second-label">After a thrilling match, the local team has secured the title...</span>
+    </div>
+</div>
+```
 
-| Variable | Default (Light Theme) | Default (Dark Theme) | Description |
-| --- | --- | --- | --- |
-| `--step-list-number-color` | `#757575` | `#ffedbc` | Color for step list numbers |
-| `--border-color` | System default | System default | Color for borders in lists |
+### Navigation with Group List
+
+```html
+<ul class="group-list horizontal">
+    <li>Home</li>
+    <li>Products</li>
+    <li>Services</li>
+    <li>About</li>
+    <li>Contact</li>
+</ul>
+```
+
+## Best Practices
+
+1. **Choose the Right List Type**: Select the appropriate list type based on your content and design needs:
+- Use `.step-list` for sequential processes or instructions
+- Use `.items-list` for simple item listings with optional avatars
+- Use `.feed-list` for content feeds with images and descriptions
+- Use `.group-list` for simple grouped items, especially in navigation
+
+2. **Accessibility**: Ensure that lists maintain proper semantic structure:
+- Use `<ol>` for ordered lists (steps, rankings, etc.)
+- Use `<ul>` for unordered lists (items, options, etc.)
+- Provide proper alt text for images in `.avatar` elements
+
+3. **Responsive Design**: Consider how lists will display on different screen sizes:
+- `.group-list.horizontal` may need to revert to vertical on small screens
+- Images in `.feed-list` may need size adjustments on mobile
+
+4. **Visual Hierarchy**: Use the primary and secondary labels to establish clear visual hierarchy:
+- Keep `.label` text concise and descriptive
+- Use `.second-label` for supporting information
+- Group related items under `.title` in feed lists

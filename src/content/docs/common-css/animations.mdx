@@ -3,36 +3,19 @@ title: Simple animations
 slug: common-css/animations
 ---
 
-The Animation Utilities in Metro UI provide a comprehensive set of CSS classes for adding predefined animations to elements, with support for hover effects and customizable timing.
+This component provides a comprehensive set of CSS animation utilities for Metro UI components and elements.
 
-## Animation Classes
+## Overview
 
-| Class | Hover Class | Description |
-| --- | --- | --- |
-| `.ani-spin` | `.ani-hover-spin` | Rotates element 360 degrees clockwise |
-| `.ani-spin-reverse` | `.ani-hover-spin-reverse` | Rotates element 360 degrees counter-clockwise |
-| `.ani-pulse` | `.ani-hover-pulse` | Pulsing rotation effect |
-| `.ani-spanner` | `.ani-hover-spanner` | Wrench/spanner-like swinging motion |
-| `.ani-ring` | `.ani-hover-ring` | Bell ringing animation |
-| `.ani-vertical` | `.ani-hover-vertical` | Vertical bouncing motion |
-| `.ani-horizontal` | `.ani-hover-horizontal` | Horizontal shaking motion |
-| `.ani-flash` | `.ani-hover-flash` | Flashing visibility |
-| `.ani-bounce` | `.ani-hover-bounce` | Bouncing up and down |
-| `.ani-float` | `.ani-hover-float` | Gentle floating motion |
-| `.ani-heartbeat` | `.ani-hover-heartbeat` | Pulsating like a heartbeat |
-| `.ani-shake` | `.ani-hover-shake` | Shaking motion (alias for wrench) |
-| `.ani-shuttle` | `.ani-hover-shuttle` | Scaling and rotating motion |
-| `.ani-pass` | `.ani-hover-pass` | Element passes through from left to right |
-| `.ani-ripple` | `.ani-hover-ripple` | Expanding ripple effect |
+The `animations` component defines various animation classes and keyframes that can be applied to elements to create visual effects. These animations can be triggered on page load or on hover.
 
-## CSS Variables for Animation Timing
+## CSS Variables
 
-The animation system provides CSS variables for consistent timing across your application:
+The file defines several CSS variables for animation durations and easing functions:
 
 ### Duration Variables
-
 | Variable | Value |
-| --- | --- |
+|----------|-------|
 | `--base-duration-0` | 0ms |
 | `--base-duration-100` | 100ms |
 | `--base-duration-200` | 200ms |
@@ -46,103 +29,83 @@ The animation system provides CSS variables for consistent timing across your ap
 | `--base-duration-1000` | 1s |
 
 ### Easing Variables
-
 | Variable | Value |
-| --- | --- |
+|----------|-------|
 | `--base-easing-linear` | cubic-bezier(0, 0, 1, 1) |
 | `--base-easing-easeIn` | cubic-bezier(0.7, 0.1, 0.75, 0.9) |
 | `--base-easing-easeOut` | cubic-bezier(0.3, 0.8, 0.6, 1) |
 | `--base-easing-easeInOut` | cubic-bezier(0.6, 0, 0.2, 1) |
 
+## Animation Classes
+
+The file provides two types of animation classes:
+1. `.ani-[animation-name]` - Animation starts immediately when applied
+2. `.ani-hover-[animation-name]:hover` - Animation starts when element is hovered
+
+### Available Animations
+
+| Class | Description |
+|-------|-------------|
+| `.ani-spin`, `.ani-hover-spin:hover` | Rotates element 360 degrees continuously |
+| `.ani-spin-reverse`, `.ani-hover-spin-reverse:hover` | Rotates element counter-clockwise continuously |
+| `.ani-pulse`, `.ani-hover-pulse:hover` | Pulses the element with rotation |
+| `.ani-spanner`, `.ani-hover-spanner:hover` | Applies a wrench-like rotation animation |
+| `.ani-ring`, `.ani-hover-ring:hover` | Applies a bell-ringing animation |
+| `.ani-vertical`, `.ani-hover-vertical:hover` | Moves element up and down |
+| `.ani-horizontal`, `.ani-hover-horizontal:hover` | Moves element left and right |
+| `.ani-flash`, `.ani-hover-flash:hover` | Makes element flash by changing opacity |
+| `.ani-bounce`, `.ani-hover-bounce:hover` | Makes element bounce up and down |
+| `.ani-float`, `.ani-hover-float:hover` | Makes element float up and down smoothly |
+| `.ani-heartbeat`, `.ani-hover-heartbeat:hover` | Simulates a heartbeat by scaling element |
+| `.ani-shake`, `.ani-hover-shake:hover` | Shakes element back and forth |
+| `.ani-shuttle`, `.ani-hover-shuttle:hover` | Applies a shuttle-like rotation and scaling |
+| `.ani-pass`, `.ani-hover-pass:hover` | Makes element pass from left to right |
+| `.ani-ripple`, `.ani-hover-ripple:hover` | Creates a ripple effect by scaling and fading |
+
+## Keyframes
+
+The file defines keyframe animations for each of the animation classes, as well as some additional utility keyframes:
+
+- `@keyframes swinging`
+- `@keyframes scaleout`
+- `@keyframes cubemove`
+- `@keyframes orbit`
+- `@keyframes metro-slide`
+- `@keyframes metro-opacity`
+- `@keyframes ani-spin`
+- `@keyframes ani-spin-reverse`
+- `@keyframes ani-pulse`
+- `@keyframes ani-wrench`
+- `@keyframes ani-ring`
+- `@keyframes ani-vertical`
+- `@keyframes ani-horizontal`
+- `@keyframes ani-flash`
+- `@keyframes ani-bounce`
+- `@keyframes ani-float`
+- `@keyframes ani-heartbeat`
+- `@keyframes ani-shuttle`
+- `@keyframes ani-pass`
+- `@keyframes ani-ripple`
+- `@keyframes ani-shrink`
+- `@keyframes ani-pre-spin`
+- `@keyframes ani-bg-stripes`
+- `@keyframes slideUp`
+- `@keyframes slideDown`
+
 ## Usage Examples
 
-### Basic Animation
-
-Apply animations directly to elements:
-
 ```html
-<div class="ani-spin">
-    <span class="mif-spinner"></span>
-</div>
+<!-- Spinning element -->
+<div class="ani-spin">This element will spin continuously</div>
 
-<div class="ani-bounce">
-    <span class="mif-bell"></span>
-</div>
+<!-- Element that spins on hover -->
+<div class="ani-hover-spin">This element will spin when hovered</div>
+
+<!-- Bouncing element -->
+<button class="ani-bounce">Bouncing Button</button>
+
+<!-- Floating icon -->
+<span class="icon ani-float">⚙️</span>
 ```
 
-### Hover Animations
-
-Animation starts only when user hovers over the element:
-
-```html
-<div class="ani-hover-ring">
-    <span class="mif-bell"></span>
-</div>
-
-<button class="button ani-hover-shuttle">
-    Hover me
-</button>
-```
-
-### Customizing Animation with CSS
-
-You can customize the animation properties using inline styles or CSS:
-
-```html
-<div class="ani-spin" style="animation-duration: var(--base-duration-500); animation-timing-function: var(--base-easing-easeInOut);">
-    Custom speed spinner
-</div>
-```
-
-```css
-.custom-animation {
-    animation-duration: 2.5s;
-    animation-timing-function: var(--base-easing-easeOut);
-    animation-delay: 0.5s;
-}
-```
-
-## Additional Animation Keyframes
-
-The animation system also includes the following keyframe animations that you can use with custom CSS:
-
-| Keyframe Name | Description |
-| --- | --- |
-| `swinging` | Pendulum-like swinging animation |
-| `scaleout` | Scale from 0 to 1 with fade out |
-| `cubemove` | Cube movement with rotation |
-| `orbit` | Orbital rotation with opacity changes |
-| `metro-slide` | Slide from left to right |
-| `metro-opacity` | Fade in animation |
-| `ani-shrink` | Shrink element to 50% of size |
-| `ani-pre-spin` | Simple 360-degree spin |
-| `ani-bg-stripes` | Moving background stripes |
-
-Example of using a custom keyframe animation:
-
-```css
-.custom-element {
-    animation: orbit 2s linear infinite;
-}
-```
-
-## Combining with Other Components
-
-These animations work well with icon fonts, buttons, alerts, and other UI components:
-
-```html
-<!-- Animated loading indicator -->
-<div class="loading-indicator">
-    <span class="mif-spinner ani-spin"></span> Loading...
-</div>
-
-<!-- Attention grabbing button -->
-<button class="button primary ani-hover-pulse">
-    Important Action
-</button>
-
-<!-- Alert with animation -->
-<div class="alert warning ani-horizontal">
-    <span class="mif-warning"></span> Warning message
-</div>
-```
+You can combine these animation classes with other Metro UI classes to create engaging user interfaces.

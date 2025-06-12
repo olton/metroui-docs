@@ -5,43 +5,62 @@ slug: components/info-button
 
 The Info Button component provides a button with a title and value section. It's commonly used for displaying information with a count or value, such as notifications, messages, or items in a cart.
 
+## Dependencies
+
+This component requires:
+- Metro UI core
+- Colors CSS module
+
 ## Usage
 
 ### Basic Info Button
 
 ```html
-<div class="info-button">
-    <a href="#" class="title">Messages</a>
-    <a href="#" class="value">5</a>
-</div>
+<button class="info-button">
+    <span class="title">Messages</span>
+    <span class="value">5</span>
+</button>
 ```
 
 ### Info Button with Icon
 
 ```html
-<div class="info-button">
-    <a href="#" class="title">
+<button class="info-button">
+    <span class="title">
         <span class="icon mif-mail"></span>
         Inbox
-    </a>
+    </span>
     <span class="value">12</span>
-</div>
+</button>
 ```
 
 ### Colored Info Button
 
 ```html
-<div class="info-button primary">
-    <a href="#" class="title">Messages</a>
-    <a href="#" class="value">5</a>
-</div>
+<button class="info-button primary">
+    <span class="title">Notifications</span>
+    <span class="value">3</span>
+</button>
 
-<div class="info-button red">
-    <a href="#" class="title">Messages</a>
-    <a href="#" class="value">5</a>
-</div>
+<button class="info-button success">
+    <span class="title">Completed</span>
+    <span class="value">7</span>
+</button>
+
+<button class="info-button alert">
+    <span class="title">Errors</span>
+    <span class="value">2</span>
+</button>
 ```
 
+### Info Button as a Link
+
+```html
+<a href="#" class="info-button">
+    <span class="title">Cart</span>
+    <span class="value">4</span>
+</a>
+```
 
 ## Styling with CSS Variables
 

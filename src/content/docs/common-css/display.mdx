@@ -3,48 +3,59 @@ title: Display
 slug: common-css/display
 ---
 
-The Display Utilities in Metro UI provide a comprehensive set of classes for controlling element visibility and display properties, with responsive variants for different screen sizes.
+This component provides utility classes for controlling element visibility and display properties in Metro UI.
+
+## Overview
+
+The `display` component defines CSS classes that allow you to control how elements are displayed and whether they are visible. It includes both standard display utilities and responsive variants that apply at different breakpoints.
 
 ## Visibility Classes
 
 These classes control the CSS `visibility` property:
 
 | Class | Description |
-| --- | --- |
-| `.visible` | Makes element visible (visibility: visible) |
-| `.no-visible` | Hides element but preserves its space in layout (visibility: hidden) |
+|-------|-------------|
+| `.visible` | Makes an element visible (`visibility: visible !important`) |
+| `.no-visible` | Hides an element but preserves its space in the layout (`visibility: hidden !important`) |
 
 ## Display Classes
 
 These classes control the CSS `display` property:
 
 | Class | Description |
-| --- | --- |
-| `.d-none` | Removes element from layout (display: none) |
-| `.d-block` | Displays element as a block (display: block) |
-| `.d-inline` | Displays element as an inline element (display: inline) |
-| `.d-inline-block` | Displays element as an inline-block (display: inline-block) |
-| `.d-table` | Displays element as a table (display: table) |
-| `.d-table-row` | Displays element as a table row (display: table-row) |
-| `.d-table-cell` | Displays element as a table cell (display: table-cell) |
+|-------|-------------|
+| `.d-none` | Hides an element completely (`display: none !important`) |
+| `.d-block` | Displays an element as a block-level element (`display: block !important`) |
+| `.d-inline` | Displays an element as an inline element (`display: inline !important`) |
+| `.d-inline-block` | Displays an element as an inline-block element (`display: inline-block !important`) |
+| `.d-table` | Displays an element as a table (`display: table !important`) |
+| `.d-table-row` | Displays an element as a table row (`display: table-row !important`) |
+| `.d-table-cell` | Displays an element as a table cell (`display: table-cell !important`) |
 
-## Responsive Classes
+## Responsive Variants
 
-All display and visibility classes have responsive variants that apply at specific breakpoints and above:
+All of the above classes have responsive variants that apply at specific breakpoints. The responsive variants follow the naming pattern `.{class}-{breakpoint}`.
 
-| Breakpoint Suffix | Screen Width |
-| --- | --- |
-| `-xs` | ≥ 0px (Extra small screens) |
-| `-sm` | ≥ 576px (Small screens) |
-| `-md` | ≥ 768px (Medium screens) |
-| `-lg` | ≥ 992px (Large screens) |
-| `-xl` | ≥ 1200px (Extra large screens) |
-| `-xxl` | ≥ 1452px (Extra extra large screens) |
+### Responsive Visibility Classes
 
-Examples:
-- `.d-none-md` - Element is hidden on medium screens and larger
-- `.d-block-lg` - Element displays as block on large screens and larger
-- `.visible-xl` - Element becomes visible on extra large screens and larger
+| Class | Description |
+|-------|-------------|
+| `.visible-{breakpoint}` | Makes an element visible at the specified breakpoint |
+| `.no-visible-{breakpoint}` | Hides an element (preserving its space) at the specified breakpoint |
+
+### Responsive Display Classes
+
+| Class | Description |
+|-------|-------------|
+| `.d-none-{breakpoint}` | Hides an element at the specified breakpoint |
+| `.d-block-{breakpoint}` | Displays an element as a block at the specified breakpoint |
+| `.d-inline-{breakpoint}` | Displays an element as inline at the specified breakpoint |
+| `.d-inline-block-{breakpoint}` | Displays an element as inline-block at the specified breakpoint |
+| `.d-table-{breakpoint}` | Displays an element as a table at the specified breakpoint |
+| `.d-table-row-{breakpoint}` | Displays an element as a table row at the specified breakpoint |
+| `.d-table-cell-{breakpoint}` | Displays an element as a table cell at the specified breakpoint |
+
+Where `{breakpoint}` can be: xs, sm, md, lg, xl, xxl, xxxl
 
 ## Usage Examples
 
@@ -52,79 +63,74 @@ Examples:
 
 ```html
 <!-- Hide an element -->
-<div class="d-none">This content is hidden</div>
+<div class="d-none">This element is not displayed</div>
 
 <!-- Display as block -->
-<span class="d-block">This span displays as a block element</span>
+<span class="d-block">This span is displayed as a block element</span>
 
 <!-- Display as inline-block -->
-<div class="d-inline-block">This div displays as an inline-block</div>
+<div class="d-inline-block">This div is displayed as an inline-block element</div>
 ```
 
 ### Visibility Control
 
 ```html
-<!-- Element is invisible but still occupies space -->
+<!-- Hide an element but preserve its space -->
 <div class="no-visible">
-    This content is hidden but maintains its layout space
+    This element is hidden but still takes up space in the layout
 </div>
+
+<!-- Make an element visible -->
+<div class="visible">This element is explicitly visible</div>
 ```
 
-### Responsive Display Control
+### Responsive Display
 
 ```html
-<!-- Hidden on small screens, visible on medium and larger screens -->
+<!-- Element is hidden on small screens, displayed as block on medium screens and above -->
 <div class="d-none d-block-md">
-    This content is visible only on medium screens and larger
+    This content is hidden on small screens but visible on medium screens and above
 </div>
 
-<!-- Visible on mobile, hidden on desktop -->
-<div class="d-block d-none-lg">
-    This content is visible on mobile but hidden on desktop
-</div>
-
-<!-- Change display type based on screen size -->
-<div class="d-block d-inline-block-md d-inline-lg">
-    Display changes across different screen sizes
+<!-- Element is displayed as block on small screens, inline-block on large screens -->
+<div class="d-block d-inline-block-lg">
+    This element changes its display property at different screen sizes
 </div>
 ```
 
-### Table Layout Responsive Behavior
+### Responsive Visibility
 
 ```html
-<!-- Create a responsive layout that converts between block and table -->
-<div class="d-block d-table-md">
-    <div class="d-block d-table-row-md">
-        <div class="d-block d-table-cell-md">Cell 1</div>
-        <div class="d-block d-table-cell-md">Cell 2</div>
+<!-- Element is visible on small screens, hidden on medium screens and above -->
+<div class="visible no-visible-md">
+    This content is visible on small screens but hidden on medium screens and above
+</div>
+```
+
+### Table Display
+
+```html
+<!-- Creating a custom table layout -->
+<div class="d-table">
+    <div class="d-table-row">
+        <div class="d-table-cell">Cell 1</div>
+        <div class="d-table-cell">Cell 2</div>
+    </div>
+    <div class="d-table-row">
+        <div class="d-table-cell">Cell 3</div>
+        <div class="d-table-cell">Cell 4</div>
     </div>
 </div>
 ```
 
-### Common Patterns
+## Difference Between `.d-none` and `.no-visible`
 
-#### Mobile-First Navigation
+- `.d-none` (`display: none`) completely removes the element from the layout flow. The element takes up no space.
+- `.no-visible` (`visibility: hidden`) hides the element but preserves its space in the layout. The element is invisible but still affects the layout.
 
-```html
-<!-- Mobile menu button (visible on small screens only) -->
-<button class="d-block d-none-md">Menu</button>
+## Best Practices
 
-<!-- Desktop navigation (visible on medium screens and up) -->
-<nav class="d-none d-block-md">
-    <!-- Navigation items -->
-</nav>
-```
-
-#### Responsive Layout Adaption
-
-```html
-<!-- Sidebar: column on large screens, full width on small -->
-<div class="d-block d-inline-block-lg" style="width: 100%; max-width: 300px;">
-    Sidebar content
-</div>
-
-<!-- Main content: column on large screens, full width on small -->
-<div class="d-block d-inline-block-lg">
-    Main content
-</div>
-```
+1. Use `.d-none` when you want to completely remove an element from the layout.
+2. Use `.no-visible` when you want to hide an element but maintain its space in the layout.
+3. Use responsive variants to create layouts that adapt to different screen sizes.
+4. Combine these utilities with other Metro UI classes for more complex responsive behaviors.
