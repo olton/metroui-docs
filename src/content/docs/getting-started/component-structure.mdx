@@ -1,0 +1,102 @@
+---
+title: Metro UI Component Struture
+---
+
+## The Component Structure:
++ `[component-name].less` — A component style file that contains components and color components for light and dark themes.
++ `[component-name].js` — JavaScript file containing the component code.
++ `index.js` — A file that implements the component so that it can be used in other modules.
+
+## Додаткові файли:
++ `[component-name].test.js` — A file with tests for the component that uses the Latte framework.
++ `README.md` — A documentation file for a component that contains examples of use, parameters, API methods and other details.
+
+## Component JavaScript Template:
+
+```js
+((Metro, $) => {
+    const name = "my-object"; // Replace with your component name
+
+    // Define the component's default options
+    let MyObjectDefaultConfig = {
+        property: "value", // Example property
+        onMyObjectCreate: Metro.noop, // Event example
+    };
+
+    Metro.myObjectSetup = (options) => {
+        MyObjectDefaultConfig = $.extend({}, MyObjectDefaultConfig, options);
+    };
+
+    // Check if global setup is defined and apply it
+    if (typeof window.metroMyObjectSetup !== "undefined") {
+        Metro.myObjectSetup(window.metroMyObjectSetup);
+    }
+
+    Metro.Component(name, {
+        init: function (options, elem) {
+            this._super(elem, options, MyObjectDefaultConfig, {
+                // define instance vars here
+            });
+            return this;
+        },
+
+        _create: function () {
+            const element = this.element;
+            const o = this.options;
+
+            this._createStructure();
+            this._createEvents();
+
+            this._fireEvent("my-object-create");
+        },
+
+        _createStructure: function () {
+            const element = this.element;
+            const o = this.options;
+        },
+
+        _createEvents: function () {
+            const element = this.element;
+            const o = this.options;
+        },
+
+        changeAttribute: (attr, newValue) => {},
+
+        destroy: function () {
+            this.element.remove();
+        },
+    });
+})(Metro, Dom);
+```
+## Component styles.
+The styles of the component should be written in the LESS file that contains styles for a light and dark topic according to the following template:
+
+```less
+@import (once) "../../include/vars";
+@import (once) "../../include/mixins;
+
+:root {
+    // Light theme
+    --component-color: #191919;
+    --component-size: 64px;
+}
+
+.dark-side {
+    // Dark theme
+    --component-color: #ffffff;
+    --component-size: 64px;
+}
+
+.component-class-name {
+    // Additional variable styles
+    // Component styles
+
+    &.component-subclass-name {
+        // Additional styles
+    }
+   
+   .child-element {
+        // Styles for subsidiaries
+    }
+}
+```

@@ -1,0 +1,55 @@
+---
+title: Project Structure
+---
+
+The project follows a specific structure to ensure consistency in the development and maintenance process.
+Source code is located in the `source` folder, and compiled code is in the `lib` folder.
+
+## Source Code Structure
+
+The source code is divided into modules, which are located in folders inside the `source` folder:
+- `colors-css` — modules that implement colors
+- `common-css` — modules that implement common styles
+- `common-js` — modules that implement common functions
+- `components` — modules that implement components
+- `core` — modules that implement the core of the library
+- `datetime` — module that implements components for working with date and time
+- `dom` — module that implements components for working with DOM
+- `extensions` — modules that implement extensions of standard JavaScript objects
+- `farbe` — module that implements color functionality
+- `guardian` — module that implements data validation functions
+- `hooks` — modules that implement hooks (`useMemo`, `useState`, `useEffect`, etc.)
+- `html` — modules that implement functions for creating HTML elements in JavaScript
+- `i18n` — modules that implement functions for working with localization
+- `icons` — modules that implement functions for working with icons
+- `include` — LESS modules that implement style variables and mixins
+- `model` — module that implements functions for working with reactive data model
+- `reset` — module that implements style resets
+- `router` — module that implements functions for working with routing for SPA
+- `string` — module that implements functions for working with strings
+
+Individual files in the `source` folder:
+- `index.js` — entry point for bundlers, includes all components and styles in the build
+- `i18n.js` — entry point for bundlers, includes all localizations
+- `icons.js` — entry point for bundlers, includes all icons
+- `runtime.js` — entry point for bundlers, includes in the build all functions that are not components and styles
+- `default.js` — entry point for bundlers, includes in the build `reset`, `common{css,js}`, `i18n`, `runtime`, and all `component`
+
+### Components
+Each component has its own folder, which contains files `index.js`, `[component-name].less`, `[component-name].js`.
+Also, in the component folder, there may be additional component inclusions that are used by the current component.
+
+### Color Styles
+Color styles are located in the `colors-css` folder. Each file represents a separate module with classes that implement one specific behavior.
+
+### Common Styles
+Common styles are located in the `common-css` folder. Each file represents a separate module with classes that implement one specific behavior.
+
+### Common Functions
+Common functions are located in the `common-js` folder. The file contains various functions that are not components or styles, but are used in different components.
+
+### External Modules
+In folders: `dom`, `html`, `datetime`, `farbe`, `guardian`, `hooks`, `model`, `router`, and `string` are functions that connect third-party modules for use with Metro UI.
+
+### Library Core
+In the `core` folder are modules that implement the core of the library and the global namespace `Metro`.
