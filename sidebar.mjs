@@ -6,7 +6,8 @@ export default [
                 label: "Overview",
                 slug: "overview",
             },
-            {label: "Introduction", slug: "getting-started/introduction"},
+            {label: "Introduction", slug: "getting-started/intro"},
+            {label: "Quick Start", slug: "getting-started/quick-start"},
             {label: "Project Structure", slug: "getting-started/project-structure"},
             {label: "Browsers", slug: "getting-started/browsers"},
             {label: "Download", slug: "getting-started/download"},
@@ -76,12 +77,20 @@ export default [
         autogenerate: {directory: "components", exclude: []},
     },
     {
-        label: "Resources",
+        label: "Tools",
         collapsed: false,
         items: [
             {label: "Latte Testing Framework", link: "https://latte.org.ua"},
+        ],
+    },
+    {
+        label: "Resources",
+        collapsed: false,
+        items: [
             {label: "Metro UI Site", link: "https://metroui.org.ua"},
             {label: "Metro UI Repository", link: "https://github.com/olton/metroui"},
+            {label: "Metro UI AI Assistant", link: "https://t.me/Metroui_Assistant_bot"},
+            {label: "Metro UI Docs Source", link: "https://github.com/olton/metroui-docs"},
             {label: "Panda Templates", link: "https://panda.metroui.org.ua"},
             {label: "Premium Support", link: "https://korzh.com/metroui"},
             {label: "Author", link: "https://pimenov.com.ua"},
