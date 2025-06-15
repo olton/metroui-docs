@@ -16,6 +16,7 @@ export default [
             {label: "Components List", slug: "getting-started/components-list"},
             {label: "Component Structure", slug: "getting-started/component-structure"},
             {label: "Themes", slug: "getting-started/themes"},
+            {label: "Theming Components", slug: "getting-started/theming-components"},
             {label: "Media Rules", slug: "getting-started/media-rules"},
             {label: "Bundlers", slug: "getting-started/bundlers"},
             {label: "Icons", slug: "getting-started/icons"},

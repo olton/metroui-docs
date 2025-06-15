@@ -1,0 +1,71 @@
+---
+title: Theming Components
+slug: getting-started/theming-components
+---
+import CodePen from '../../../components/CodePen.astro';
+
+Metro UI components can be themed using CSS variables, which provide a flexible way to customize styles without modifying the component's source code.
+You can override the default CSS variables to change colors, sizes, and other styles globally or for specific components.
+
+:::tip
+To apply your theme, you must add styles after the Metro UI styles.
+:::
+
+
+### Example: Theming a Button
+
+<CodePen user="olton" hash="yyNERBN" height="300" theme="dark"/>
+
+
+```html
+<button class="button" 
+    style="
+    --button-background: #4CAF50; 
+    --button-color: white;
+    --button-background-hover: #104e12;
+    --button-border-color: #104e12;
+    ">
+    Themed Button
+</button>
+```
+
+## Default themes
+
+Each component has its own set of CSS variables that can be customized and supports two themes by default: `light`, and `dark`. 
+For example, the Button component uses:
+
+```css
+:root {
+    --button-background: #ebebeb;
+    --button-background-hover: #dadada;
+    --button-color: #191919;
+    --button-border-color: #ebebeb;
+}
+
+.dark-side {
+    --button-background: #2b2d30;
+    --button-background-hover: #333439;
+    --button-color: #f3fcff;
+    --button-border-color: #4e5157;
+}
+```
+
+For dark mode, you can put your custom styles into a `.dark-side` class. For example:
+
+```css
+.button-theme {
+    --button-background: #4CAF50; 
+    --button-color: white;
+    --button-background-hover: #104e12;
+    --button-border-color: #104e12;
+}
+
+.dark-side {
+    .button-theme {
+        --button-background: #2b2d30; 
+        --button-color: #f3fcff;
+        --button-background-hover: #333439;
+        --button-border-color: #4e5157;
+    }
+}
+```

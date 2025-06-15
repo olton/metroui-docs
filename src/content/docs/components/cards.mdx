@@ -8,6 +8,8 @@ The Cards component provides a flexible container for displaying content in a cl
 
 ## Usage
 
+<CodePen user="olton" hash="qEdKJdP" height="300" theme="dark"/>
+
 ### Basic Card
 
 ```html
@@ -24,23 +26,24 @@ The Cards component provides a flexible container for displaying content in a cl
 </div>
 ```
 
-### Card with Avatar in Header
+### Card with buttons in Header
 
 ```html
 <div class="card">
     <div class="card-header">
-        <div class="avatar">
-            <img src="user-avatar.jpg" alt="User">
+        Header
+        <div class="buttons">
+            <button class="button"><span class="mif-rocket"></span></button>
+            <button class="button"><span class="mif-share"></span></button>
+            <button class="button"><span class="mif-cross"></span></button>
         </div>
-        <div class="name">John Doe</div>
-        <div class="date">May 2, 2025</div>
     </div>
     <div class="card-content">
-        Card content goes here...
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </div>
     <div class="card-footer">
-        <button class="button">Like</button>
-        <button class="button">Share</button>
+        <button class="button primary">Ok</button>
+        <button class="button">Cancel</button>
     </div>
 </div>
 ```
@@ -50,9 +53,6 @@ The Cards component provides a flexible container for displaying content in a cl
 ```html
 <div class="card image-header">
     <div class="card-header" style="background-image: url('header-image.jpg')">
-        <div class="avatar">
-            <img src="user-avatar.jpg" alt="User">
-        </div>
     </div>
     <div class="card-content">
         Card content goes here...
@@ -111,9 +111,6 @@ The Cards component can be styled using the following CSS variables:
 - `.card-footer` - The footer section of the card (optional)
 
 ### Header Elements
-- `.avatar` - Container for user avatar image in the header
-- `.name` - Element for displaying user name or title
-- `.date` - Element for displaying date or subtitle information
 - `.buttons` - Container for header action buttons
 
 ### Special Card Types
@@ -126,9 +123,6 @@ The Cards component includes the following elements:
 
 - `.card` - The main container
 - `.card-header` - The header section (optional)
-- `.avatar` - Container for user avatar image
-- `.name` - User name or title
-- `.date` - Date or subtitle information
 - `.buttons` - Container for header action buttons
 - `.card-content` - The main content area
 - `.card-footer` - The footer section (optional)
