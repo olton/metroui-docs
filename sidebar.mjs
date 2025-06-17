@@ -89,11 +89,12 @@ export default [
         collapsed: false,
         items: [
             {label: "Metro UI Site", link: "https://metroui.org.ua"},
-            {label: "Metro UI Repository", link: "https://github.com/olton/metroui"},
-            {label: "Metro UI AI Assistant", link: "https://t.me/Metroui_Assistant_bot"},
-            {label: "Metro UI Docs Source", link: "https://github.com/olton/metroui-docs"},
+            {label: "GitHub", link: "https://github.com/olton/metroui"},
+            {label: "AI Assistant", link: "https://t.me/Metroui_Assistant_bot"},
+            {label: "Docs Source", link: "https://github.com/olton/metroui-docs"},
             {label: "Panda Templates", link: "https://panda.metroui.org.ua"},
             {label: "Premium Support", link: "https://korzh.com/metroui"},
+            {label: "Discord Server", link: "https://discord.gg/cxrhV7pGG8"},
             {label: "Author", link: "https://pimenov.com.ua"},
         ]
     },
