@@ -12,9 +12,9 @@
   "dependencies": {
     "@astrojs/starlight": "^0.34.4",
     "@expressive-code/plugin-line-numbers": "^0.41.2",
-    "astro": "^5.9.3",
+    "astro": "^5.9.4",
     "sharp": "^0.34.2",
-    "starlight-links-validator": "^0.16.0",
+    "starlight-links-validator": "^0.17.0",
     "starlight-showcases": "^0.3.0",
     "starlight-theme-rapide": "^0.5.1"
   }
