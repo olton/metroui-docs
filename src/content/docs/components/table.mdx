@@ -99,57 +99,57 @@ function drawCell(td, val, index, head, cells) {
 | --------- | ---- | ------- | ----------- |
 | `caption` | string | "" | Table caption text |
 | `cardMode` | string | "" | Card mode for responsive tables |
-| `useCurrentSlice` | boolean | false | Use current slice for operations |
-| `showInspectorButton` | boolean | false | Show inspector button |
-| `inspectorButtonIcon` | string | "🔧" | Icon for inspector button |
-| `templateBeginToken` | string | "<%" | Begin token for templates |
-| `templateEndToken` | string | "%>" | End token for templates |
-| `paginationDistance` | number | 5 | Distance between pagination buttons |
-| `paginationIslandSize` | number | 3 | Size of pagination islands |
-| `paginationShortTrack` | number | 10 | Short track for pagination |
-| `horizontalScroll` | boolean | false | Enable horizontal scrolling |
-| `horizontalScrollStop` | string | null | Media query to stop horizontal scrolling |
-| `check` | boolean | false | Show checkboxes for row selection |
-| `checkType` | string | "checkbox" | Type of check control (checkbox or radio) |
-| `checkColIndex` | number | 0 | Column index for check control |
-| `checkName` | string | null | Name for check controls |
-| `checkStoreKey` | string | "TABLE:$1:KEYS" | Key for storing checked items |
-| `rownum` | boolean | false | Show row numbers |
-| `rownumTitle` | string | "#" | Title for rownum column |
-| `filters` | string | null | Filters for data |
-| `filtersOperator` | string | "and" | Operator for filters (and/or) |
-| `head` | object | null | Head data |
-| `body` | object | null | Body data |
-| `source` | string | null | Data source URL |
-| `static` | boolean | false | Static table mode |
-| `searchMinLength` | number | 1 | Minimum length for search |
-| `searchThreshold` | number | 500 | Threshold for search |
-| `searchFields` | string | null | Fields to search in |
-| `showRowsSteps` | boolean | true | Show rows steps control |
-| `showSearch` | boolean | true | Show search control |
-| `showTableInfo` | boolean | true | Show table info |
-| `showPagination` | boolean | true | Show pagination |
-| `paginationShortMode` | boolean | true | Use short pagination mode |
-| `showActivity` | boolean | true | Show activity indicator |
-| `muteTable` | boolean | true | Mute table during operations |
-| `showSkip` | boolean | false | Show skip control |
-| `rows` | number | 10 | Number of rows per page |
-| `rowsSteps` | string | "10,25,50,100" | Steps for rows control |
-| `staticView` | boolean | false | Static view mode |
-| `viewSaveMode` | string | "client" | Mode for saving view (client/server) |
-| `viewSavePath` | string | "TABLE:$1:OPTIONS" | Path for saving view |
-| `sortDir` | string | "asc" | Default sort direction |
-| `decimalSeparator` | string | "." | Decimal separator |
-| `thousandSeparator` | string | "," | Thousand separator |
-| `activityType` | string | "atom" | Type of activity indicator |
-| `activityStyle` | string | "color" | Style of activity indicator |
-| `activityTimeout` | number | 100 | Timeout for activity indicator |
-| `searchWrapper` | string | null | Wrapper for search control |
-| `rowsWrapper` | string | null | Wrapper for rows control |
-| `infoWrapper` | string | null | Wrapper for info |
-| `paginationWrapper` | string | null | Wrapper for pagination |
-| `skipWrapper` | string | null | Wrapper for skip control |
-| `cellWrapper` | boolean | true | Wrap cell content |
+| `useCurrentSlice` | boolean | `false` | Use current slice for operations |
+| `showInspectorButton` | boolean | `false` | Show inspector button |
+| `inspectorButtonIcon` | string | `🔧` | Icon for inspector button |
+| `templateBeginToken` | string | `<%` | Begin token for templates |
+| `templateEndToken` | string | `%>` | End token for templates |
+| `paginationDistance` | number | `5` | Distance between pagination buttons |
+| `paginationIslandSize` | number | `3` | Size of pagination islands |
+| `paginationShortTrack` | number | `10` | Short track for pagination |
+| `horizontalScroll` | boolean | `false` | Enable horizontal scrolling |
+| `horizontalScrollStop` | string | `null` | Media query to stop horizontal scrolling |
+| `check` | boolean | `false` | Show checkboxes for row selection |
+| `checkType` | string | `checkbox` | Type of check control (checkbox or radio) |
+| `checkColIndex` | number | `0` | Column index for check control |
+| `checkName` | string | `null` | Name for check controls |
+| `checkStoreKey` | string | `TABLE:$1:KEYS` | Key for storing checked items |
+| `rownum` | boolean | `false` | Show row numbers |
+| `rownumTitle` | string | `#` | Title for rownum column |
+| `filters` | string | `null` | Filters for data |
+| `filtersOperator` | string | `and` | Operator for filters (and/or) |
+| `head` | object | `null` | Head data |
+| `body` | object | `null` | Body data |
+| `source` | string | `null` | Data source URL |
+| `static` | boolean | `false` | Static table mode |
+| `searchMinLength` | number | `1` | Minimum length for search |
+| `searchThreshold` | number | `500` | Threshold for search |
+| `searchFields` | string | `null` | Fields to search in |
+| `showRowsSteps` | boolean | `true` | Show rows steps control |
+| `showSearch` | boolean | `true` | Show search control |
+| `showTableInfo` | boolean | `true` | Show table info |
+| `showPagination` | boolean | `true` | Show pagination |
+| `paginationShortMode` | boolean | `true` | Use short pagination mode |
+| `showActivity` | boolean | `true` | Show activity indicator |
+| `muteTable` | boolean | `true` | Mute table during operations |
+| `showSkip` | boolean | `false` | Show skip control |
+| `rows` | number | `10` | Number of rows per page |
+| `rowsSteps` | string | `10,25,50,100` | Steps for rows control |
+| `staticView` | boolean | `false` | Static view mode |
+| `viewSaveMode` | string | `client` | Mode for saving view (client/server) |
+| `viewSavePath` | string | `TABLE:$1:OPTIONS` | Path for saving view |
+| `sortDir` | string | `asc` | Default sort direction |
+| `decimalSeparator` | string | `.` | Decimal separator |
+| `thousandSeparator` | string | `,` | Thousand separator |
+| `activityType` | string | `atom` | Type of activity indicator |
+| `activityStyle` | string | `color` | Style of activity indicator |
+| `activityTimeout` | number | `100` | Timeout for activity indicator |
+| `searchWrapper` | string | `null` | Wrapper for search control |
+| `rowsWrapper` | string | `null` | Wrapper for rows control |
+| `infoWrapper` | string | `null` | Wrapper for info |
+| `paginationWrapper` | string | `null` | Wrapper for pagination |
+| `skipWrapper` | string | `null` | Wrapper for skip control |
+| `cellWrapper` | boolean | `true` | Wrap cell content |
 
 ## API Methods
 
