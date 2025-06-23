@@ -1,0 +1,126 @@
+---
+title: Common CSS Overview
+slug: common-css/overview
+---
+
+Metro UI provides a comprehensive set of CSS utilities that help you build responsive, consistent interfaces without writing custom CSS for common patterns. The Common CSS module includes utilities for layout, typography, colors, spacing, and more.
+
+## What is Common CSS?
+
+Common CSS is a collection of utility classes that are part of the Metro UI framework. These classes allow you to:
+
+- Apply common styling patterns directly in your HTML
+- Create responsive layouts with minimal custom CSS
+- Maintain consistent spacing, typography, and colors across your application
+- Quickly prototype and build interfaces
+
+## Common CSS Components
+
+The Common CSS module includes several categories of utility classes:
+
+### Layout Utilities
+
+Control how elements are displayed and positioned:
+
+```html
+<!-- Display utilities -->
+<div class="d-flex">Flex container</div>
+<div class="d-none d-md-block">Hidden on small screens, visible on medium and up</div>
+
+<!-- Position utilities -->
+<div class="pos-absolute pos-top-left">Positioned at top left</div>
+<div class="float-left">Float left</div>
+```
+
+[Learn more about Display →](/common-css/display)
+[Learn more about Position →](/common-css/position)
+[Learn more about Float →](/common-css/float)
+
+### Typography
+
+Control text appearance and formatting:
+
+```html
+<p class="text-bold">Bold text</p>
+<p class="text-uppercase">Uppercase text</p>
+<p class="text-center">Centered text</p>
+<p class="font-secondary">Secondary font</p>
+```
+
+[Learn more about Typography →](/common-css/typography)
+[Learn more about Font Defines →](/common-css/font)
+
+### Colors and Visual Styling
+
+Apply colors, borders, and visual effects:
+
+```html
+<div class="bg-light fg-dark">Light background, dark text</div>
+<div class="border bd-default">Default border</div>
+<div class="rounded">Rounded corners</div>
+```
+
+[Learn more about Colors →](/common-css/colors)
+[Learn more about Border →](/common-css/border)
+
+### Spacing and Sizing
+
+Control margins, padding, and element dimensions:
+
+```html
+<div class="m-4">Margin level 4</div>
+<div class="p-2">Padding level 2</div>
+<div class="w-100 h-auto">Full width, auto height</div>
+```
+
+[Learn more about Spacing →](/common-css/spacing)
+[Learn more about Sizing →](/common-css/sizing)
+
+### Flexbox
+
+Create flexible layouts with flexbox utilities:
+
+```html
+<div class="d-flex flex-justify-between flex-align-center">
+  <div>Left aligned</div>
+  <div>Right aligned</div>
+</div>
+```
+
+[Learn more about FlexBox →](/common-css/flex)
+
+### Animations and Transitions
+
+Add movement and visual feedback:
+
+```html
+<div class="ani-spin">Spinning element</div>
+<div class="ani-pulse">Pulsing element</div>
+```
+
+[Learn more about Animations →](/common-css/animations)
+
+## When to Use Common CSS
+
+- When you need to quickly prototype interfaces
+- When you want to maintain consistent spacing, typography, and colors
+- When you need responsive layouts without writing custom media queries
+- When you want to avoid writing repetitive CSS for common patterns
+- When you need to make small styling adjustments without creating custom CSS classes
+
+## Best Practices
+
+1. Combine utility classes to create complex layouts and styling
+2. Use responsive utilities (`d-md-block`, etc.) to create adaptive interfaces
+3. Maintain a consistent spacing scale using the spacing utilities
+4. Use the color utilities to ensure consistent branding across your application
+5. Leverage flexbox utilities for alignment and distribution of elements
+6. Consider extracting common patterns into components for better maintainability
+
+## Browser Compatibility
+
+The Common CSS utilities are designed to work in all modern browsers. Some utilities use modern CSS features with appropriate fallbacks for older browsers.
+
+## Related Components
+
+Many Metro UI components use these CSS utilities internally. You can combine utility classes with components to customize their appearance and layout.

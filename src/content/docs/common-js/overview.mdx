@@ -1,0 +1,103 @@
+---
+title: Common JS Overview
+slug: common-js/overview
+---
+
+Metro UI provides a comprehensive set of JavaScript utilities and extensions that enhance your web development experience. The Common JS module includes various tools for type checking, DOM manipulation, object handling, string formatting, and more.
+
+## What is Common JS?
+
+Common JS is a collection of JavaScript utilities and extensions that are part of the Metro UI framework. It includes:
+
+- **Extensions**: Additional methods for native JavaScript types (Array, String, Number)
+- **Global Definitions**: Global variables and settings that control Metro UI behavior
+- **Utility Functions**: A comprehensive set of helper functions for common programming tasks
+
+## Common JS Components
+
+The Common JS module is divided into three main components:
+
+### Extensions
+
+Extensions add new methods to native JavaScript types, making common operations more convenient:
+
+```javascript
+// Array extensions
+let arr = [1, 2, 2, 3, 4, 5];
+let unique = arr.unique(); // [1, 2, 3, 4, 5]
+let shuffled = arr.shuffle(); // Random order
+
+// Number extensions
+let num = 1234567.89;
+let formatted = num.format(2, ".", ","); // "1,234,567.89"
+
+// String extensions
+let str = "Hello, world!";
+let arr = str.toArray(); // ["Hello", "world!"]
+```
+
+[Learn more about Extensions →](/common-js/extensions)
+
+### Global Definitions
+
+Metro UI uses several global variables that control its behavior. You can configure these using meta tags:
+
+```html
+<meta name="metro:init" content="true">
+<meta name="metro:theme" content="dark">
+<meta name="metro:smooth" content="true">
+```
+
+[Learn more about Global Definitions →](/common-js/globals)
+
+### Utility Functions
+
+The Common JS module provides a wide range of utility functions for various tasks:
+
+```javascript
+// Type checking
+const isFunction = Metro.utils.isFunc(myValue);
+
+// DOM utilities
+const coords = Metro.utils.coords(element);
+
+// Time formatting
+const time = Metro.utils.secondsToTime(3600); // {d: 0, h: 1, m: 0, s: 0}
+
+// Object utilities
+const cloned = Metro.utils.objectClone(myObject);
+```
+
+[Learn more about Utility Functions →](/common-js/utils)
+
+## When to Use Common JS
+
+- When you need to validate input types in your application
+- When working with DOM elements and need cross-browser compatibility
+- When manipulating objects, arrays, strings, or dates
+- When you want to extend native JavaScript types with additional functionality
+- When you need to format data for display (numbers, dates, times)
+
+## Best Practices
+
+1. Use type checking utilities (`isFunc`, `isObject`, etc.) to validate inputs before processing them
+2. Leverage DOM utilities for cross-browser compatible element manipulation
+3. Use the time formatting utilities for consistent time display across your application
+4. Prefer the built-in object and array utilities over custom implementations for better maintainability
+5. Use the extension methods for cleaner, more readable code
+
+## Browser Compatibility
+
+The Common JS utilities and extensions are designed to work in all modern browsers. Some utilities provide cross-browser compatibility for operations that might otherwise require browser-specific code.
+
+## Related Components
+
+- **datetime**: For more advanced date and time manipulation
+- **dom**: For more comprehensive DOM manipulation
+- **farbe**: For color manipulation and conversion
+- **guardian**: For data validation
+- **hooks**: For state management and side effects
+- **html**: For creating and manipulating HTML elements
+- **model**: For creating and managing data models
+- **router**: For client-side routing
+- **string**: For enhanced string manipulation

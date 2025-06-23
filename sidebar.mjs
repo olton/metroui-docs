@@ -42,6 +42,7 @@ export default [
         label: "Common CSS",
         collapsed: true,
         items: [
+            {label: "Overview", slug: "common-css/overview"},
             {label: "Animations", slug: "common-css/animations"},
             {label: "Border", slug: "common-css/border"},
             {label: "Colors", slug: "common-css/colors"},
@@ -67,6 +68,7 @@ export default [
         label: "Common JS",
         collapsed: true,
         items: [
+            {label: "Overview", slug: "common-js/overview"},
             {label: "Globals", slug: "common-js/globals"},
             {label: "Utils", slug: "common-js/utils"},
             {label: "Extensions", slug: "common-js/extensions"},
