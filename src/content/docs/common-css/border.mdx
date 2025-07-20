@@ -16,17 +16,32 @@ The `border.less` file defines various CSS classes for manipulating borders on e
 |----------|---------------|
 | `--border-radius` | 6px |
 
-### Animated Border Variables
+### Animated Border
+
+#### Variables
 | Variable | Default Value | Description |
 |----------|---------------|-------------|
 | `--animated-border-speed` | 3s | Duration of the border animation |
 | `--animated-border-size` | 2px | Width of the animated border |
-| `--animated-border-color` | #50a8ff | Default color for animated borders |
-| `--animated-border-color-1` | #ff4545 | First color in rainbow border gradient |
-| `--animated-border-color-2` | #00ff99 | Second color in rainbow border gradient |
-| `--animated-border-color-3` | #006aff | Third color in rainbow border gradient |
-| `--animated-border-color-4` | #ff0095 | Fourth color in rainbow border gradient |
-| `--animated-border-color-5` | #ff4545 | Fifth color in rainbow border gradient |
+| `--animated-border-colors` | #ff4545, #00ff99, #006aff, #ff0095, #ff4545 | Default colors for animated borders |
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.animated-border` | Applies an animated rotating border effect |
+| `.animated-border-hover` | Applies the animated border effect only on hover |
+| `.animated-border-{color}` | Applies the animated border effect with a specific color |
+| `.animated-border-hover-{color}` | Applies the animated border effect with a specific color only on hover |
+
+```html
+<div class="box" style="height: 300px; width: 300px;">
+    <button class="button animated-border">Button</button>
+    <div class="box animated-border"></div>
+    <div class="box animated-border" style="--animated-border-colors: transparent 30%, var(--color-blue), var(--color-green)"></div>
+    <div class="box animated-border-red"></div>
+</div>
+```
 
 ## Border Removal Classes
 
@@ -100,24 +115,6 @@ The file includes responsive variants for border removal classes that apply at d
 | `.border-left-none-{breakpoint}` | Removes left border at specified breakpoint |
 
 Where `{breakpoint}` can be: xs, sm, md, lg, xl, xxl, xxxl
-
-## Animated Border Classes
-
-### Rainbow Border
-| Class | Description |
-|-------|-------------|
-| `.rainbow-border` | Applies a colorful animated rainbow border effect |
-| `.rainbow-border-hover` | Applies the rainbow border effect only on hover |
-
-### Animated Border
-| Class | Description |
-|-------|-------------|
-| `.animated-border` | Applies an animated rotating border effect |
-| `.animated-border-hover` | Applies the animated border effect only on hover |
-| `.animated-border-{color}` | Applies the animated border effect with a specific color |
-| `.animated-border-hover-{color}` | Applies the animated border effect with a specific color only on hover |
-
-Where `{color}` can be any of the Metro UI color names (e.g., primary, secondary, success, etc.)
 
 ## Usage Examples
 

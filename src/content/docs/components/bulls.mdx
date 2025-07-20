@@ -27,28 +27,19 @@ Bulls is a component that displays different types of status indicators as SVG i
 
 ## API Methods
 
-### setType(type)
-Changes the type of the bull component.
+- `setType(type)`: Changes the type of the bull component.
+- `changeAttribute(attr, value)`: Changes the attribute of the bull component.
+- `destroy()`: Removes the bull element from the DOM.
 
-```javascript
-var bull = Metro.getPlugin('#myBull', 'bull');
-bull.setType('warning');
+## Example
+
+```html
+<div id="myBull" data-role="bull" data-type="fail" data-size="32"></div>
 ```
 
-### changeAttribute(attr, value)
-Changes the attribute of the bull component.
-
 ```javascript
-var bull = Metro.getPlugin('#myBull', 'bull');
-bull.changeAttribute('data-type', 'warning');
-```
-
-### destroy()
-Removes the bull element from the DOM.
-
-```javascript
-var bull = Metro.getPlugin('#myBull', 'bull');
-bull.destroy();
+const bull = Metro.getPlugin('#myBull', 'bull');
+bull.setType('warning'); // Change the bull type to warning
 ```
 
 ## Global Configuration
@@ -57,7 +48,6 @@ You can set up global configuration for all bull components using:
 
 ```javascript
 Metro.bullSetup({
-    type: "warning",
     size: 32
 });
 ```
@@ -66,44 +56,32 @@ Metro.bullSetup({
 
 - `success`: Indicates a successful operation.
 - `fail`: Indicates a failed operation.
-- `pending`: Indicates an operation that is still in progress.
+- `pending`: Indicates an operation that is still in progress (animated).
 - `warning`: Indicates a warning or caution.
-- `bulb`: Represents an informational state.
+- `bulb-on`: Represents an active informational state.
+- `bulb-off`: Represents an inactive informational state.
 - `star`: Represents a star icon, often used for favorites or highlights.
 - `badge`: Represents a badge icon, often used for notifications or counts.
 - `chat`: Represents a chat icon, often used for messaging or communication.
 - `tree`: Represents a tree icon, often used for hierarchical data or navigation.
+- `checkmark`: Represents a checkmark icon, often used for confirmations or selections.
+- `cancel`: Represents a cancel icon, often used for dismissing or closing actions.
+- `rocket`: Represents a rocket icon, often used for launching or starting actions.
 
-### Success Bull
-```html
-<div data-role="bull" data-type="success"></div>
-```
-
-### Failure Bull
-```html
-<div data-role="bull" data-type="fail"></div>
-```
-
-### Pending Bull
-```html
-<div data-role="bull" data-type="pending"></div>
-```
-
-### Warning Bull
-```html
-<div data-role="bull" data-type="warning"></div>
-```
-
-### Bulb (Information) Bull
-```html
-<div data-role="bull" data-type="bulb"></div>
-```
 
 ### Custom Size
 ```html
 <div data-role="bull" data-type="success" data-size="32"></div>
 ```
 
+### Custom Colors
+```html
+<div data-role="bull" data-type="success" data-size="24" style="fill: #57ab5a;"></div>
+```
+or
+```html
+<div data-role="bull" data-type="success" data-size="24" class="fc-red"></div>
+```
 ## Events
 
 | Event | Description |
