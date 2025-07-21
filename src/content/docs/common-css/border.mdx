@@ -30,17 +30,32 @@ The `border.less` file defines various CSS classes for manipulating borders on e
 | Class | Description |
 |-------|-------------|
 | `.gradient-border` | Applies an gradient border effect |
+
+```html
+<div class="box" style="height: 300px; width: 300px;">
+    <div class="box text-center gradient-border">...</div>
+    <div class="box text-center gradient-border" 
+        style="--gradient-border-colors: var(--color-violet), var(--color-cyan), var(--color-violet)">...</div>
+</div>
+```
+
+### Animated Border Classes
+
+#### Variables
+| Variable | Default Value | Description |
+|----------|---------------|-------------|
+| `--animated-border-speed` | 3s | Duration of the border animation |
+
+| Class | Description |
+|-------|-------------|
 | `.animated-border` | Applies an animated rotating border effect |
 | `.animated-border-hover` | Applies the animated border effect only on hover |
 | `.animated-border-{color}` | Applies the gradient border effect with a specific color |
 
 ```html
 <div class="box" style="height: 300px; width: 300px;">
-    <div class="box text-center gradient-border">...</div>
     <div class="box text-center gradient-border animated-border">...</div>
     <div class="box text-center animated-border-red">...</div>
-    <div class="box text-center gradient-border" 
-        style="--gradient-border-colors: var(--color-violet), var(--color-cyan), var(--color-violet)">...</div>
 </div>
 ```
 
@@ -140,35 +155,6 @@ Where `{breakpoint}` can be: xs, sm, md, lg, xl, xxl, xxxl
 
 <!-- Border style -->
 <div class="border border-dashed">Element with dashed border</div>
-```
-
-### Animated Borders
-
-```html
-<!-- Rainbow border -->
-<div class="rainbow-border p-4">
-    Element with animated rainbow border
-</div>
-
-<!-- Rainbow border on hover -->
-<div class="rainbow-border-hover p-4">
-    Element with rainbow border on hover
-</div>
-
-<!-- Animated border -->
-<div class="animated-border p-4">
-    Element with animated border
-</div>
-
-<!-- Animated border with specific color -->
-<div class="animated-border-success p-4">
-    Element with green animated border
-</div>
-
-<!-- Animated border on hover -->
-<div class="animated-border-hover-primary p-4">
-    Element with primary color animated border on hover
-</div>
 ```
 
 ### Responsive Border Utilities
