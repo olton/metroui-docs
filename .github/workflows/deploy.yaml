@@ -33,7 +33,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: eg77.mirohost.net
-          username: metrouiS
+          username: metroui5
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: v5.metroui.org.ua/
