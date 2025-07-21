@@ -16,30 +16,31 @@ The `border.less` file defines various CSS classes for manipulating borders on e
 |----------|---------------|
 | `--border-radius` | 6px |
 
-### Animated Border
+### Gradient Border
 
 #### Variables
 | Variable | Default Value | Description |
 |----------|---------------|-------------|
-| `--animated-border-speed` | 3s | Duration of the border animation |
-| `--animated-border-size` | 2px | Width of the animated border |
-| `--animated-border-colors` | #ff4545, #00ff99, #006aff, #ff0095, #ff4545 | Default colors for animated borders |
+| `--gradient-border-speed` | 3s | Duration of the border animation |
+| `--gradient-border-size` | 2px | Width of the animated border |
+| `--gradient-border-colors` | #ff4545, #00ff99, #006aff, #ff0095, #ff4545 | Default colors for animated borders |
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
+| `.gradient-border` | Applies an gradient border effect |
 | `.animated-border` | Applies an animated rotating border effect |
 | `.animated-border-hover` | Applies the animated border effect only on hover |
-| `.animated-border-{color}` | Applies the animated border effect with a specific color |
-| `.animated-border-hover-{color}` | Applies the animated border effect with a specific color only on hover |
+| `.animated-border-{color}` | Applies the gradient border effect with a specific color |
 
 ```html
 <div class="box" style="height: 300px; width: 300px;">
-    <button class="button animated-border">Button</button>
-    <div class="box animated-border"></div>
-    <div class="box animated-border" style="--animated-border-colors: transparent 30%, var(--color-blue), var(--color-green)"></div>
-    <div class="box animated-border-red"></div>
+    <div class="box text-center gradient-border">...</div>
+    <div class="box text-center gradient-border animated-border">...</div>
+    <div class="box text-center animated-border-red">...</div>
+    <div class="box text-center gradient-border" 
+        style="--gradient-border-colors: var(--color-violet), var(--color-cyan), var(--color-violet)">...</div>
 </div>
 ```
 
