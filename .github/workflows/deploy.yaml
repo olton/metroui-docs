@@ -17,24 +17,24 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: FTP Deployer
-        uses: sand4rt/ftp-deployer@v1.8
-        with:
-          sftp: false
-          host: eg77.mirohost.net
-          username: metrouiS
-          password: ${{ secrets.FTP_PASSWORD }}
-          remote_folder: v5.metroui.org.ua/
-          local_folder: ./dist/
-          cleanup: false
-          passive: true
-
-#      - name: Push files to Current folder
-#        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+#      - name: FTP Deployer
+#        uses: sand4rt/ftp-deployer@v1.8
 #        with:
-#          server: eg77.mirohost.net
-#          protocol: ftps
-#          username: metroui5
+#          sftp: false
+#          host: eg77.mirohost.net
+#          username: metrouiS
 #          password: ${{ secrets.FTP_PASSWORD }}
-#          local-dir: ./dist/
-#          server-dir: v5.metroui.org.ua/
+#          remote_folder: v5.metroui.org.ua/
+#          local_folder: ./dist/
+#          cleanup: false
+#          passive: true
+
+      - name: Push files to Current folder
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: eg77.mirohost.net
+          protocol: ftps
+          username: metroui5
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: v5.metroui.org.ua/
