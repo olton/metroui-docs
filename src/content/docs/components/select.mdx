@@ -90,7 +90,8 @@ The remote data should be in JSON format, structured as follows:
     {"value": "1", "text": "Option 1"},
     {"value": "2", "text": "Option 2", "icon": "<span class='mif-star'></span>"},
     {"value": "3", "text": "Option 3", "icon": "<img src='images/icon.svg' alt=''/>"},
-    {"value": "3", "text": "Option 3"}
+    {"value": "3", "text": "Option 3"},
+    {"value": "4", "text": "Option 4", "selected": true}
 ]
 ```
 
@@ -235,6 +236,7 @@ This function should return an array of options in the format expected by the Se
 | `onItemDeselect` | Fired when an item is deselected |
 | `onSelectCreate` | Fired when the select is created |
 | `onData` | Callback for processing data from remote source |
+| `onOptions` | Callback for processing select options |
 
 ## Styling with CSS Variables
 
