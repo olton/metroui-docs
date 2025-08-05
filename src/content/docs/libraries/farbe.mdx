@@ -259,7 +259,7 @@ Darkens the color by the specified percentage.
 ```javascript
 const color = new Farbe("#ff0000");
 color.darken(20);
-console.log(color.hex); // "#cc0000"
+console.log(color.hex); // "#990000"
 ```
 
 #### lighten(amount)
@@ -269,7 +269,7 @@ Lightens the color by the specified percentage.
 ```javascript
 const color = new Farbe("#ff0000");
 color.lighten(20);
-console.log(color.hex); // "#ff3333"
+console.log(color.hex); // "#ff6666"
 ```
 
 #### hueShift(angle)
@@ -289,7 +289,7 @@ Converts the color to a grayscale shade.
 ```javascript
 const color = new Farbe("#ff0000");
 color.grayscale();
-console.log(color.hex); // "#4d4d4d"
+console.log(color.hex); // "#363636"
 ```
 
 #### add(color)
@@ -309,7 +309,7 @@ Mixes the current color with another one in the specified proportion.
 ```javascript
 const color = new Farbe("#ff0000");
 color.mix("#0000ff", 50);
-console.log(color.hex); // "#7f007f"
+console.log(color.hex); // "#800080"
 ```
 
 #### multiply(color)
@@ -339,7 +339,7 @@ Increases the color saturation.
 ```javascript
 const color = new Farbe("hsl(0, 50%, 50%)");
 color.saturate(20);
-console.log(color.hsl); // HSL {h: 0, s: 0.7, l: 0.5}
+console.log(color.hsl); // HSL {h: 0, s: 1, l: 0.5}
 ```
 
 #### desaturate(amount)
@@ -369,7 +369,7 @@ Makes the color brighter.
 ```javascript
 const color = new Farbe("#880000");
 color.brighten(20);
-console.log(color.hex); // "#aa0000"
+console.log(color.hex); // "#bb3333"
 ```
 
 #### channel(ch, val)
