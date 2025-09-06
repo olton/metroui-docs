@@ -6,65 +6,54 @@ import CodePen from '../../../components/CodePen.astro';
 
 The Dropdown component provides a flexible way to create dropdown menus and lists that can be toggled to show or hide content. It supports various positioning options and can be customized through configuration options and CSS variables.
 
-## Dependencies
-
-- Metro UI Core
-- DOM Library
-
 ## Usage
 
 ### Basic Usage
 
 ```html
 <!-- Basic dropdown -->
-<div class="dropdown-toggle">Click me
+<div class="pos-relative">
+    <button class="dropdown-toggle">Click me</button>
     <div class="dropdown" data-role="dropdown">
-        <div>Dropdown content here</div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, soluta?
     </div>
 </div>
-
-<!-- Using with a button -->
-<button class="button dropdown-toggle">
-    Options
-    <div class="dropdown" data-role="dropdown">
-        <ul>
-            <li><a href="#">Option 1</a></li>
-            <li><a href="#">Option 2</a></li>
-            <li><a href="#">Option 3</a></li>
-        </ul>
-    </div>
-</button>
 ```
 
 ### Additional Configurations
 
 #### Dropdown Positioning
 
+By default, the Dropdown component opens the contents with the automatic selection of the container's position according to the current duty.
+But in some cases, you need to open the container on the appropriate side. 
+You can do this with an attribute `data-open-mode`. 
+Affordable values: `auto` (by default), `up`, `down`, `left`, and `right`.
+
 ```html
 <!-- Dropdown that opens upward -->
-<div class="dropdown-toggle">
-    Click me
-    <div class="dropdown drop-up" data-role="dropdown">
-        <div>Content appears above the toggle</div>
-    </div>
-</div>
-
-<!-- Dropdown aligned to the right -->
-<div class="dropdown-toggle">
-    Click me
-    <div class="dropdown drop-down-right" data-role="dropdown">
-        <div>Content aligned to the right</div>
-    </div>
+<div class="pos-relative">
+    <button class="dropdown-toggle">Click me</button>
+    <ul data-role="dropdown" class="d-menu" data-open-mode="up">
+        <li><a href="#">Option 1</a></li>
+        <li><a href="#">Option 2</a></li>
+        <li><a href="#">Option 3</a></li>
+    </ul>
 </div>
 ```
 
 #### Dropdown with No Auto-Close
 
+Іноді потрібно залишити контейнер відкритим за будь яких обставин. 
+Для цього існує 2 шляхи: 
+
+1. Додати класс `keep-open`, 
+2. Використовувати атрибут `data-no-close="true"` 
+
 ```html
-<!-- Dropdown that stays open when clicking outside -->
+<!-- Dropdown that stays open -->
 <div class="dropdown-toggle">
     Click me
-    <div class="dropdown keep-open" data-role="dropdown" data-no-close="true">
+    <div class="dropdown" data-role="dropdown" data-no-close="true">
         <div>This dropdown won't close when clicking elsewhere</div>
     </div>
 </div>
@@ -77,9 +66,7 @@ The Dropdown component provides a flexible way to create dropdown menus and list
 | `dropdownDeferred` | Number | 0 | Delay in milliseconds before the dropdown appears |
 | `dropFilter` | String | null | CSS selector to filter which dropdowns should be closed when another is opened |
 | `toggleElement` | String | null | CSS selector for the toggle element (if not automatically detected) |
-| `align` | String | "left" | Alignment of the dropdown ("left" or "right") |
 | `noClose` | Boolean | false | If true, the dropdown won't close when clicking outside |
-| `duration` | Number | 50 | Animation duration in milliseconds |
 | `openMode` | String | "auto" | How the dropdown opens ("auto", "up") |
 | `openFunc` | String | "show" | Function to use for opening animation |
 | `closeFunc` | String | "hide" | Function to use for closing animation |
@@ -88,17 +75,15 @@ The Dropdown component provides a flexible way to create dropdown menus and list
 ### Example of Configuration
 
 ```javascript
-// Global configuration
-Metro.dropdownSetup({
-    duration: 100,
+// Global configuration, you must create this object before loading metro.js
+globalThis.metroDropdownSetup = {
     noClose: true,
     openMode: "up"
-});
+};
 
 // Component-specific configuration using Metro.makePlugin
 const dropdown = Metro.makePlugin("#myDropdown", "dropdown", {
-    align: "right",
-    height: "300px",
+    height: 300,
     onDrop: function() {
         console.log("Dropdown opened");
     }
